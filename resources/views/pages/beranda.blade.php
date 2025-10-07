@@ -8,8 +8,8 @@
             <h1>SMKN 1 Bangil: Mencetak Generasi Unggul</h1>
             <p>Bergabunglah dengan kami untuk meraih masa depan cerah melalui pendidikan vokasi yang berkualitas dan relevan dengan industri.</p>
             <div class="hero-buttons">
-                <a href="#" class="btn btn-primary">Lihat Berita</a>
-                <a href="#" class="btn btn-secondary">Cek Info SPMB 2025</a>
+                <a href="#" class="btn btn-secondary">Lihat Berita</a>
+                <a href="#" class="btn btn-primary btn-cta">Cek Info SPMB 2025</a>
             </div>
         </div>
     </section>
@@ -51,7 +51,7 @@
                     ];
                 @endphp
                 @foreach($jurusans as $jurusan)
-                <div class="jurusan-card">
+                <div class="jurusan-card card">
                     <img src="{{ asset('img/' . $jurusan['img']) }}" alt="{{ $jurusan['name'] }}">
                     <h4>{{ $jurusan['name'] }}</h4>
                 </div>
@@ -113,4 +113,5 @@
             </div>
         </div>
     </section>
+    
 @endsection

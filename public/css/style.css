@@ -269,7 +269,7 @@ ul {
 
 /* ===== BERANDA ===== */
 .hero {
-    height: 85vh;
+    height: 90vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url("../img/hero-bg.png");
     background-size: cover;
@@ -296,6 +296,12 @@ ul {
     display: flex;
     justify-content: center;
     gap: 20px;
+}
+
+.btn-cta:hover {
+    background-color: #ffffff;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
 }
 
 .fakta-sekolah {
@@ -371,7 +377,7 @@ ul {
 }
 
 .galeri-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.03);
 }
 
 .galeri-item:first-child {
@@ -382,8 +388,9 @@ ul {
     position: absolute;
     top: 15px;
     right: 15px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background-color: #ffffff;
+    color: var(--text-color);
+    font-weight: 600;
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 0.8rem;

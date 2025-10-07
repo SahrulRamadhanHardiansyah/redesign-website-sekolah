@@ -29,6 +29,7 @@
                     <li><a href="{{ route('berita') }}">Berita Sekolah</a></li>
                     <li><a href="{{ route('galeri') }}">Galeri</a></li>
                     <li><a href="#">GTK & SISWA</a></li>
+                    <li><a href="{{ route('spmb') }}" class="btn btn-primary">SPMB</a></li>
                 </ul>
             </nav>
             <div class="navbar-extra">
@@ -36,7 +37,6 @@
                     <input type="search" placeholder="Search">
                     <button type="submit"><i class="fas fa-search"></i></button>
                 </form>
-                <a href="{{ route('spmb') }}" class="btn btn-primary">SPMB</a>
             </div>
         </div>
     </header>
