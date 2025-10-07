@@ -1,6 +1,11 @@
 @extends('layouts.main')
 @section('title', 'Ekstrakurikuler')
 
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/ekstrakurikuler.css') }}">
+@endsection
+
+
 @section('content')
     <section class="ekskul-hero">
         <div class="hero-content">

@@ -1,6 +1,11 @@
 @extends('layouts.main')
 @section('title', 'Berita & Kegiatan Sekolah')
 
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/berita.css') }}">
+@endsection
+
+
 @section('content')
 <div class="page-header">
     <div class="container">

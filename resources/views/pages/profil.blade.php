@@ -1,6 +1,10 @@
 @extends('layouts.main')
 @section('title', 'Profil Sekolah')
 
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/profilJurusan.css') }}">
+@endsection
+
 @section('content')
     <div class="profil-header">
         <div class="container">

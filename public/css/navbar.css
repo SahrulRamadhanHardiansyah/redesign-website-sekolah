@@ -1,0 +1,61 @@
+/* ===== NAVBAR ===== */
+.navbar {
+    background-color: var(--white-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo img {
+    height: 45px;
+}
+
+.navbar-nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar-nav ul li a {
+    color: var(--dark-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.navbar-extra {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-form {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.search-form input {
+    border: none;
+    padding: 8px 12px;
+    outline: none;
+}
+
+.search-form button {
+    border: none;
+    background-color: transparent;
+    padding: 0 12px;
+    cursor: pointer;
+    color: var(--text-color);
+}

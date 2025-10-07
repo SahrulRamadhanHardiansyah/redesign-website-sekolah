@@ -1,6 +1,10 @@
 @extends('layouts.main')
 @section('title', 'Prestasi Sekolah')
 
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/prestasi.css') }}">
+@endsection
+
 @section('content')
 <section class="section-padding">
     <div class="container">

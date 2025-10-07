@@ -1,6 +1,9 @@
 @extends('layouts.main')
 
 @section('title', 'Beranda - SMKN 1 Bangil')
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/beranda.css') }}">
+@endsection
 
 @section('content')
     <section class="hero">

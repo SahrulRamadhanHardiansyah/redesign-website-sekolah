@@ -1,6 +1,8 @@
 @extends('layouts.main')
 @section('title', 'Penerimaan Murid Baru (SPMB)')
-
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/spmb.css') }}">
+@endsection
 @section('content')
 <div class="section-padding">
     <div class="container">

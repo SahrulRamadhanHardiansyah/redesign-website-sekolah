@@ -1,6 +1,10 @@
 @extends('layouts.main')
 @section('title', 'Detail Berita')
 
+
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/berita.css') }}">
+@endsection
 @section('content')
 <section class="section-padding">
     <div class="container">

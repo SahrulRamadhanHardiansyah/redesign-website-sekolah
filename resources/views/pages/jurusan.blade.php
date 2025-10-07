@@ -2,6 +2,10 @@
 
 @section('title', 'Program Keahlian - SMKN 1 Bangil')
 
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/jurusan.css') }}">
+@endsection
+
 @section('content')
     <div class="page-header">
         <div class="container">
@@ -24,14 +28,14 @@
                         ['img' => 'jurusan-elektro.png', 'name' => 'Teknik Elektronika', 'desc' => 'Mempelajari prinsip dasar elektronika, perancangan sirkuit, dan instrumentasi.'],
                         ['img' => 'jurusan-listrik.png', 'name' => 'Teknik Listrik', 'desc' => 'Fokus pada instalasi, pemeliharaan, dan perbaikan sistem tenaga listrik.'],
                         ['img' => 'jurusan-dkv.png', 'name' => 'Desain Komunikasi Visual', 'desc' => 'Mempelajari cara menyampaikan pesan secara visual melalui berbagai media kreatif.'],
-                    ];
+                    ];      
                 @endphp
 
                 @foreach ($jurusans as $jurusan)
                 <div class="jurusan-card-full">
                     <img src="{{ asset('img/' . $jurusan['img']) }}" alt="{{ $jurusan['name'] }}">
                     <h3>{{ $jurusan['name'] }}</h3>
-                    <p>{{ $jurusan['desc'] }}</p>
+                    <p>{{ $jurusan['desc'] }}</p>                                                                           
                     <a href="#" class="btn btn-primary">Pelajari Lebih Lanjut</a>
                 </div>
                 @endforeach

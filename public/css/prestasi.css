@@ -1,0 +1,42 @@
+/* ===== HALAMAN PRESTASI ===== */
+.prestasi-hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.prestasi-hero img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+.prestasi-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.prestasi-hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.prestasi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+.prestasi-table th,
+.prestasi-table td {
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+.prestasi-table thead {
+    background-color: var(--primary-color);
+    color: white;
+}
+.prestasi-table tbody tr:nth-child(even) {
+    background-color: var(--light-gray-color);
+}

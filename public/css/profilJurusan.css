@@ -1,0 +1,63 @@
+/* ===== PROFIL & JURUSAN DETAIL ===== */
+.profil-header,
+.jurusan-detail-header {
+    background-color: var(--light-gray-color);
+    padding: 60px 0;
+    text-align: center;
+}
+.profil-header img {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    border-radius: 12px;
+}
+.profil-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    align-items: start;
+}
+.identitas-sekolah table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.identitas-sekolah td {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.identitas-sekolah td:first-child {
+    font-weight: 600;
+    color: var(--dark-color);
+    width: 100px;
+}
+
+.struktur-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+.struktur-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 5px solid var(--primary-color);
+}
+.struktur-card h4 {
+    color: var(--dark-color);
+}
+.struktur-card p {
+    font-size: 0.9rem;
+}
+.map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+.map-container iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+}

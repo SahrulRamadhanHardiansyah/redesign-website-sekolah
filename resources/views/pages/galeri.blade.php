@@ -1,6 +1,11 @@
 @extends('layouts.main')
 @section('title', 'Galeri & Kegiatan')
 
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/beranda.css') }}">
+@endsection
+
+
 @section('content')
 <div class="page-header">
     <div class="container">

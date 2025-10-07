@@ -1,7 +1,9 @@
 @extends('layouts.main')
 
 @section('title', 'Rekayasa Perangkat Lunak & Gim')
-
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/jurusan.css') }}">
+@endsection
 @section('content')
 <section class="section-padding">
     <div class="container">
