@@ -3,6 +3,7 @@
 
 @section('style')
     <link rel="stylesheet" href="{{ asset('css/berita.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/beranda.css') }}">
 @endsection
 
 

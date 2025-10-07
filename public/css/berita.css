@@ -1,4 +1,10 @@
 /* ===== HALAMAN BERITA & DETAIL BERITA ===== */
+.page-header {
+    background-color: var(--light-gray-color);
+    padding: 60px 0;
+    text-align: center;
+}
+
 .berita-section {
     margin-bottom: 60px;
 }
