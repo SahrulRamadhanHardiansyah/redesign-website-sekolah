@@ -3,6 +3,7 @@
     background-color: #212529;
     color: #adb5bd;
     padding: 60px 0 20px 0;
+
 }
 
 .footer-top {
@@ -72,14 +73,6 @@
 
 .partner-logos img {
     height: 30px;
-    filter: grayscale(100%);
-    opacity: 0.7;
-    transition: all 0.3s ease;
-}
-
-.partner-logos img:hover {
-    filter: grayscale(0%);
-    opacity: 1;
 }
 
 .footer-bottom p {
