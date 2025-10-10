@@ -1,46 +1,192 @@
-/* ===== HALAMAN EKSTRAKURIKULER ===== */
+/* Hero Section */
 .ekskul-hero {
-    height: 60vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url("../img/hero-bg.png");
+    position: relative;
     background-size: cover;
-    background-position: center;
+    height: 90vh;
+    background-image:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.5) 0%,
+            rgba(0, 0, 0, 0.5) 60%,
+            rgba(0, 0, 0, 0.4) 75%,
+            rgba(0, 0, 0, 0.2) 85%,
+            rgba(241, 241, 241, 0.5) 92%,
+            #fbfbfb 100%
+        ),
+        url("../img/Ekstrakurikuler/Gambar.png");
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    color: var(--white-color);
+    justify-content: center;
 }
-.ekskul-hero h1 {
+
+.ekskul-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: (255, 255, 255, 0.3);
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+}
+
+.hero-overlay h1 {
     font-size: 3rem;
     font-weight: 700;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #00D9B8;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #00c0a5;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: white;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #00D9B8;
+    transform: translateY(-2px);
+}
+
+/* Section Styling */
+.section-padding {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+.section-title .text-primary {
+    color: #00D9B8;
+}
+
+/* Ekstrakurikuler Grid */
 .ekskul-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
 }
+
 .ekskul-card {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    height: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
 }
+
+.ekskul-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
 .ekskul-card img {
     width: 100%;
-    height: 100%;
+    height: 200px;
     object-fit: cover;
+    display: block;
 }
-.ekskul-card .overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    padding: 20px;
-    text-align: center;
+
+.ekskul-title {
+    padding: 1rem;
+    background: white;
 }
-.ekskul-card .overlay h3 {
-    color: white;
+
+.ekskul-title h3 {
+    font-size: 1.125rem;
     font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .ekskul-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .hero-overlay h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .ekskul-hero {
+        height: 400px;
+    }
+    
+    .hero-overlay h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 250px;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .ekskul-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .hero-overlay h1 {
+        font-size: 1.5rem;
+    }
+    
+    .section-padding {
+        padding: 2rem 0;
+    }
 }
