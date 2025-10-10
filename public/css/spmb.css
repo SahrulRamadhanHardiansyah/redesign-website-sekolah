@@ -1,42 +1,125 @@
-/* ===== SPMB ===== */
-.spmb-alur {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-    margin: 50px 0;
+.hero-title-spmb {
+    text-align: left;
+    margin-bottom: 50px;
+    margin-left: 100px;
+    font-size: 2rem;
+    color: var(--dark-color);
 }
+
+/* ===== ALUR PENDAFTARAN ===== */
+.spmb-alur {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    row-gap: 60px;
+    margin: 50px 0;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .spmb-step {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px 20px;
     text-align: center;
     position: relative;
-    z-index: 2;
-    background: white;
-    padding: 0 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
-.step-icon {
-    width: 80px;
-    height: 80px;
-    background-color: var(--light-gray-color);
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
+
+.spmb-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(2, 205, 171, 0.15);
+    border-color: var(--primary-color);
+}
+
+.step-icon-main {
+    font-size: 3rem;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+
+.step-number-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-color);
+    color: white;
     border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    justify-content: center;
     font-weight: 700;
-    margin: 0 auto 15px auto;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.spmb-alur::before {
-    content: "";
+
+.spmb-step p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.spmb-step p strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: var(--dark-color);
+}
+
+.spmb-step small {
+    display: block;
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
+/* Arrow connector untuk step */
+.spmb-step:nth-child(1)::after,
+.spmb-step:nth-child(2)::after,
+.spmb-step:nth-child(5)::before,
+.spmb-step:nth-child(6)::before {
+    content: "→";
     position: absolute;
-    top: 40px;
-    left: 10%;
-    right: 10%;
-    height: 2px;
-    background-color: var(--border-color);
-    border-style: dashed;
-    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: 300;
+}
+.spmb-step:nth-child(1)::after,
+.spmb-step:nth-child(2)::after {
+    right: -40px; /* 4. Menambah jarak panah */
+}
+.spmb-step:nth-child(5)::before, /* Panah ke kiri untuk alur terbalik */
+.spmb-step:nth-child(6)::before {
+    content: "←";
+    left: -40px;
+}
+
+.spmb-step:nth-child(3)::after {
+    content: "↓";
+    position: absolute;
+    bottom: -55px; /* 4. Menambah jarak panah */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: 300;
+}
+
+/* ===== JADWAL TABLE & DOKUMEN CONTAINER ===== */
+.table-container,
+.dokumen-persiapan {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .jadwal-table {
@@ -44,45 +127,408 @@
     text-align: left;
     border-collapse: collapse;
     margin-top: 30px;
-    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
+
 .jadwal-table th,
 .jadwal-table td {
-    padding: 15px;
-    border: 1px solid var(--border-color);
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border-color);
 }
+
 .jadwal-table th {
     background-color: var(--primary-color);
     color: var(--white-color);
+    font-weight: 600;
+    text-align: center;
 }
+
+.jadwal-table td {
+    background-color: white;
+}
+
+.jadwal-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.jadwal-table tbody tr:hover {
+    background-color: #f8fffe;
+}
+
+.jadwal-table td:first-child {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.jadwal-table td:nth-child(2),
+.jadwal-table td:nth-child(3) {
+    text-align: center;
+    color: var(--text-color);
+}
+
+/* ===== JALUR PENDAFTARAN SECTION ===== */
+.jalur-pendaftaran {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.jalur-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px 20px;
+    text-align: left;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
+}
+
+.jalur-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(2, 205, 171, 0.1);
+}
+
+.jalur-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.jalur-icon {
+    width: 45px;
+    height: 45px;
+    background-color: var(--light-gray-color);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    flex-shrink: 0;
+}
+
+.jalur-text {
+    flex-grow: 1;
+}
+
+.jalur-card h3 {
+    font-size: 1.05rem;
+    color: var(--dark-color);
+    margin-bottom: 2px;
+    font-weight: 600;
+}
+
+.jalur-card span {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* ===== DOKUMEN PERSIAPAN ===== */
 .dokumen-persiapan {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
+    margin-top: 40px;
 }
+
+.dokumen-list {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.dokumen-list:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(2, 205, 171, 0.1);
+}
+
+.dokumen-list h3 {
+    font-size: 1.3rem;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dokumen-list:first-child h3::before {
+    content: "✓";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.dokumen-list:last-child h3::before {
+    content: "↑";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.dokumen-list ul {
+    list-style: none;
+    padding: 0;
+}
+
 .dokumen-list ul li {
-    padding: 8px 0;
+    padding: 12px 0;
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-color);
 }
+
 .dokumen-list ul li i {
     color: var(--primary-color);
-    margin-right: 10px;
+    margin-right: 12px;
+    font-size: 1.1rem;
+    margin-top: 4px;
+    flex-shrink: 0;
 }
+
+/* ===== FAQ ACCORDION (REVISED SCRIPT) ===== */
+/* 7. FAQ styling (sudah bagus, tidak banyak diubah) */
+.faq-accordion {
+    max-width: 900px;
+    margin: 40px auto 0;
+}
+
 .faq-item {
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    margin-bottom: 10px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    background: white;
+    transition: all 0.3s ease;
 }
+
+.faq-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(2, 205, 171, 0.1);
+}
+.faq-item.active {
+    border-color: var(--primary-color);
+}
+
 .faq-question {
-    padding: 15px;
+    padding: 20px 25px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 600;
     color: var(--dark-color);
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    user-select: none;
 }
-/* Tambahkan JS untuk fungsi accordion */
+
+.faq-question:hover {
+    color: var(--primary-color);
+}
+.faq-item.active .faq-question {
+    color: var(--primary-color);
+}
+
+.faq-question i {
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
 .faq-answer {
-    padding: 0 15px 15px 15px;
-    display: none;
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    background-color: #f8fffe;
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 25px 20px 25px;
+    max-height: 500px;
+    transition: max-height 0.5s ease-in, padding 0.5s ease-in;
+}
+
+.faq-answer p {
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin: 0;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+/* ===== BANTUAN SECTION ===== */
+.bantuan-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10rem;
+}
+
+.bantuan-card {
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 35px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.bantuan-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    box-shadow: 0 6px 15px rgba(2, 205, 171, 0.15);
+}
+
+.bantuan-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.bantuan-card h3 {
+    font-size: 1.25rem;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.bantuan-card p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn-bantuan {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-bantuan:hover {
+    background: #02b194;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(2, 205, 171, 0.3);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+    .spmb-alur {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .spmb-step:nth-child(2)::after {
+        content: "↓" !important;
+        right: auto !important;
+        bottom: -55px !important;
+        left: 50% !important;
+        top: auto !important;
+        transform: translateX(-50%) !important;
+    }
+    .spmb-step:nth-child(3)::after,
+    .spmb-step:nth-child(5)::before,
+    .spmb-step:nth-child(6)::before {
+        display: none; /* Sembunyikan panah yang tidak perlu di layout 2 kolom */
+    }
+}
+
+@media (max-width: 768px) {
+    .spmb-alur {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        row-gap: 50px;
+    }
+
+    .spmb-step::after,
+    .spmb-step::before {
+        display: none !important; /* Sembunyikan semua panah di mobile */
+    }
+    /* Tambahkan panah bawah untuk semua step kecuali yang terakhir */
+    .spmb-step:not(:last-child)::after {
+        display: block !important;
+        content: "↓" !important;
+        right: auto !important;
+        bottom: -45px !important;
+        left: 50% !important;
+        top: auto !important;
+        transform: translateX(-50%) !important;
+    }
+
+    .dokumen-persiapan {
+        grid-template-columns: 1fr;
+    }
+
+    .jadwal-table {
+        font-size: 0.85rem;
+    }
+
+    .jadwal-table th,
+    .jadwal-table td {
+        padding: 12px 10px;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .spmb-step {
+        padding: 20px 15px;
+    }
+
+    .dokumen-list {
+        padding: 20px;
+    }
+
+    .faq-question {
+        padding: 15px;
+        font-size: 0.95rem;
+    }
 }
