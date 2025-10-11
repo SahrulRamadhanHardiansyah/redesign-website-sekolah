@@ -1,13 +1,10 @@
 /* ===== BERANDA ===== */
 .hero {
-    height: 90vh;
-    background-image:
-        linear-gradient(to bottom,
+    min-height: 100vh;
+    background-image: linear-gradient(
+            to bottom,
             rgba(0, 0, 0, 0.5) 0%,
             rgba(0, 0, 0, 0.5) 70%,
-            rgba(0, 0, 0, 0.4) 85%,
-            rgba(0, 0, 0, 0.2) 92%,
-            rgba(241, 241, 241, 0.3) 96%,
             #f1f1f1 100%
         ),
         url("../img/halaman.png");
@@ -18,41 +15,86 @@
     align-items: center;
     text-align: center;
     color: var(--white-color);
+    padding: 60px 20px;
 }
+
 .hero-content {
     max-width: 800px;
+    animation: fadeInUp 1s ease-out;
 }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     font-weight: 700;
     margin-bottom: 20px;
+    line-height: 1.2;
 }
+
+.hero p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
 .hero-buttons {
-    margin-top: 30px;
     display: flex;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
-.btn-cta:hover {
-    background-color: #ffffff;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+
+/* ===== SECTION UMUM ===== */
+.jurusan-section,
+.galeri-section {
+    padding-bottom: 5rem;
 }
+.berita-section {
+    background-color: var(--light-gray-color);
+    padding-bottom: 5rem;
+}
+.section-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* ===== FAKTA SEKOLAH ===== */
 .fakta-sekolah {
     background-color: var(--light-gray-color);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
+
 .fakta-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
 }
+
 .fakta-card {
     background-color: var(--primary-color);
     color: var(--white-color);
     padding: 30px;
     text-align: center;
     border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.fakta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
 .fakta-card h3 {
     font-size: 2.5rem;
     margin-bottom: 5px;
@@ -60,17 +102,15 @@
 .fakta-card p {
     font-size: 1.1rem;
 }
-.grid-3,
-.grid-4 {
+
+/* ===== JURUSAN & BERITA GRID ===== */
+.jurusan-grid,
+.berita-grid {
     display: grid;
     gap: 30px;
-}
-.grid-3 {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-.grid-4 {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
+
 .jurusan-card {
     border: 1px solid var(--border-color);
     padding: 30px;
@@ -80,13 +120,20 @@
 .jurusan-card img {
     height: 100px;
     margin-bottom: 20px;
+    transition: transform 0.3s ease;
 }
+.jurusan-card:hover img {
+    transform: scale(1.1);
+}
+
+/* ===== GALERI GRID ===== */
 .galeri-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 250px);
     gap: 15px;
 }
+
 .galeri-item {
     overflow: hidden;
     border-radius: 12px;
@@ -99,7 +146,7 @@
     transition: transform 0.4s ease;
 }
 .galeri-item:hover img {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 .galeri-item:first-child {
     grid-column: 1 / 3;
@@ -115,4 +162,153 @@
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 0.8rem;
+}
+
+/* Tablet (lebar < 992px) */
+@media (max-width: 991px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    .hero p {
+        font-size: 1.05rem;
+    }
+
+    .fakta-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .galeri-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 220px);
+    }
+    .galeri-item:first-child {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+}
+
+/* Mobile (lebar < 768px) */
+@media (max-width: 767px) {
+    .hero {
+        padding-top: 80px;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 0.95rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .section-cta {
+        margin-top: 30px;
+    }
+
+    .fakta-sekolah {
+        padding-top: 3rem;
+        padding-bottom: 5rem;
+    }
+    .fakta-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .fakta-card {
+        padding: 20px 15px;
+    }
+    .fakta-card h3 {
+        font-size: 1.8rem;
+    }
+    .fakta-card p {
+        font-size: 0.9rem;
+    }
+
+    .jurusan-grid,
+    .berita-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .jurusan-card {
+        padding: 20px;
+    }
+    .jurusan-card h4 {
+        font-size: 0.9rem;
+    }
+    .jurusan-card img {
+        height: 60px;
+        margin-bottom: 15px;
+    }
+
+    .card-img {
+        height: 120px;
+    }
+    .card-body {
+        padding: 15px;
+    }
+    .card-title {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 8px;
+    }
+    .card-text {
+        font-size: 0.75rem;
+    }
+
+    .galeri-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(150px, auto);
+        gap: 15px;
+    }
+
+    .galeri-item {
+        grid-column: auto;
+        grid-row: auto;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .galeri-item:first-child {
+        grid-column: 1 / 3;
+        aspect-ratio: 16 / 9;
+    }
+
+    .galeri-item .date-tag {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* Small Mobile (lebar < 480px) */
+@media (max-width: 479px) {
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    .hero p {
+        font-size: 0.9rem;
+    }
+    .section-title {
+        font-size: 1.5rem;
+    }
+    .fakta-card h3 {
+        font-size: 1.5rem;
+    }
+    .fakta-card p {
+        font-size: 0.85rem;
+    }
 }

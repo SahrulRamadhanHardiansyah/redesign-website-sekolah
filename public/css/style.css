@@ -47,7 +47,6 @@ ul {
 .btn-primary {
     background-color: var(--primary-color);
     color: var(--white-color);
-    border: 1px solid var(--primary-color);
 }
 
 .btn-primary:hover {
