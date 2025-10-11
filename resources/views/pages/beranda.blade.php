@@ -61,7 +61,7 @@
                 @endforeach
             </div>
              <div style="text-align: center; margin-top: 40px;">
-                <a href="#" class="btn btn-primary">Lihat Semua Jurusan</a>
+                <a href="{{ route('jurusan') }}" class="btn btn-primary">Lihat Semua Jurusan</a>
             </div>
         </div>
     </section>
@@ -116,5 +116,5 @@
             </div>
         </div>
     </section>
-    
+
 @endsection
