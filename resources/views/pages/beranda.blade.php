@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('title', 'Beranda - SMKN 1 Bangil')
+
 @section('style')
     <link rel="stylesheet" href="{{ asset('css/beranda.css') }}">
 @endsection
@@ -41,11 +42,11 @@
         </div>
     </section>
 
-    <section class="section-padding">
+    <section class="jurusan-section section-padding">
         <div class="container">
             <h2 class="section-title">Jurusan</h2>
-            <div class="grid-4">
-                 @php
+            <div class="jurusan-grid">
+                @php
                     $jurusans = [
                         ['img' => 'jurusan-pplg.png', 'name' => 'Pengembangan Perangkat Lunak'],
                         ['img' => 'jurusan-listrik.png', 'name' => 'Teknik Kelistrikan'],
@@ -60,16 +61,16 @@
                 </div>
                 @endforeach
             </div>
-             <div style="text-align: center; margin-top: 40px;">
+            <div class="section-cta">
                 <a href="{{ route('jurusan') }}" class="btn btn-primary">Lihat Semua Jurusan</a>
             </div>
         </div>
     </section>
 
-    <section class="section-padding" style="background-color: var(--light-gray-color);">
+    <section class="berita-section section-padding">
         <div class="container">
             <h2 class="section-title">Berita & Kegiatan <span>Terbaru</span></h2>
-            <div class="grid-4">
+            <div class="berita-grid">
                 @for ($i = 0; $i < 4; $i++)
                 <div class="card">
                     <img src="{{ asset('img/berita-sample.png') }}" alt="Judul Berita" class="card-img">
@@ -80,14 +81,14 @@
                 </div>
                 @endfor
             </div>
-            <div style="text-align: center; margin-top: 40px;">
+            <div class="section-cta">
                 <a href="#" class="btn btn-primary">Lihat Semua</a>
             </div>
         </div>
     </section>
 
-    <section class="section-padding">
-        <div class="container">
+    <section class="galeri-section section-padding">
+        <div class="container" style="margin-bottom: 5rem;">
             <h2 class="section-title">Galeri</h2>
             <div class="galeri-grid">
                 <div class="galeri-item">
@@ -111,10 +112,9 @@
                     <span class="date-tag">21 April</span>
                 </div>
             </div>
-             <div style="text-align: center; margin-top: 40px;">
+            <div class="section-cta">
                 <a href="#" class="btn btn-primary">Lihat Semua</a>
             </div>
         </div>
     </section>
-
 @endsection

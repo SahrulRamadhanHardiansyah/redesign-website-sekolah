@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     @yield('style')
 </head>
 
@@ -26,42 +26,54 @@
                 <img src="{{ asset('img/logo-navbar.png') }}" alt="Logo SMKN 1 Bangil">
             </a>
 
+            <div class="navbar-hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
             <nav class="navbar-nav">
                 <ul>
                     <li><a href="{{ route('beranda') }}">Beranda</a></li>
-                    <!-- Dropdown Profil -->
+                    
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">Profil</a>
+                        <a href="#" class="dropdown-toggle">
+                            Profil <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('profil') }}">Profil</a></li>
+                            <li><a href="{{ route('profil') }}">Profil Sekolah</a></li>
                             <li><a href="{{ route('jurusan') }}">Jurusan</a></li>
                             <li><a href="{{ route('ekstrakurikuler') }}">Ekstrakurikuler</a></li>
                         </ul>
                     </li>
 
-                    <!-- Dropdown Berita Sekolah -->
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">Berita Sekolah</a>
+                        <a href="#" class="dropdown-toggle">
+                            Berita Sekolah <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('berita') }}" class="dropdown-toggle">Berita Sekolah</a></li>
+                            <li><a href="{{ route('berita') }}">Berita Sekolah</a></li>
                             <li><a href="{{ route('galeri') }}">Galeri</a></li>
                             <li><a href="#">Pengumuman</a></li>
                             <li><a href="#">Kegiatan</a></li>
                         </ul>
                     </li>
 
-                    <!-- Dropdown GTK & SISWA -->
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">Gtk & Siswa</a>
+                        <a href="#" class="dropdown-toggle">
+                            Gtk & Siswa <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Data Pendidik</a></li>
                             <li><a href="#">Data Tenaga Kependidikan</a></li>
                             <li><a href="#">Data Siswa</a></li>
                         </ul>
                     </li>
-                    <!-- Dropdown fitur & app -->
+                    
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">Fitur & App</a>
+                        <a href="#" class="dropdown-toggle">
+                            Fitur & App <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Smart BKK</a></li>
                             <li><a href="#">Sertifikat Profesi</a></li>
@@ -70,21 +82,28 @@
                         </ul>
                     </li>
 
-
                     <li><a href="{{ route('spmb') }}" class="spmb-btn">SPMB</a></li>
                 </ul>
-
+                
+                {{-- Search bar mobile --}}
+                {{--
+                <div class="navbar-extra-mobile">
+                    <form action="#" class="search-form">
+                        <input type="search" placeholder="Search">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div> --}}
             </nav>
 
-            <div class="navbar-extra">
+            {{-- Search bar dekstop --}}
+            {{-- <div class="navbar-extra">
                 <form action="#" class="search-form">
                     <input type="search" placeholder="Search">
                     <button type="submit"><i class="fas fa-search"></i></button>
                 </form>
             </div>
-        </div>
+        </div> --}}
     </header>
-
 
     <main>
         @yield('content')
@@ -113,7 +132,6 @@
                         <li><a href="#">Berita</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-links">
                     <h4>Hubungi kami</h4>
                     <ul>
@@ -124,7 +142,6 @@
                                 smknesaba@yahoo.com</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-links">
                     <h4>GTK & Siswa</h4>
                     <ul>
@@ -143,7 +160,7 @@
         </div>
     </footer>
 
-
+    <script src="{{ asset('js/navbar.js') }}"></script>
     @yield('script')
 </body>
 
