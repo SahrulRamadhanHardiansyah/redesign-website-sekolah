@@ -17,11 +17,11 @@
 <section class="section-padding">
     <div class="container">
         <div class="grid-3">
-             {{-- @for ($i = 0; $i < 12; $i++) --}}
+              @for ($i = 0; $i < 12; $i++)
              <div class="galeri-item" style="height: 250px;">
                 <img src="{{ asset('img/galeri-1.png') }}" alt="Foto Kegiatan {{ $i + 1 }}">
              </div>
-             {{-- @endfor --}}
+              @endfor
         </div>
     </div>
 </section>

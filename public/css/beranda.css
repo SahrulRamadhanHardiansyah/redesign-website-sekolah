@@ -3,9 +3,9 @@
     min-height: 100vh;
     background-image: linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0.5) 0%,
-            rgba(0, 0, 0, 0.5) 70%,
-            #f1f1f1 100%
+            rgba(0, 0, 0, 0.3) 0%, /* Changed from 0.5 to 0.3 for less intensity */
+            rgba(0, 0, 0, 0.3) 70%, /* Changed from 0.5 to 0.3 for less intensity */
+            rgba(241, 241, 241, 0.5) 100% /* Made the bottom color semi-transparent */
         ),
         url("../img/halaman.png");
     background-size: cover;
