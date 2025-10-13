@@ -20,6 +20,14 @@ body {
     background-color: var(--white-color);
 }
 
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: 80%;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
