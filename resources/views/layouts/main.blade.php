@@ -35,7 +35,7 @@
             <nav class="navbar-nav">
                 <ul>
                     <li><a href="{{ route('beranda') }}">Beranda</a></li>
-                    
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle">
                             Profil <i class="fas fa-chevron-down dropdown-icon"></i>
@@ -55,7 +55,7 @@
                             <li><a href="{{ route('berita') }}">Berita Sekolah</a></li>
                             <li><a href="{{ route('galeri') }}">Galeri</a></li>
                             <li><a href="#">Pengumuman</a></li>
-                            <li><a href="#">Kegiatan</a></li>
+                            <li><a href="{{ route('prestasi') }}">prestasi</a></li>
                         </ul>
                     </li>
 
@@ -69,7 +69,7 @@
                             <li><a href="#">Data Siswa</a></li>
                         </ul>
                     </li>
-                    
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle">
                             Fitur & App <i class="fas fa-chevron-down dropdown-icon"></i>
@@ -84,7 +84,7 @@
 
                     <li><a href="{{ route('spmb') }}" class="spmb-btn">SPMB</a></li>
                 </ul>
-                
+
                 {{-- Search bar mobile --}}
                 {{--
                 <div class="navbar-extra-mobile">

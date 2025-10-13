@@ -16,7 +16,7 @@
 
 <section class="gallery-section section-padding" style="margin-bottom: 5rem;">
     <div class="container">
-        
+
         <div class="gallery-controls">
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">Semua</button>
@@ -74,6 +74,7 @@
     </div>
 </section>
 @endsection
+
 
 @section('script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
