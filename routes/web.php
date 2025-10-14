@@ -124,6 +124,7 @@ Route::get('/berita/{id}', function ($id) {
 
 Route::get('/admin/login', [LoginController::class, 'showAdminLoginForm'])->name('admin.login');
 Route::post('/admin/login', [LoginController::class, 'adminLogin'])->name('admin.login.post');
+Route::post('/admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
 // Anda akan butuh route logout nanti, bisa ditambahkan di sini
 // Route::post('/admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
 

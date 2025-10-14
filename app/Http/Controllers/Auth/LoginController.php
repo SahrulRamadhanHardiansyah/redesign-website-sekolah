@@ -41,4 +41,21 @@ class LoginController extends Controller
             'email' => 'Email atau password yang Anda masukkan salah.',
         ])->onlyInput('email');
     }
+
+    public function logout(Request $request)
+    {
+        // 1. Lakukan logout pada guard default (web)
+        Auth::logout();
+
+        // 2. Invalidate session pengguna
+        // Ini akan menghapus semua data session dan membuatnya tidak valid
+        $request->session()->invalidate();
+
+        // 3. Regenerate CSRF token baru
+        // Langkah keamanan untuk memastikan session baru memiliki token yang baru
+        $request->session()->regenerateToken();
+
+        // 4. Redirect pengguna ke halaman yang diinginkan (misalnya halaman beranda)
+        return redirect()->route('beranda')->with('status', 'Anda telah berhasil logout.');
+    }
 }

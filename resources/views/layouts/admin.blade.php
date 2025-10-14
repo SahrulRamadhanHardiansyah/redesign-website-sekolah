@@ -57,7 +57,7 @@
                     <i class="fas fa-user-circle"></i>
                     <span>{{ Auth::user()->name }}</span>
                 </div>
-                <form method="POST" action="/logout">
+                <form method="POST" action="/admin/logout">
                     {{ method_field('POST') }}
                     @csrf
                     <button type="submit" class="logout-btn">
