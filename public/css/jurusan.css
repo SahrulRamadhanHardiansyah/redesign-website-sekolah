@@ -1,8 +1,7 @@
 /* ===== HALAMAN JURUSAN & DETAIL JURUSAN ===== */
 .page-header {
-    background-color: var(--light-gray-color);
-    padding: 60px 0;
-    text-align: center;
+    padding: 40px 0;
+    padding-bottom: 0px;
 }
 .jurusan-grid {
     display: grid;
@@ -54,4 +53,7 @@
 }
 .detail-jurusan-content li {
     margin-bottom: 8px;
+}
+span{
+    color: rgb(33, 204, 204);
 }
