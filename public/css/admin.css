@@ -1,0 +1,232 @@
+/* ===== ADMIN LAYOUT ===== */
+:root {
+    --sidebar-width: 250px;
+    --topbar-height: 60px;
+}
+
+body {
+    background-color: var(--light-gray-color);
+}
+
+.admin-wrapper {
+    display: flex;
+    position: relative;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1001;
+    transition: transform 0.3s ease-in-out;
+}
+.sidebar-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+.sidebar-logo img {
+    height: 35px;
+}
+.sidebar-nav {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+.sidebar-nav ul {
+    padding: 15px 0;
+}
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    color: #ccc;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+.sidebar-nav a i {
+    width: 20px;
+    text-align: center;
+}
+.sidebar-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--white-color);
+}
+.sidebar-nav li.active > a {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-weight: 500;
+}
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.logout-btn {
+    width: 100%;
+    background: none;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.2s, color 0.2s;
+}
+.logout-btn:hover {
+    background-color: #dc3545;
+    color: var(--white-color);
+}
+
+/* Main Content Styling */
+.main-content {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+.topbar {
+    height: var(--topbar-height);
+    background-color: var(--white-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sidebar-toggle {
+    display: none; /* Sembunyi di desktop */
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--dark-color);
+}
+.current-date {
+    font-weight: 500;
+    color: var(--text-color);
+}
+.content-inner {
+    padding: 30px;
+}
+
+/* ===== DASHBOARD CARD STYLING ===== */
+.summary-card {
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border: none;
+    border-left: 5px solid;
+    margin-bottom: 25px;
+}
+.summary-card-body {
+    padding: 25px;
+}
+.summary-card-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.summary-card-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+.summary-card-icon {
+    font-size: 2.5rem;
+    color: #e0e0e0;
+}
+
+/* Warna border card */
+.summary-card.primary {
+    border-color: #02cdab;
+}
+.summary-card.primary .summary-card-title {
+    color: #02cdab;
+}
+
+.summary-card.success {
+    border-color: #198754;
+}
+.summary-card.success .summary-card-title {
+    color: #198754;
+}
+
+.summary-card.info {
+    border-color: #0dcaf0;
+}
+.summary-card.info .summary-card-title {
+    color: #0dcaf0;
+}
+
+.summary-card.warning {
+    border-color: #ffc107;
+}
+.summary-card.warning .summary-card-title {
+    color: #ffc107;
+}
+
+.summary-card.danger {
+    border-color: #dc3545;
+}
+.summary-card.danger .summary-card-title {
+    color: #dc3545;
+}
+
+.summary-card.secondary {
+    border-color: #6c757d;
+}
+.summary-card.secondary .summary-card-title {
+    color: #6c757d;
+}
+
+.card-custom {
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border: none;
+}
+.card-custom .card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Responsivitas */
+@media (max-width: 991px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    .sidebar-toggle {
+        display: block;
+    }
+}
