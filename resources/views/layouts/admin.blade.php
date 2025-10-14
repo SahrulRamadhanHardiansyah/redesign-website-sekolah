@@ -45,8 +45,8 @@
                     <li class="{{ request()->is('admin/spmb*') ? 'active' : '' }}">
                         <a href="{{ route('admin.spmb.edit') }}"><i class="fas fa-images"></i> Kelola SPMB</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fas fa-trophy"></i> Kelola Prestasi</a>
+                    <li class="{{ request()->is('admin/prestasi*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.prestasi.index') }}"><i class="fas fa-trophy"></i> Kelola Prestasi</a>
                     </li>
                     <li>
                         <a href="#"><i class="fas fa-school"></i> Kelola Jurusan</a>
