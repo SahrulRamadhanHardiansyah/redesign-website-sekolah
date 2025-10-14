@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('beritas', function (Blueprint $table) {
             $table->id();
-            $table->string('judul'); // Judul berita
+            $table->string('judul'); 
             $table->string('slug')->unique(); // Slug untuk URL SEO
             $table->text('isi'); // Isi berita
             $table->string('gambar')->nullable(); // Nama file gambar utama
