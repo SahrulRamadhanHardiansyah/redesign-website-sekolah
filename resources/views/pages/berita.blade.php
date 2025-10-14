@@ -13,7 +13,7 @@
 
             <div class="berita-section">
                 <div class="section-header">
-                    <h2 class="section-title">Berita <span class="highlight">Utama</span></h2>
+                    <h2 class="section-title">Berita <span class="highlight">Terbaru</span></h2>
                     <a href="{{ route('berita') }}" class="btn-see-all">Lihat semua <i
                             class="bi bi-arrow-right-short"></i></a>
                 </div>
