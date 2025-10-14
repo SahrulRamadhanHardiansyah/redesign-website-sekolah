@@ -42,7 +42,6 @@
                 </div>
             </div>
 
-            <!-- Sisa berita lainnya tetap static atau bisa dibuat dinamis juga -->
         </div>
     </div>
 @endsection
