@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin Dashboard') - SMKN 1 Bangil</title>
-    
+
     {{-- Memuat Font dan CSS Global --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
-    
+
     {{-- Font Awesome untuk Ikon --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {{-- CSS Khusus untuk Halaman Admin --}}
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-    
+
     @yield('style')
 </head>
 <body>
@@ -35,9 +35,9 @@
                     <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
                         <a href="{{ url('/admin/dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fas fa-newspaper"></i> Kelola Berita</a>
-                    </li>
+                   <li class="{{ request()->is('admin/berita*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.berita.index') }}"><i class="fas fa-newspaper"></i> Kelola Berita</a>
+                    </li>
                     <li>
                         <a href="#"><i class="fas fa-images"></i> Kelola Galeri</a>
                     </li>
@@ -82,7 +82,7 @@
             </main>
         </div>
     </div>
-    
+
     <script src="{{ asset('js/admin.js') }}"></script>
     @yield('script')
 </body>

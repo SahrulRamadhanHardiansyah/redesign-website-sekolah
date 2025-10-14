@@ -54,7 +54,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('berita') }}">Berita Sekolah</a></li>
                             <li><a href="{{ route('galeri') }}">Galeri</a></li>
-                            <li><a href="{{ route('prestasi') }}">prestasi</a></li>
+                            <li><a href="{{ route('prestasi') }}">Prestasi</a></li>
                         </ul>
                     </li>
 
