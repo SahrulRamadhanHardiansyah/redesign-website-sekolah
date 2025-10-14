@@ -31,5 +31,8 @@ class DatabaseSeeder extends Seeder
 
         // Seed SPMB settings
         $this->call(SpmbSettingSeeder::class);
+
+        // Seed prestasi data
+        $this->call(PrestasiSeeder::class);
     }
 }

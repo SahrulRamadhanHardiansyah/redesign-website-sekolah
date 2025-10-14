@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BeritaController;
 use App\Data\BeritaData; 
 use App\Http\Controllers\Admin\GaleriController;
+use App\Http\Controllers\Admin\PrestasiController;
 use App\Http\Controllers\Admin\SpmbPageController;
 use App\Models\Berita;   
 
@@ -49,7 +50,19 @@ Route::get('/jurusan', function () { return view('pages.jurusan'); })->name('jur
 Route::get('/jurusan/detail', function () { return view('pages.detail-jurusan'); })->name('jurusan.detail');
 
 Route::get('/ekstrakurikuler', function () { return view('pages.ekstrakurikuler'); })->name('ekstrakurikuler');
-Route::get('/prestasi', function () { return view('pages.prestasi'); })->name('prestasi');
+
+// Rute Prestasi Publik
+Route::get('/prestasi', function () {
+    $allPrestasi = \App\Models\Prestasi::orderBy('tahun', 'desc')->orderBy('tanggal', 'desc')->get();
+
+    // Ambil 4 prestasi unggulan terbaru (berdasarkan tanggal) untuk grid atas
+    $highlights = $allPrestasi->where('is_unggulan', true)->take(4);
+
+    // Ambil sisanya untuk daftar tabel di bawah
+    $achievements = $allPrestasi; // Menampilkan semua prestasi di list
+
+    return view('pages.prestasi', compact('highlights', 'achievements'));
+})->name('prestasi');
 
 // Rute Galeri Publik
 Route::get('/galeri', function () { 
@@ -182,6 +195,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // Route untuk halaman SPMB
     Route::get('spmb', [SpmbPageController::class, 'edit'])->name('spmb.edit');
     Route::put('spmb', [SpmbPageController::class, 'update'])->name('spmb.update');
+
+    // Route Prestasi (CRUD)
+    Route::resource('prestasi', PrestasiController::class)->parameters(['prestasi' => 'prestasi'])->except(['show']);
 });
 Route::post('/admin/update-jumlah-siswa', [DashboardController::class, 'updateJumlahSiswa'])
     ->name('admin.updateJumlahSiswa');

@@ -6,20 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('prestasis', function (Blueprint $table) {
             $table->id();
+            $table->string('judul');
+            $table->text('deskripsi');
+            $table->string('tahun'); // Menggunakan string agar fleksibel misal: "2024/2025"
+            $table->date('tanggal')->nullable(); // Tanggal spesifik, untuk sorting unggulan
+            $table->string('gambar')->nullable(); // Gambar hanya untuk prestasi unggulan
+            $table->boolean('is_unggulan')->default(false); // Flag untuk prestasi di grid atas
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('prestasis');
