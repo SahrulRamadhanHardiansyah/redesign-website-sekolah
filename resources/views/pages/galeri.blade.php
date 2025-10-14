@@ -31,41 +31,17 @@
             </div>
         </div>
 
-        @php
-            $galleryItems = [
-                ['image' => 'galeri-1.png', 'title' => 'Diskusi Kelompok Siswa', 'category' => 'akademik'],
-                ['image' => 'galeri-1.png', 'title' => 'Kegiatan Pramuka', 'category' => 'ekskul'],
-                ['image' => 'galeri-1.png', 'title' => 'Lomba Kompetensi Siswa', 'category' => 'lomba'],
-                ['image' => 'galeri-1.png', 'title' => 'Seminar Teknologi', 'category' => 'akademik'],
-                ['image' => 'galeri-1.png', 'title' => 'Perayaan HUT Sekolah', 'category' => 'acara'],
-                ['image' => 'galeri-1.png', 'title' => 'Latihan Paskibra', 'category' => 'ekskul'],
-                ['image' => 'galeri-1.png', 'title' => 'Workshop Guru', 'category' => 'acara'],
-                ['image' => 'galeri-1.png', 'title' => 'Olimpiade Sains', 'category' => 'lomba'],
-                ['image' => 'galeri-1.png', 'title' => 'Pameran Karya Siswa DKV', 'category' => 'akademik'],
-                ['image' => 'galeri-1.png', 'title' => 'Class Meeting', 'category' => 'acara'],
-                ['image' => 'galeri-1.png', 'title' => 'Ekskul Robotik', 'category' => 'ekskul'],
-                ['image' => 'galeri-1.png', 'title' => 'Juara Turnamen Futsal', 'category' => 'lomba'],
-                ['image' => 'galeri-1.png', 'title' => 'Juara Turnamen Futsal', 'category' => 'lomba'],
-                ['image' => 'galeri-1.png', 'title' => 'Juara Turnamen Futsal', 'category' => 'lomba'],
-                ['image' => 'galeri-1.png', 'title' => 'Juara Turnamen Futsal', 'category' => 'lomba'],
-                ['image' => 'galeri-1.png', 'title' => 'Juara Turnamen Futsal', 'category' => 'lomba'],
-                ['image' => 'galeri-1.png', 'title' => 'Juara Turnamen Futsal', 'category' => 'lomba'],
-                ['image' => 'galeri-1.png', 'title' => 'Juara Turnamen Futsal', 'category' => 'lomba'],
-                ['image' => 'galeri-1.png', 'title' => 'Juara Turnamen Futsal', 'category' => 'lomba'],
-            ];
-        @endphp
-
         <div class="gallery-grid">
             @foreach ($galleryItems as $item)
-            <div class="gallery-card" data-category="{{ $item['category'] }}">
-                <a href="{{ asset('img/' . $item['image']) }}" data-lightbox="gallery" data-title="{{ $item['title'] }}">
-                    <img src="{{ asset('img/' . $item['image']) }}" alt="{{ $item['title'] }}">
-                    <div class="overlay">
-                        <h3 class="overlay-title">{{ $item['title'] }}</h3>
-                        <p class="overlay-category">{{ ucfirst($item['category']) }}</p>
-                    </div>
-                </a>
-            </div>
+                <div class="gallery-card" data-category="{{ $item->kategori }}">
+                    <a href="{{ asset($item->gambar) }}" data-lightbox="gallery" data-title="{{ $item->judul }}">
+                        <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}">
+                        <div class="overlay">
+                            <h3 class="overlay-title">{{ $item->judul }}</h3>
+                            <p class="overlay-category">{{ ucfirst($item->kategori) }}</p>
+                        </div>
+                    </a>
+                </div>
             @endforeach
         </div>
 

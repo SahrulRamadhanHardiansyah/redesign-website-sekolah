@@ -25,5 +25,8 @@ class DatabaseSeeder extends Seeder
 
         // Seed jurusan data
         $this->call(JurusanSeeder::class);
+
+        // Seed galeri data
+        $this->call(GaleriSeeder::class);
     }
 }

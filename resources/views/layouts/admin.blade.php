@@ -39,8 +39,8 @@
                     <li class="{{ request()->is('admin/berita*') ? 'active' : '' }}">
                         <a href="{{ route('admin.berita.index') }}"><i class="fas fa-newspaper"></i> Kelola Berita</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fas fa-images"></i> Kelola Galeri</a>
+                    <li class="{{ request()->is('admin/galeri*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.galeri.index') }}"><i class="fas fa-images"></i> Kelola Galeri</a>
                     </li>
                     <li>
                         <a href="#"><i class="fas fa-trophy"></i> Kelola Prestasi</a>
