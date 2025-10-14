@@ -6,16 +6,22 @@
 @endsection
 
 @section('content')
-    <!-- Hero Section with Back Button -->
     <section class="ekskul-detail-hero">
+        
+        {{-- TOMBOL KEMBALI (Diposisikan Absolute di sudut menggunakan CSS) --}}
+        <a href="{{ route('ekstrakurikuler') }}" class="back-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+
+        {{-- Konten Judul di Tengah --}}
         <div class="hero-content">
-            <a href="{{ route('ekstrakurikuler') }}" class="back-button">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
+            {{-- JUDUL BESAR --}}
             <h1>Ekstrakurikuler <span class="text-primary">{{ $ekskul['nama'] }}</span></h1>
-            <p class="hero-subtitle">{{ $ekskul['deskripsi_singkat'] }}</p>
+            
+            {{-- SUBJUDUL/DESKRIPSI SINGKAT (Opsional, tergantung desain Anda) --}}
+            <p class="hero-subtitle">{{ $ekskul['deskripsi_singkat'] ?? 'Mewujudkan siswa yang kreatif dan berprestasi.' }}</p>
         </div>
     </section>
 
