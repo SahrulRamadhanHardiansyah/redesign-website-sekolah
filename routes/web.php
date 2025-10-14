@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BeritaController;
 use App\Data\BeritaData; // Pastikan class ini ada dan bisa di-autoload
+use App\Http\Controllers\Admin\GaleriController;
 use App\Models\Berita;   // Pastikan model ini ada
 
 
@@ -25,7 +26,13 @@ Route::get('/jurusan/detail', function () { return view('pages.detail-jurusan');
 
 Route::get('/ekstrakurikuler', function () { return view('pages.ekstrakurikuler'); })->name('ekstrakurikuler');
 Route::get('/prestasi', function () { return view('pages.prestasi'); })->name('prestasi');
-Route::get('/galeri', function () { return view('pages.galeri'); })->name('galeri');
+
+// Rute Galeri Publik
+Route::get('/galeri', function () { 
+    // Ambil data dari database
+    $galleryItems = \App\Models\Galeri::orderBy('created_at', 'desc')->get();
+    return view('pages.galeri', compact('galleryItems')); 
+})->name('galeri');
 
 // Rute Berita Publik (Fungsionalitas Asli Dipertahankan Sesuai Permintaan)
 Route::get('/berita', function () {
@@ -146,6 +153,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     // Route Berita (CRUD)
     Route::resource('berita', BeritaController::class)->parameters(['berita' => 'berita'])->except(['show']); // Method 'show' biasanya tidak diperlukan di admin CRUD
+
+    // Route Galeri (CRUD)
+    Route::resource('galeri', GaleriController::class)->parameters(['galeri' => 'galeri'])->except(['show']);
 
     // Tambahkan rute admin lainnya di sini (misal: guru, kelas, dll)
 
