@@ -8,6 +8,7 @@ use App\Http\Controllers\BeritaController;
 use App\Data\BeritaData; // Pastikan class ini ada dan bisa di-autoload
 use App\Models\Berita;   // Pastikan model ini ada
 
+
 /*
 |--------------------------------------------------------------------------
 | RUTE HALAMAN PUBLIK (Untuk Pengunjung)
@@ -29,7 +30,7 @@ Route::get('/galeri', function () { return view('pages.galeri'); })->name('galer
 // Rute Berita Publik (Fungsionalitas Asli Dipertahankan Sesuai Permintaan)
 Route::get('/berita', function () {
     // Switch to database data, fallback to static if empty
-    $beritaCollection = \App\Models\Berita::where('status', 'publish')->orderBy('tanggal', 'desc')->get();
+    $beritaCollection = Berita::where('status', 'publish')->orderBy('tanggal', 'desc')->get();
     if ($beritaCollection->isEmpty()) {
         $beritaList = BeritaData::getAll();
     } else {
@@ -59,18 +60,18 @@ Route::get('/ekstrakurikuler', function () {
 
 Route::get('/ekstrakurikuler/{slug}', function ($slug) {
     $ekskul = EkstrakurikulerData::getBySlug($slug);
-    
+
     if (!$ekskul) {
         abort(404, 'Ekstrakurikuler tidak ditemukan');
     }
-    
+
     return view('pages.detail-ekstrakurikuler', compact('ekskul'));
 })->name('ekstrakurikuler.detail');
 
 
 Route::get('/berita/{id}', function ($id) {
     // Try database first, fallback to static data
-    $beritaModel = \App\Models\Berita::where('status', 'publish')->find($id);
+    $beritaModel = Berita::where('status', 'publish')->find($id);
     if (!$beritaModel) {
         $berita = BeritaData::getById($id);
     } else {
@@ -92,7 +93,7 @@ Route::get('/berita/{id}', function ($id) {
     }
 
     // Get other news
-    $beritaLainnyaCollection = \App\Models\Berita::where('status', 'publish')->where('id', '!=', $id)->latest('tanggal')->take(3)->get();
+    $beritaLainnyaCollection = Berita::where('status', 'publish')->where('id', '!=', $id)->latest('tanggal')->take(3)->get();
     if ($beritaLainnyaCollection->isEmpty()) {
         $beritaLainnya = BeritaData::getLatest(3);
     } else {
@@ -138,14 +139,16 @@ Route::post('/admin/logout', [LoginController::class, 'logout'])->name('admin.lo
 */
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
-    
+
     // Dashboard route
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::put('/update-jumlah-siswa', [DashboardController::class, 'updateJumlahSiswa'])->name('siswa.update');
 
     // Route Berita (CRUD)
-    Route::resource('berita', BeritaController::class)->except(['show']); // Method 'show' biasanya tidak diperlukan di admin CRUD
+    Route::resource('berita', BeritaController::class)->parameters(['berita' => 'berita'])->except(['show']); // Method 'show' biasanya tidak diperlukan di admin CRUD
 
     // Tambahkan rute admin lainnya di sini (misal: guru, kelas, dll)
 
 });
+Route::post('/admin/update-jumlah-siswa', [DashboardController::class, 'updateJumlahSiswa'])
+    ->name('admin.updateJumlahSiswa');
