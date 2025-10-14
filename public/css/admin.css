@@ -8,25 +8,33 @@ body {
     background-color: var(--light-gray-color);
 }
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
 .admin-wrapper {
     display: flex;
-    position: relative;
+    min-height: 100vh;
 }
 
 /* Sidebar Styling */
 .sidebar {
     width: var(--sidebar-width);
-    height: 100vh;
+    flex-shrink: 0; /* Mencegah sidebar menyusut */
     background-color: var(--dark-color);
     color: var(--white-color);
-    position: fixed;
-    top: 0;
-    left: 0;
     display: flex;
     flex-direction: column;
+    height: 100vh; /* Buat sidebar setinggi layar */
+    position: sticky; /* Membuat sidebar tetap di tempat saat konten di kanan scroll */
+    top: 0;
     z-index: 1001;
-    transition: transform 0.3s ease-in-out;
 }
+
 .sidebar-header {
     padding: 15px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -103,18 +111,23 @@ body {
 
 /* Main Content Styling */
 .main-content {
-    margin-left: var(--sidebar-width);
-    width: calc(100% - var(--sidebar-width));
-    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+    flex-grow: 1; /* Ambil semua sisa ruang */
+    display: flex;
+    flex-direction: column; /* Membuat topbar dan content-inner jadi vertikal */
+    min-width: 0; /* Fix untuk flexbox overflow */
 }
 .topbar {
     height: var(--topbar-height);
+    flex-shrink: 0; /* Mencegah topbar menyusut */
     background-color: var(--white-color);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     padding: 0 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: sticky; /* Membuat topbar menempel di atas saat scroll */
+    top: 0;
+    z-index: 1000;
 }
 .sidebar-toggle {
     display: none; /* Sembunyi di desktop */
@@ -130,6 +143,8 @@ body {
 }
 .content-inner {
     padding: 30px;
+    flex-grow: 1; /* Membuat area konten ini mengisi sisa ruang di bawah topbar */
+    overflow-y: auto; /* Hanya area ini yang akan scroll jika kontennya panjang */
 }
 
 /* ===== DASHBOARD CARD STYLING ===== */

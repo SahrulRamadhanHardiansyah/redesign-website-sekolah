@@ -46,18 +46,16 @@ class BeritaController extends Controller
 
         // Proses upload gambar
         if ($request->hasFile('gambar')) {
-            $gambarPath = $request->file('gambar')->store('public/gambar_berita');
-            // Ambil nama file relatif dari 'storage'
-            $gambarPath = str_replace('public/', 'storage/', $gambarPath);
+            $path = Storage::disk('public')->put('gambar_berita', $request->file('gambar'));
+            $gambarPath = 'storage/' . $path;
         }
 
         Berita::create([
             'judul' => $request->judul,
-            // Pastikan slug unik jika perlu, untuk sementara kita buat simpel
             'slug' => $slug . '-' . time(),
             'isi' => $request->isi,
             'gambar' => $gambarPath,
-            'penulis' => $request->penulis ?? 'Admin', // Contoh
+            'penulis' => $request->penulis ?? 'Admin', 
             'tanggal' => $request->tanggal ?? now(),
             'status' => $request->status,
         ]);
@@ -113,13 +111,12 @@ class BeritaController extends Controller
         if ($request->hasFile('gambar')) {
             // Hapus gambar lama jika ada
             if ($berita->gambar) {
-                // Ubah 'storage/' menjadi 'public/' untuk path penghapusan
-                $oldPath = str_replace('storage/', 'public/', $berita->gambar);
-                Storage::delete($oldPath);
+                $oldPath = str_replace('storage/', '', $berita->gambar);
+                Storage::disk('public')->delete($oldPath);
             }
             // Simpan gambar baru
-            $gambarPath = $request->file('gambar')->store('public/gambar_berita');
-            $gambarPath = str_replace('public/', 'storage/', $gambarPath);
+            $path = Storage::disk('public')->put('gambar_berita', $request->file('gambar'));
+            $gambarPath = 'storage/' . $path;
         }
 
         $berita->update([

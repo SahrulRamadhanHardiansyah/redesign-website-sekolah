@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin Dashboard') - SMKN 1 Bangil</title>
-
-    {{-- Memuat Font dan CSS Global --}}
+    
+    {{-- Memuat Font --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
-
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     {{-- Font Awesome untuk Ikon --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
-    {{-- CSS Global Anda --}}
+    {{-- CSS Global dan Admin Anda (pastikan ini dimuat setelah Bootstrap) --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    {{-- CSS Khusus untuk Halaman Admin --}}
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-
+    
     @yield('style')
 </head>
 <body>
@@ -25,7 +26,7 @@
     <div class="admin-wrapper">
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <a href="{{ url('/admin/dashboard') }}" class="sidebar-logo">
+                <a href="{{ route('admin.dashboard') }}" class="sidebar-logo">
                     <img src="{{ asset('img/logo-footer.png') }}" alt="Logo">
                     <span>Admin Panel</span>
                 </a>
@@ -33,11 +34,11 @@
             <nav class="sidebar-nav">
                 <ul>
                     <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
-                        <a href="{{ url('/admin/dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        <a href="{{ route('admin.dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                     </li>
-                   <li class="{{ request()->is('admin/berita*') ? 'active' : '' }}">
+                    <li class="{{ request()->is('admin/berita*') ? 'active' : '' }}">
                         <a href="{{ route('admin.berita.index') }}"><i class="fas fa-newspaper"></i> Kelola Berita</a>
-                    </li>
+                    </li>
                     <li>
                         <a href="#"><i class="fas fa-images"></i> Kelola Galeri</a>
                     </li>
@@ -55,10 +56,9 @@
             <div class="sidebar-footer">
                 <div class="user-info">
                     <i class="fas fa-user-circle"></i>
-                    <span>{{ Auth::user()->name }}</span>
+                    <span>{{ Auth::user()->name ?? 'Test User' }}</span>
                 </div>
-                <form method="POST" action="/admin/logout">
-                    {{ method_field('POST') }}
+                <form method="POST" action="{{ route('admin.logout') }}">
                     @csrf
                     <button type="submit" class="logout-btn">
                         <i class="fas fa-sign-out-alt"></i> Logout
@@ -82,8 +82,12 @@
             </main>
         </div>
     </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+    {{-- Script kustom Anda --}}
     <script src="{{ asset('js/admin.js') }}"></script>
+    
     @yield('script')
 </body>
 </html>
