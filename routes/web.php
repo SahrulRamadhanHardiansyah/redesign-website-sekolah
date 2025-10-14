@@ -1,5 +1,6 @@
 <?php
 
+use App\Data\EkstrakurikulerData;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
@@ -33,6 +34,23 @@ Route::get('/berita', function () {
     }
     return view('pages.berita', compact('beritaList'));
 })->name('berita');
+
+// Route Ekstrakurikuler
+Route::get('/ekstrakurikuler', function () {
+    $ekskul = EkstrakurikulerData::getAll();
+    return view('pages.ekstrakurikuler', compact('ekskul'));
+})->name('ekstrakurikuler');
+
+Route::get('/ekstrakurikuler/{slug}', function ($slug) {
+    $ekskul = EkstrakurikulerData::getBySlug($slug);
+    
+    if (!$ekskul) {
+        abort(404, 'Ekstrakurikuler tidak ditemukan');
+    }
+    
+    return view('pages.detail-ekstrakurikuler', compact('ekskul'));
+})->name('ekstrakurikuler.detail');
+
 
 Route::get('/berita/{id}', function ($id) {
     $berita = Berita::where('status', 'publish')->find($id);
