@@ -1,4 +1,5 @@
 <?php
+use App\Data\EkstrakurikulerData;
 use Illuminate\Support\Facades\Route;
 use App\Data\BeritaData;
 
@@ -11,6 +12,23 @@ Route::get('/jurusan/detail', function () { return view('pages.detail-jurusan');
 
 Route::get('/ekstrakurikuler', function () { return view('pages.ekstrakurikuler'); })->name('ekstrakurikuler');
 Route::get('/prestasi', function () { return view('pages.prestasi'); })->name('prestasi');
+
+// Route Ekstrakurikuler
+Route::get('/ekstrakurikuler', function () {
+    $ekskul = EkstrakurikulerData::getAll();
+    return view('pages.ekstrakurikuler', compact('ekskul'));
+})->name('ekstrakurikuler');
+
+Route::get('/ekstrakurikuler/{slug}', function ($slug) {
+    $ekskul = EkstrakurikulerData::getBySlug($slug);
+    
+    if (!$ekskul) {
+        abort(404, 'Ekstrakurikuler tidak ditemukan');
+    }
+    
+    return view('pages.detail-ekstrakurikuler', compact('ekskul'));
+})->name('ekstrakurikuler.detail');
+
 
 Route::get('/berita', function () {
     $beritaList = BeritaData::getAll();
