@@ -1,29 +1,23 @@
-/* Hero Section */
-.hero-subtitle {
-    font-size: 1.25rem;
-    font-weight: 400;
-    margin-top: 1rem;
-    color: rgba(255, 255, 255, 0.9); /* Sedikit transparan agar tidak menyaingi judul */
-    max-width: 800px; /* Batasi lebar agar mudah dibaca */
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 1rem; /* Beri sedikit jarak di layar kecil */
-
-}
-.hero-content {
+/* =======================================
+   1. HERO SECTION & BACK BUTTON
+   ======================================= */
+   body{
+    background-color: #f8f9fa;
+   }
+.ekskul-detail-hero {
     position: relative;
-    z-index: 1;
-    text-align: center;
-    color: white;
-    max-width: 1200px;
-    padding: 0 2rem;
+    height: 50vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Tombol Kembali (Posisi Mutlak/Absolute) */
 .back-button {
     position: absolute;
     left: 2rem;
-    top: 0%;
-    transform: translateY(-50%);
+    top: 60px; /* Jarak dari atas (di bawah perkiraan posisi navbar) */
+    z-index: 10;
     width: 48px;
     height: 48px;
     background: rgba(255, 255, 255, 0.2);
@@ -39,26 +33,47 @@
 
 .back-button:hover {
     background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-50%) translateX(-3px);
+    transform: translateX(-3px);
     border-color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-content {
+    z-index: 1;
+    text-align: center;
+    color: var(--dark-color);
+    max-width: 1200px;
+    padding: 0 2rem;
 }
 
 .hero-content h1 {
     font-size: 3rem;
     font-weight: 700;
     margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    color: var(--dark-color);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
 }
 
 .text-primary {
-    color: #00D9B8;
+    color: var(--primary-color);
 }
 
-/* Content Section */
+/* =======================================
+   2. MAIN CONTENT & INTRO SECTION
+   ======================================= */
 .ekskul-detail-content {
     background: #f8f9fa;
     padding: 4rem 0;
-    margin-top: -100px;
+    margin-top: -100px; /* Efek "melayang" di bawah hero */
     position: relative;
     z-index: 2;
 }
@@ -69,7 +84,6 @@
     padding: 0 2rem;
 }
 
-/* Intro Section */
 .intro-section {
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -81,6 +95,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* KUNCI: Pengaturan Foto Logo Agar Seragam dan Rapi */
 /* CSS BARU YANG LEBIH BAIK */
 .logo-container {
     width: 300px; /* Samakan dengan grid-template-columns */
@@ -94,11 +109,16 @@
     width: 100%;
     height: 100%;
     object-fit: cover; /* Kunci utamanya: Penuhi bingkai, potong jika perlu */
-}ntro-text {
+}.intro-text {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
+
+.logo-container img:hover {
+    transform: scale(1.05);
+}
+
 
 .deskripsi-singkat {
     font-size: 1.125rem;
@@ -109,14 +129,14 @@
 
 .info-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
 }
 
 .info-item {
     display: flex;
     gap: 1rem;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .info-icon {
@@ -143,7 +163,9 @@
     color: #333;
 }
 
-/* Section Box */
+/* =======================================
+   3. DETAIL SECTIONS
+   ======================================= */
 .section-box {
     background: white;
     border-radius: 16px;
@@ -167,7 +189,6 @@
     text-align: justify;
 }
 
-/* Tujuan List */
 .tujuan-list {
     list-style: none;
     padding: 0;
@@ -196,7 +217,6 @@
     border-radius: 50%;
 }
 
-/* Kegiatan Grid */
 .kegiatan-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -218,7 +238,7 @@
 .kegiatan-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #00D9B8;
+    color: #00c0a5; /* Warna yang sedikit lebih gelap */
     margin-bottom: 1rem;
 }
 
@@ -230,13 +250,16 @@
     text-align: justify;
 }
 
-/* Responsive Design */
+/* =======================================
+   4. RESPONSIVE DESIGN
+   ======================================= */
 @media (max-width: 992px) {
     .intro-section {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Tumpuk di bawah 992px */
         gap: 2rem;
     }
     
+    /* Pusatkan logo di tampilan tumpukan */
     .logo-container {
         width: 100%;
         max-width: 300px;
@@ -260,6 +283,7 @@
     
     .back-button {
         left: 1rem;
+        top: 50px;
         width: 40px;
         height: 40px;
     }
@@ -283,10 +307,11 @@
         padding: 0 1rem;
     }
     
+    /* Pastikan tombol kembali tetap di sudut (Absolute) */
     .back-button {
-        position: static;
-        transform: none;
-        margin: 0 auto 1rem;
+        position: absolute; 
+        left: 1rem;
+        top: 30px; 
     }
     
     .ekskul-detail-content {
@@ -302,7 +327,7 @@
     
     .logo-container {
         width: 100%;
-        height: 200px;
-        padding: 1rem;
+        max-width: 250px;
+        height: 250px;
     }
 }
