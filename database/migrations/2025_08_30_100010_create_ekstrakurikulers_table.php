@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('ekstrakurikulers', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('pembina');
+            $table->string('jadwal');
+            $table->string('tempat');
+            $table->text('deskripsi_singkat');
+            $table->longText('deskripsi_lengkap');
+            $table->string('gambar')->nullable();
+            $table->json('tujuan')->nullable();
+            $table->json('kegiatan')->nullable();
             $table->timestamps();
         });
     }

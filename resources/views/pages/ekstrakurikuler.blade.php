@@ -19,29 +19,13 @@
         <div class="container">
             <h2 class="section-title"><span class="text-primary">Ekstrakurikuler</span> Sekolah</h2>
             <div class="ekskul-grid">
-                @php
-                    $ekskul = [
-                        ['img' => 'ekstrakurikuler/PMR.jpg', 'name' => 'Palang Merah Remaja (PMR)'],
-                        ['img' => 'ekstrakurikuler/Pecinta-alam.jpg', 'name' => 'Pecinta Alam'],
-                        ['img' => 'ekstrakurikuler/Pramuka.jpg', 'name' => 'Pramuka'],
-                        ['img' => 'ekstrakurikuler/Paskibraka.webp', 'name' => 'Paskibra'],
-                        ['img' => 'ekstrakurikuler/Futsal.jpg', 'name' => 'Futsal'],
-                        ['img' => 'ekstrakurikuler/Musik.jpg', 'name' => 'Musik'],
-                        ['img' => 'ekstrakurikuler/Voli.jpg', 'name' => 'Bola Voli'],
-                        ['img' => 'ekstrakurikuler/Basket.jpg', 'name' => 'Basket'],
-                        ['img' => 'ekstrakurikuler/ekskul-pickleball.png', 'name' => 'Pickleball'],
-                        ['img' => 'ekstrakurikuler/Albanjari.jpeg', 'name' => 'Banjari'],
-                        ['img' => 'ekstrakurikuler/Gateball.jpeg', 'name' => 'Gateball'],
-                    ];
-                @endphp
-
                 @foreach($ekskul as $item)
-                <div class="ekskul-card">
-                    <img src="{{ asset('img/' . $item['img']) }}" alt="{{ $item['name'] }}">
+                <a href="{{ route('ekstrakurikuler.detail', $item['slug']) }}" class="ekskul-card">
+                    <img src="{{ asset($item['gambar']) }}" alt="{{ $item['nama'] }}">
                     <div class="ekskul-title">
-                        <h3>{{ $item['name'] }}</h3>
+                        <h3>{{ $item['nama'] }}</h3>
                     </div>
-                </div>
+                </a>
                 @endforeach
             </div>
         </div>
