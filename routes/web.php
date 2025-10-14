@@ -5,10 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BeritaController;
-use App\Data\BeritaData; // Pastikan class ini ada dan bisa di-autoload
+use App\Data\BeritaData; 
 use App\Http\Controllers\Admin\GaleriController;
-use App\Models\Berita;   // Pastikan model ini ada
-
+use App\Http\Controllers\Admin\SpmbPageController;
+use App\Models\Berita;   
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +19,31 @@ use App\Models\Berita;   // Pastikan model ini ada
 
 Route::get('/', function () { return view('pages.beranda'); })->name('beranda');
 Route::get('/profil', function () { return view('pages.profil'); })->name('profil');
-Route::get('/spmb', function () { return view('pages.spmb'); })->name('spmb');
+
+// Rute SPMB Publik
+Route::get('/spmb', function () { 
+    // 1. Ambil semua setting dari database
+    $settings = \App\Models\SpmbSetting::pluck('value', 'key')->all();
+    
+    // 2. Decode semua field yang disimpan sebagai JSON menjadi array
+    $settings['alur_pendaftaran'] = json_decode($settings['alur_pendaftaran'] ?? '[]', true);
+    $settings['jadwal_penting'] = json_decode($settings['jadwal_penting'] ?? '[]', true);
+    $settings['faq'] = json_decode($settings['faq'] ?? '[]', true);
+    
+    // Tambahkan json_decode untuk syarat dan berkas
+    $decoded_syarat = json_decode($settings['syarat_umum'] ?? '[]', true);
+    $settings['syarat_umum'] = is_array($decoded_syarat) ? $decoded_syarat : [];
+
+    $decoded_berkas = json_decode($settings['berkas_wajib'] ?? '[]', true);
+    $settings['berkas_wajib'] = is_array($decoded_berkas) ? $decoded_berkas : [];
+
+    // Untuk JALUR PENDAFTARAN agar tidak error di masa depan
+    $decoded_jalur = json_decode($settings['jalur_pendaftaran'] ?? '[]', true);
+    $settings['jalur_pendaftaran'] = is_array($decoded_jalur) ? $decoded_jalur : [];
+
+    // 3. Kirim data yang sudah siap ke view
+    return view('pages.spmb', compact('settings')); 
+})->name('spmb');
 
 Route::get('/jurusan', function () { return view('pages.jurusan'); })->name('jurusan');
 Route::get('/jurusan/detail', function () { return view('pages.detail-jurusan'); })->name('jurusan.detail');
@@ -133,8 +157,6 @@ Route::get('/berita/{id}', function ($id) {
 Route::get('/admin/login', [LoginController::class, 'showAdminLoginForm'])->name('admin.login');
 Route::post('/admin/login', [LoginController::class, 'adminLogin'])->name('admin.login.post');
 Route::post('/admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
-// Anda akan butuh route logout nanti, bisa ditambahkan di sini
-// Route::post('/admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
 
 /*
@@ -157,8 +179,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // Route Galeri (CRUD)
     Route::resource('galeri', GaleriController::class)->parameters(['galeri' => 'galeri'])->except(['show']);
 
-    // Tambahkan rute admin lainnya di sini (misal: guru, kelas, dll)
-
+    // Route untuk halaman SPMB
+    Route::get('spmb', [SpmbPageController::class, 'edit'])->name('spmb.edit');
+    Route::put('spmb', [SpmbPageController::class, 'update'])->name('spmb.update');
 });
 Route::post('/admin/update-jumlah-siswa', [DashboardController::class, 'updateJumlahSiswa'])
     ->name('admin.updateJumlahSiswa');

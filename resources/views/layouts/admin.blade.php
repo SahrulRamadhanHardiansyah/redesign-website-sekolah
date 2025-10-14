@@ -42,6 +42,9 @@
                     <li class="{{ request()->is('admin/galeri*') ? 'active' : '' }}">
                         <a href="{{ route('admin.galeri.index') }}"><i class="fas fa-images"></i> Kelola Galeri</a>
                     </li>
+                    <li class="{{ request()->is('admin/spmb*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.spmb.edit') }}"><i class="fas fa-images"></i> Kelola SPMB</a>
+                    </li>
                     <li>
                         <a href="#"><i class="fas fa-trophy"></i> Kelola Prestasi</a>
                     </li>

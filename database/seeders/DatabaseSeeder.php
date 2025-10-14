@@ -28,5 +28,8 @@ class DatabaseSeeder extends Seeder
 
         // Seed galeri data
         $this->call(GaleriSeeder::class);
+
+        // Seed SPMB settings
+        $this->call(SpmbSettingSeeder::class);
     }
 }
