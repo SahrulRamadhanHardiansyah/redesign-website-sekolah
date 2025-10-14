@@ -29,18 +29,45 @@ Route::prefix('admin')->group(function () {
 // Public routes for Berita (updated to use controller)
 Route::get('/berita', function () {
     // Switch to database data, fallback to static if empty
-    $beritaList = \App\Models\Berita::where('status', 'publish')->orderBy('tanggal', 'desc')->get();
-    if ($beritaList->isEmpty()) {
+    $beritaCollection = \App\Models\Berita::where('status', 'publish')->orderBy('tanggal', 'desc')->get();
+    if ($beritaCollection->isEmpty()) {
         $beritaList = BeritaData::getAll();
+    } else {
+        // Convert to array of objects to match BeritaData structure
+        $beritaList = $beritaCollection->map(function($berita) {
+            return (object) [
+                'id' => $berita->id,
+                'judul' => $berita->judul,
+                'slug' => $berita->slug,
+                'kategori' => 'Berita Sekolah',
+                'tanggal' => $berita->tanggal ? \Carbon\Carbon::parse($berita->tanggal)->format('d F Y') : '',
+                'penulis' => $berita->penulis,
+                'gambar' => $berita->gambar,
+                'excerpt' => \Illuminate\Support\Str::limit(strip_tags($berita->isi), 100),
+                'konten' => $berita->isi,
+            ];
+        })->all(); // Convert collection to array
     }
     return view('pages.berita', compact('beritaList'));
 })->name('berita');
 
 Route::get('/berita/{id}', function ($id) {
     // Try database first, fallback to static data
-    $berita = \App\Models\Berita::where('status', 'publish')->find($id);
-    if (!$berita) {
+    $beritaModel = \App\Models\Berita::where('status', 'publish')->find($id);
+    if (!$beritaModel) {
         $berita = BeritaData::getById($id);
+    } else {
+        $berita = (object) [
+            'id' => $beritaModel->id,
+            'judul' => $beritaModel->judul,
+            'slug' => $beritaModel->slug,
+            'kategori' => 'Berita Sekolah',
+            'tanggal' => $beritaModel->tanggal ? \Carbon\Carbon::parse($beritaModel->tanggal)->format('d F Y') : '',
+            'penulis' => $beritaModel->penulis,
+            'gambar' => $beritaModel->gambar,
+            'excerpt' => \Illuminate\Support\Str::limit(strip_tags($beritaModel->isi), 100),
+            'konten' => [$beritaModel->isi], // Convert to array for view compatibility
+        ];
     }
 
     if (!$berita) {
@@ -48,9 +75,23 @@ Route::get('/berita/{id}', function ($id) {
     }
 
     // Get other news
-    $beritaLainnya = \App\Models\Berita::where('status', 'publish')->where('id', '!=', $id)->latest('tanggal')->take(3)->get();
-    if ($beritaLainnya->isEmpty()) {
+    $beritaLainnyaCollection = \App\Models\Berita::where('status', 'publish')->where('id', '!=', $id)->latest('tanggal')->take(3)->get();
+    if ($beritaLainnyaCollection->isEmpty()) {
         $beritaLainnya = BeritaData::getLatest(3);
+    } else {
+        $beritaLainnya = $beritaLainnyaCollection->map(function($b) {
+            return (object) [
+                'id' => $b->id,
+                'judul' => $b->judul,
+                'slug' => $b->slug,
+                'kategori' => 'Berita Sekolah',
+                'tanggal' => $b->tanggal ? \Carbon\Carbon::parse($b->tanggal)->format('d F Y') : '',
+                'penulis' => $b->penulis,
+                'gambar' => $b->gambar,
+                'excerpt' => \Illuminate\Support\Str::limit(strip_tags($b->isi), 100),
+                'konten' => [$b->isi], // Convert to array for view compatibility
+            ];
+        })->all(); // Convert collection to array
     }
 
     return view('pages.detail-berita', compact('berita', 'beritaLainnya'));

@@ -29,18 +29,28 @@ class BeritaData
             ],
             2 => (object) [
                 'id' => 2,
-                'judul' => 'SOSIALISASI SPMB TAHUN AJARAN 2025/2026',
+                'judul' => 'Semangat Pagi Ceria, Wujudkan Siswa Sehat dan Berkarakter di SMKN 1 Bangil',
                 'kategori' => 'Berita Sekolah',
-                'tanggal' => '12 Oktober 2025',
-                'penulis' => 'Siti Aminah',
-                'gambar' => 'img/detail-berita.png',
-                'excerpt' => 'SMKN 1 Bangil mengadakan sosialisasi Sistem Penerimaan Murid Baru (SPMB) untuk tahun ajaran 2025/2026...',
+                'tanggal' => '2 Oktober 2025',
+                'penulis' => 'Achmad Nafi',
+                'gambar' => 'img/berita/pagiceria.png',
+                'excerpt' => 'Semangat Pagi Ceria, Wujudkan Siswa Sehat dan Berkarakter di SMKN 1 Bangil',
                 'konten' => [
-                    'Selasa, 6 Mei 2025 – SMKN 1 Bangil sukses menggelar sosialisasi Sistem Penerimaan Murid Baru (SPMB) kepada guru SMP/sederajat se-Kecamatan Bangil dan sekitarnya.
-                     Acara ini dihadiri langsung oleh Kepala SMKN 1 Bangil dan tim panitia SPMB. Dalam sosialisasi ini, para guru diberi pemahaman lengkap tentang alur pendaftaran, jalur masuk, hingga pemilihan jurusan untuk tahun ajaran 2025 – 2026.
-                     Tujuannya? Memastikan informasi PPDB tersampaikan dengan tepat ke siswa dan orang tua melalui peran guru SMP sebagai jembatan utama!',
+                    'Bangil – Dalam rangka menumbuhkan semangat belajar, membentuk karakter siswa, serta membiasakan pola hidup sehat dan disiplin, SMKN 1 Bangil melaksanakan program rutin bertajuk “Pagi Ceria”. Kegiatan ini dilaksanakan setiap pagi sebelum masuk kelas, mulai hari Senin hingga Jumat.
 
-                     'Terima kasih atas partisipasi seluruh guru SMP yang hadir. Mari bersama wujudkan proses penerimaan peserta didik baru yang lebih transparan, informatif, dan ramah siswa! 🎓'
+“Pagi Ceria” terbagi menjadi lima jenis kegiatan, yaitu:
+
+1.Kebugaran – Senam pagi dan aktivitas fisik ringan untuk menjaga kesehatan tubuh siswa.
+
+2.Kedisiplinan – Penanaman nilai tertib, tepat waktu, dan kepatuhan terhadap tata tertib sekolah.
+
+3.Imtaq (Iman dan Taqwa) – Pembiasaan doa bersama, kultum, dan pembinaan rohani sesuai agama masing-masing.
+
+4.Pembinaan Wali Kelas (Walas) – Ruang pembinaan karakter, komunikasi, dan arahan langsung dari wali kelas kepada peserta didik.
+
+5.PLH (Pendidikan Lingkungan Hidup) – Kegiatan peduli lingkungan seperti kerja bakti, penghijauan, dan menjaga kebersihan sekolah.
+
+Kegiatan ini berlangsung secara bergantian setiap harinya dengan jadwal yang telah diatur sekolah. Dengan adanya program ini, diharapkan suasana sekolah semakin kondusif, siswa menjadi lebih bersemangat, dan nilai-nilai profil pelajar Pancasila dapat terwujud dalam keseharian.',
 
                 ]
             ],
