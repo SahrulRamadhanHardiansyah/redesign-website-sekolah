@@ -59,7 +59,7 @@ body {
     z-index: 2;
 }
 
-.container {
+.ekskul-detail-content .container {
     max-width: 900px; /* Lebar dipersempit agar lebih nyaman dibaca seperti artikel */
     margin: 0 auto;
     padding: 0 2rem;
@@ -71,7 +71,7 @@ body {
 }
 
 .logo-container-detail img {
-    max-width: 200px;
+    max-width: 400px;
     height: auto;
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -126,7 +126,7 @@ body {
 }
 
 /* =======================================
-   3. RESPONSIVE DESIGN
+   3. RESPONSIVE DESIGN (REVISI)
    ======================================= */
 @media (max-width: 768px) {
     .ekskul-detail-hero {
@@ -137,7 +137,7 @@ body {
     }
     .back-button {
         left: 1rem;
-        top: 70px;
+        top: 40px;
     }
     .markdown-content {
         padding: 2rem;
@@ -146,10 +146,32 @@ body {
 }
 
 @media (max-width: 576px) {
-    .hero-content h1 {
-        font-size: 1.8rem;
+    .ekskul-detail-hero {
+        height: 25vh;
     }
+    .hero-content h1 {
+        font-size: 1.6rem;
+        padding: 0 1rem;
+    }
+    .back-button {
+        top: 30px;
+    }
+
+    .ekskul-detail-content .container {
+        padding: 0 1rem;
+    }
+
+    .logo-container-detail img {
+        width: 100%;
+        max-width: 300px;
+    }
+
     .markdown-content {
         padding: 1.5rem;
+    }
+    .markdown-content h1,
+    .markdown-content h2,
+    .markdown-content h3 {
+        font-size: 1.25rem;
     }
 }

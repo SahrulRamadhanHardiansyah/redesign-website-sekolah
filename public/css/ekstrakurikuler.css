@@ -1,10 +1,12 @@
 /* Hero Section */
 .ekskul-hero {
     position: relative;
-    background-size: cover;
-    height: 90vh;
-    background-image:
-        linear-gradient(to bottom,
+    background-size: 105%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    background-image: linear-gradient(
+            to bottom,
             rgba(0, 0, 0, 0.5) 0%,
             rgba(0, 0, 0, 0.5) 60%,
             rgba(0, 0, 0, 0.4) 75%,
@@ -19,7 +21,7 @@
 }
 
 .ekskul-hero::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -58,7 +60,7 @@
 }
 
 .btn-primary {
-    background: #00D9B8;
+    background: #00d9b8;
     color: white;
 }
 
@@ -73,7 +75,7 @@
 }
 
 .btn-secondary:hover {
-    background: #00D9B8;
+    background: #00d9b8;
     transform: translateY(-2px);
 }
 
@@ -97,7 +99,7 @@
 }
 
 .section-title .text-primary {
-    color: #00D9B8;
+    color: #00d9b8;
 }
 
 /* Ekstrakurikuler Grid */
@@ -146,7 +148,7 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
-    
+
     .hero-overlay h1 {
         font-size: 2.5rem;
     }
@@ -154,22 +156,25 @@
 
 @media (max-width: 768px) {
     .ekskul-hero {
-        height: 400px;
+        /* PERBAIKAN UNTUK HERO IMAGE */
+        height: 60vh; /* Sedikit lebih pendek agar konten terlihat */
+        background-size: cover; /* Gunakan 'cover' untuk mobile */
+        background-position: center center; /* Pastikan selalu di tengah */
     }
-    
+
     .hero-overlay h1 {
         font-size: 2rem;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .btn {
         width: 250px;
     }
-    
+
     .section-title {
         font-size: 1.75rem;
         text-align: center;
@@ -178,15 +183,24 @@
 
 @media (max-width: 576px) {
     .ekskul-grid {
-        grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
-    .hero-overlay h1 {
-        font-size: 1.5rem;
-    }
-    
     .section-padding {
         padding: 2rem 0;
+    }
+
+    .hero-overlay h1 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons .btn {
+        width: auto;
+        padding: 0.5rem 1rem;
+        font-size: 0.7rem;
+    }
+
+    .ekskul-card img {
+        height: 130px;
     }
 }
