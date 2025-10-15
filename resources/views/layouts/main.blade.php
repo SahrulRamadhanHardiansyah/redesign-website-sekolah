@@ -42,6 +42,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('profil') }}">Profil Sekolah</a></li>
+                            <li><a href="{{ route('SambutanKepsek') }}">Sambutan Kepala Sekolah</a></li>
                             <li><a href="{{ route('jurusan') }}">Jurusan</a></li>
                             <li><a href="{{ route('ekstrakurikuler') }}">Ekstrakurikuler</a></li>
                         </ul>
