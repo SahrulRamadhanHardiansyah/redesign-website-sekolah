@@ -1,0 +1,114 @@
+:root {
+    --primary-color: #00d9b8;
+    --dark-color: #2c3e50;
+    --text-color: #555;
+    /* PERBAIKAN: Gunakan bayangan yang lebih jelas */
+    --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.07),
+        0 2px 4px -2px rgb(0 0 0 / 0.07);
+    --body-bg: #f7faff; /* PERBAIKAN: Buat latar belakang sedikit berbeda dari putih */
+}
+
+body {
+    background-color: var(--body-bg); /* Menggunakan variabel baru */
+}
+
+/* Page Header */
+.page-header {
+    background-color: #fff;
+    padding: 3rem 0; /* Padding sedikit dikurangi */
+    text-align: center;
+    border-bottom: 1px solid #e7e7e7;
+}
+.page-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+.page-title span {
+    color: var(--primary-color);
+}
+.page-header p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Card Styling */
+.section-padding {
+    padding: 3rem 0;
+}
+
+.stat-card {
+    background: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.stat-card h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.stat-card p {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.chart-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eef2f7; /* PERBAIKAN: Tambahkan border halus */
+}
+.chart-card-small {
+    height: 250px;
+    min-height: auto;
+}
+.chart-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.chart-container {
+    position: relative;
+    flex-grow: 1;
+    min-height: 0;
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        padding: 2.5rem 0;
+    }
+    .section-padding {
+        padding: 2.5rem 0;
+    }
+    .page-title {
+        font-size: 2rem;
+    }
+    .chart-card {
+        height: 350px;
+    }
+    .chart-card-small {
+        height: 250px;
+    }
+    .stat-card p {
+        font-size: 2rem;
+    }
+}
