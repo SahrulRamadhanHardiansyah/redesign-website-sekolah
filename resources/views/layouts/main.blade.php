@@ -143,7 +143,7 @@
                     <h4>GTK & Siswa</h4>
                     <ul>
                         <li><a href="{{ route('spmb') }}">SPMB</a></li>
-                        <li><a href="{{ route('admin.dashboard') }}">Kontak</a></li>
+                        <li><a href="{{ route('kontak') }}">Kontak</a></li>
                         <li><a href="#">Galeri</a></li>
                     </ul>
                 </div>

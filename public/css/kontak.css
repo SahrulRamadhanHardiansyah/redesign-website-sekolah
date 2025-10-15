@@ -1,0 +1,357 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9fafb;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .header-section {
+            background: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .header-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .header-section h1 .highlight {
+            color: #2dd4bf;
+        }
+
+        .header-section p {
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 20px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Contact Cards */
+        .contact-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .card-content {
+            display: flex;
+            gap: 20px;
+        }
+
+        .card-icon {
+            background: #ccfbf1;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: #14b8a6;
+        }
+
+        .card-info {
+            flex: 1;
+        }
+
+        .card-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+
+        .card-info p,
+        .card-info a {
+            color: #6b7280;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .card-info a {
+            color: #2dd4bf;
+            transition: color 0.3s;
+        }
+
+        .card-info a:hover {
+            color: #14b8a6;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: #2dd4bf;
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Map Container */
+        .map-container {
+            background: white;
+            border-radius: 16px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            min-height: 500px;
+        }
+
+        .map-container:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 480px;
+            border-radius: 12px;
+            border: none;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: white;
+            border-radius: 16px;
+            padding: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .form-header .highlight {
+            color: #2dd4bf;
+        }
+
+        .form-header p {
+            color: #6b7280;
+            font-size: 1.05rem;
+        }
+
+        .alert-success {
+            background: #ccfbf1;
+            border-left: 4px solid #14b8a6;
+            color: #0f766e;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+            font-size: 0.95rem;
+        }
+
+        .form-group .required {
+            color: #ef4444;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 14px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2dd4bf;
+            box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        .submit-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .submit-btn {
+            background: #2dd4bf;
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(45, 212, 191, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: #14b8a6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(45, 212, 191, 0.4);
+        }
+
+        .submit-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .header-section h1 {
+                font-size: 2.2rem;
+            }
+
+            .form-section {
+                padding: 30px;
+            }
+
+            .form-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-section {
+                padding: 50px 20px;
+            }
+
+            .header-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .main-content {
+                padding: 40px 20px;
+            }
+
+            .contact-card {
+                padding: 20px;
+            }
+
+            .card-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .card-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .form-section {
+                padding: 25px;
+            }
+
+            .map-container {
+                min-height: 350px;
+            }
+
+            .map-container iframe {
+                min-height: 330px;
+            }
+        }
