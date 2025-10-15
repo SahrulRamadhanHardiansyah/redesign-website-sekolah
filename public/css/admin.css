@@ -90,6 +90,10 @@ body {
     gap: 10px;
     margin-bottom: 15px;
 }
+.user-info-link {
+    text-decoration: none;
+    color: inherit;
+}
 .logout-btn {
     width: 100%;
     background: none;

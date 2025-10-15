@@ -9,7 +9,9 @@ use App\Data\BeritaData;
 use App\Http\Controllers\Admin\EkstrakurikulerController;
 use App\Http\Controllers\Admin\GaleriController;
 use App\Http\Controllers\Admin\PrestasiController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SpmbPageController;
+use App\Http\Controllers\Admin\UserController;
 use App\Models\Berita;
 use App\Models\Ekstrakurikuler;
 use App\Models\Setting;
@@ -201,6 +203,13 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     // Route Ekstrakurikuler (CRUD)
     Route::resource('ekstrakurikuler', EkstrakurikulerController::class)->parameters(['ekstrakurikuler' => 'ekstrakurikuler'])->except(['show']);
+
+    // Route untuk CRUD User
+    Route::resource('users', UserController::class)->parameters(['users' => 'user']);
+
+    // Route untuk Profil
+    Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
 });
 Route::post('/admin/update-jumlah-siswa', [DashboardController::class, 'updateJumlahSiswa'])
     ->name('admin.updateJumlahSiswa');
