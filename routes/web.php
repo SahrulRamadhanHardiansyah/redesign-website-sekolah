@@ -5,11 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BeritaController;
-use App\Data\BeritaData; 
+use App\Data\BeritaData;
 use App\Http\Controllers\Admin\GaleriController;
 use App\Http\Controllers\Admin\PrestasiController;
 use App\Http\Controllers\Admin\SpmbPageController;
-use App\Models\Berita;   
+use App\Models\Berita;
+use App\Models\Setting;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,19 +19,23 @@ use App\Models\Berita;
 | Rute-rute ini dapat diakses oleh siapa saja.
 */
 
-Route::get('/', function () { return view('pages.beranda'); })->name('beranda');
+Route::get('/', function () {
+    $jumlahSiswa = Setting::getValue('jumlah_siswa', '0');
+    return view('pages.beranda', compact('jumlahSiswa'));
+})->name('beranda');
+
 Route::get('/profil', function () { return view('pages.profil'); })->name('profil');
 
 // Rute SPMB Publik
-Route::get('/spmb', function () { 
+Route::get('/spmb', function () {
     // 1. Ambil semua setting dari database
     $settings = \App\Models\SpmbSetting::pluck('value', 'key')->all();
-    
+
     // 2. Decode semua field yang disimpan sebagai JSON menjadi array
     $settings['alur_pendaftaran'] = json_decode($settings['alur_pendaftaran'] ?? '[]', true);
     $settings['jadwal_penting'] = json_decode($settings['jadwal_penting'] ?? '[]', true);
     $settings['faq'] = json_decode($settings['faq'] ?? '[]', true);
-    
+
     // Tambahkan json_decode untuk syarat dan berkas
     $decoded_syarat = json_decode($settings['syarat_umum'] ?? '[]', true);
     $settings['syarat_umum'] = is_array($decoded_syarat) ? $decoded_syarat : [];
@@ -43,7 +48,7 @@ Route::get('/spmb', function () {
     $settings['jalur_pendaftaran'] = is_array($decoded_jalur) ? $decoded_jalur : [];
 
     // 3. Kirim data yang sudah siap ke view
-    return view('pages.spmb', compact('settings')); 
+    return view('pages.spmb', compact('settings'));
 })->name('spmb');
 
 Route::get('/jurusan', function () { return view('pages.jurusan'); })->name('jurusan');
@@ -65,10 +70,10 @@ Route::get('/prestasi', function () {
 })->name('prestasi');
 
 // Rute Galeri Publik
-Route::get('/galeri', function () { 
+Route::get('/galeri', function () {
     // Ambil data dari database
     $galleryItems = \App\Models\Galeri::orderBy('created_at', 'desc')->get();
-    return view('pages.galeri', compact('galleryItems')); 
+    return view('pages.galeri', compact('galleryItems'));
 })->name('galeri');
 
 // Rute Berita Publik (Fungsionalitas Asli Dipertahankan Sesuai Permintaan)

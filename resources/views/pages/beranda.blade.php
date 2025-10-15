@@ -10,10 +10,11 @@
     <section class="hero">
         <div class="hero-content">
             <h1>SMKN 1 Bangil: Mencetak Generasi Unggul</h1>
-            <p>Bergabunglah dengan kami untuk meraih masa depan cerah melalui pendidikan vokasi yang berkualitas dan relevan dengan industri.</p>
+            <p>Bergabunglah dengan kami untuk meraih masa depan cerah melalui pendidikan vokasi yang berkualitas dan relevan
+                dengan industri.</p>
             <div class="hero-buttons">
-                <a href="#" class="btn btn-secondary">Lihat Berita</a>
-                <a href="#" class="btn btn-primary btn-cta">Cek Info SPMB 2025</a>
+                <a href="{{ route('berita') }}" class="btn btn-secondary">Lihat Berita</a>
+                <a href="{{ route('spmb') }}" class="btn btn-primary btn-cta">Cek Info SPMB 2025</a>
             </div>
         </div>
     </section>
@@ -23,8 +24,10 @@
             <h2 class="section-title">Fakta <span>SMKN 1 Bangil</span></h2>
             <div class="fakta-grid">
                 <div class="fakta-card">
-                    <h3>1200+</h3>
-                    <p>Jumlah Siswa</p>
+                    <div class="stat-value">
+                        <h3>{{ number_format((int) ($jumlahSiswa ?? 0)) }}</h3>
+                    </div>
+                    <p>Total Siswa</p>
                 </div>
                 <div class="fakta-card">
                     <h3>9</h3>
@@ -54,11 +57,11 @@
                         ['img' => 'jurusan-dkv.png', 'name' => 'Desain Komunikasi Visual'],
                     ];
                 @endphp
-                @foreach($jurusans as $jurusan)
-                <div class="jurusan-card card">
-                    <img src="{{ asset('img/' . $jurusan['img']) }}" alt="{{ $jurusan['name'] }}">
-                    <h4>{{ $jurusan['name'] }}</h4>
-                </div>
+                @foreach ($jurusans as $jurusan)
+                    <div class="jurusan-card card">
+                        <img src="{{ asset('img/' . $jurusan['img']) }}" alt="{{ $jurusan['name'] }}">
+                        <h4>{{ $jurusan['name'] }}</h4>
+                    </div>
                 @endforeach
             </div>
             <div class="section-cta">
@@ -72,13 +75,13 @@
             <h2 class="section-title">Berita & Kegiatan <span>Terbaru</span></h2>
             <div class="berita-grid">
                 @for ($i = 0; $i < 4; $i++)
-                <div class="card">
-                    <img src="{{ asset('img/berita-sample.png') }}" alt="Judul Berita" class="card-img">
-                    <div class="card-body">
-                        <h3 class="card-title">Siswa SMKN 1 Bangil Juara Lomba Kompetensi Tingkat Nasional</h3>
-                        <p class="card-text"><small>18 Mei 2025 | Akademik</small></p>
+                    <div class="card">
+                        <img src="{{ asset('img/berita-sample.png') }}" alt="Judul Berita" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">Siswa SMKN 1 Bangil Juara Lomba Kompetensi Tingkat Nasional</h3>
+                            <p class="card-text"><small>18 Mei 2025 | Akademik</small></p>
+                        </div>
                     </div>
-                </div>
                 @endfor
             </div>
             <div class="section-cta">
