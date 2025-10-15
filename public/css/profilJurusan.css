@@ -1,29 +1,63 @@
-/* ===== PROFIL SEKOLAH ===== */
+/* ===== DETAIL JURUSAN ===== */
 .profil-container {
     padding: 40px 0 80px 0;
 }
 
-.page-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--dark-color);
-    margin-bottom: 20px;
+/* Breadcrumb */
+.breadcrumb-nav {
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.breadcrumb-nav a {
+    color: #2dd4bf;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-nav a:hover {
+    color: #26bfaa;
+}
+
+.breadcrumb-nav .separator {
+    margin: 0 10px;
+    color: #d1d5db;
+}
+
+.breadcrumb-nav .current {
+    color: #374151;
+    font-weight: 600;
 }
 
 /* Hero Section */
 .profil-hero {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 40px;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
     align-items: start;
     margin-bottom: 60px;
+    background: linear-gradient(135deg, #f0fdfa 0%, #fff 100%);
+    padding: 40px;
+    border-radius: 16px;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-image img {
     width: 100%;
+    max-width: 300px;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    filter: drop-shadow(0 10px 25px rgba(45, 212, 191, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
 }
 
 .hero-content {
@@ -34,340 +68,159 @@
     font-size: 2.5rem;
     font-weight: 700;
     color: #2dd4bf;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.jurusan-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(45, 212, 191, 0.3);
 }
 
 .school-description {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.8;
-    color: var(--text-color);
+    color: #4b5563;
     text-align: justify;
 }
 
-/* Identitas Sekolah */
+/* Section Subtitle */
+.section-subtitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-subtitle::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #2dd4bf 0%, #14b8a6 100%);
+    border-radius: 2px;
+}
+
+/* Kompetensi Section */
 .identitas-section {
     margin-bottom: 60px;
 }
 
-.section-subtitle {
+.kompetensi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.kompetensi-card {
+    background: #fff;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.kompetensi-card:hover {
+    border-color: #2dd4bf;
+    box-shadow: 0 4px 16px rgba(45, 212, 191, 0.15);
+    transform: translateY(-2px);
+}
+
+.kompetensi-number {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--dark-color);
-    margin-bottom: 20px;
-}
-
-.identitas-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #f8f9fa;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.identitas-table tr {
-    border-bottom: 1px solid #e5e7eb;
-}
-
-.identitas-table tr:last-child {
-    border-bottom: none;
-}
-
-.identitas-table td {
-    padding: 20px 30px;
-}
-
-.label-col {
-    font-weight: 600;
     color: #2dd4bf;
+    background: #f0fdfa;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.kompetensi-text {
     font-size: 0.95rem;
-    width: 15%;
-    white-space: nowrap;
+    color: #374151;
+    line-height: 1.5;
+    margin: 0;
 }
 
-.value-col {
-    color: var(--dark-color);
-    font-size: 0.95rem;
-    width: 35%;
-}
-
-/* Sejarah */
-.sejarah-section {
-    margin-bottom: 60px;
-}
-
-.sejarah-text {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--text-color);
-    text-align: justify;
-}
-
-.highlight-link {
-    color: #2dd4bf;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.highlight-link:hover {
-    text-decoration: underline;
-}
-
-/* Prestasi */
+/* Peluang Kerja Section */
 .prestasi-section {
     margin-bottom: 60px;
 }
 
-.prestasi-grid {
+.peluang-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-bottom: 30px;
-}
-
-.prestasi-card {
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.prestasi-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-}
-
-.prestasi-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.prestasi-card h4 {
-    padding: 20px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--dark-color);
-    line-height: 1.5;
-}
-
-.btn-lihat-semua {
-    display: block;
-    margin: 0 auto;
-    padding: 12px 40px;
-    background-color: #2dd4bf;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn-lihat-semua:hover {
-    background-color: #26bfaa;
-}
-
-/* Struktur Organisasi */
-.struktur-section {
-    margin-bottom: 60px;
-}
-
-.kepala-sekolah-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #fff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.kepala-sekolah-card img {
-    width: 200px;
-    height: 200px;
-    border-radius: 12px;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 4px solid #2dd4bf;
-}
-
-.kepala-info {
-    text-align: center;
-}
-
-.kepala-jabatan {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--dark-color);
-    margin-bottom: 5px;
-}
-
-.kepala-nama {
-    font-size: 0.95rem;
-    color: var(--text-color);
-}
-
-.wakil-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
 }
 
-.wakil-card {
+.peluang-card {
     background: #fff;
-    padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    transition: transform 0.3s ease;
 }
 
-.wakil-card:hover {
+.peluang-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(45, 212, 191, 0.2);
 }
 
-.wakil-card img {
-    width: 120px;
-    height: 120px;
+.peluang-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
     border-radius: 12px;
-    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 15px;
-    border: 3px solid #2dd4bf;
 }
 
-.wakil-card h5 {
-    font-size: 0.9rem;
+.peluang-icon svg {
+    color: white;
+    width: 28px;
+    height: 28px;
+}
+
+.peluang-card h4 {
+    font-size: 0.95rem;
     font-weight: 600;
-    color: var(--dark-color);
-    margin-bottom: 8px;
+    color: #1f2937;
     line-height: 1.4;
+    margin: 0;
 }
 
-.wakil-card p {
-    font-size: 0.85rem;
-    color: var(--text-color);
+/* CTA Section */
+.cta-section {
+    margin-top: 60px;
 }
 
-/* Lokasi */
-.lokasi-section {
-    margin-bottom: 40px;
-}
-
-.map-container {
-    border-radius: 12px;
-    overflow: hidden;
-    margin-top: 30px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.map-container iframe {
-    width: 100%;
-    height: 450px;
-    border: 0;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .profil-hero {
-        grid-template-columns: 1fr;
-    }
-
-    .wakil-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .prestasi-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .identitas-table td {
-        padding: 15px 20px;
-    }
-
-    .label-col {
-        width: 20%;
-    }
-
-    .value-col {
-        width: 30%;
-    }
-}
-
-@media (max-width: 768px) {
-    .school-name {
-        font-size: 2rem;
-    }
-
-    .identitas-table {
-        display: block;
-    }
-
-    .identitas-table tr {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-        padding: 20px;
-        border-bottom: 2px solid #e5e7eb;
-    }
-
-    .identitas-table td {
-        padding: 5px 0;
-        width: 100% !important;
-    }
-
-    .label-col {
-        font-size: 0.85rem;
-    }
-
-    .value-col {
-        font-size: 0.9rem;
-        padding-left: 0 !important;
-    }
-
-    .wakil-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .prestasi-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .map-container iframe {
-        height: 350px;
-    }
-}
-
-@media (max-width: 480px) {
-    .page-title {
-        font-size: 1.5rem;
-    }
-
-    .school-name {
-        font-size: 1.5rem;
-    }
-
-    .identitas-table tr {
-        padding: 15px;
-    }
-
-    .kepala-sekolah-card {
-        padding: 30px 20px;
-    }
-
-    .kepala-sekolah-card img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .wakil-card img {
-        width: 100px;
-        height: 100px;
-    }
+.cta-card {
+    background: linear;
+    text-align: center;
 }
