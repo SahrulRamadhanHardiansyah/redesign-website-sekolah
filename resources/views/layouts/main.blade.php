@@ -63,9 +63,9 @@
                             Gtk & Siswa <i class="fas fa-chevron-down dropdown-icon"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Data Pendidik</a></li>
-                            <li><a href="#">Data Tenaga Kependidikan</a></li>
-                            <li><a href="#">Data Siswa</a></li>
+                            <li><a href="{{ route('data.pendidik') }}">Data Pendidik</a></li>
+                            <li><a href="{{ route('data.tenaga_kependidikan') }}">Data Tenaga Kependidikan</a></li>
+                            <li><a href="{{ route('data.siswa') }}">Data Siswa</a></li>
                         </ul>
                     </li>
 

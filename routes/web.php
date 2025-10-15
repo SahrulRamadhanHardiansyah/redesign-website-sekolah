@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\PrestasiController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SpmbPageController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\GtkController;
 use App\Models\Berita;
 use App\Models\Ekstrakurikuler;
 use App\Models\Setting;
@@ -31,6 +32,11 @@ Route::get('/', function () {
 Route::get('/Kontak', function () {return view('pages.kontak');})->name('kontak');
 
 Route::get('/profil', function () { return view('pages.profil'); })->name('profil');
+
+// Rute untuk Halaman GTK & Siswa
+Route::get('/data-pendidik', [GtkController::class, 'pendidik'])->name('data.pendidik');
+Route::get('/data-tenaga-kependidikan', [GtkController::class, 'tenagaKependidikan'])->name('data.tenaga_kependidikan');
+Route::get('/data-siswa', [GtkController::class, 'siswa'])->name('data.siswa');
 
 // Rute SPMB Publik
 Route::get('/spmb', function () {
