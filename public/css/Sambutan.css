@@ -1,0 +1,129 @@
+/* Menggunakan font yang terlihat modern dan profesional */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f6;
+}
+
+.sambutan-wrapper {
+    background-color: #ffffff;
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Judul Kiri */
+.sambutan-title {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #02CDAB;
+    margin-bottom: 40px; 
+    border-left: 5px solid #02CDAB;
+    padding-left: 15px;
+    text-align: left;
+}
+
+/* Konten Teks */
+.sambutan-content-text p {
+    line-height: 1.8;
+    text-align: left; 
+    color: #495057;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.sambutan-content-text p.lead {
+    font-weight: 600;
+    color: #343a40;
+}
+
+.kepsek-ttd p {
+    margin-bottom: 0.2rem;
+}
+
+/* === BAGIAN VISUAL FOTO DAN GEOMETRIS === */
+
+.kepala-sekolah-visual {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.kepala-sekolah-visual img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); 
+    position: relative;
+    z-index: 2;
+}
+
+/* Elemen Geometris 1: Kotak besar berwarna di belakang foto (Kuning - meniru referensi) */
+.kepala-sekolah-visual::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    right: -20px;
+    width: 80%;
+    height: 80%;
+    background-color: #ffda79;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+/* Elemen Geometris 2: Kotak kecil/bentuk lain sebagai aksen */
+.kepala-sekolah-visual::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+    width: 40px;
+    height: 40px;
+    background-color: #02CDAB; 
+    border-radius: 5px;
+    transform: rotate(45deg);
+    z-index: 3;
+}
+
+/* === RESPONSIVE (MOBILE) - BAGIAN PERBAIKAN UTAMA ADA DI SINI === */
+@media (max-width: 991.98px) {
+    .sambutan-wrapper {
+        padding: 30px 20px;
+    }
+    
+    /* [PERBAIKAN] Menggunakan order untuk membalik urutan di mobile */
+    .row > .col-lg-7 { /* KOLOM TEKS */
+        order: 2;
+    }
+    .row > .col-lg-5 { /* KOLOM FOTO */
+        order: 1; /* FOTO sekarang di urutan pertama */
+        margin-bottom: 30px;
+    }
+
+    .sambutan-title {
+        font-size: 1.8rem;
+        padding-left: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Hilangkan elemen geometris di mobile agar tidak mengganggu */
+    .kepala-sekolah-visual::before,
+    .kepala-sekolah-visual::after {
+        content: none;
+    }
+    
+    .kepala-sekolah-visual img {
+        width: 60%;
+        max-width: 250px;
+        margin-top: 20px;
+        border-radius: 8px;
+    }
+
+    .sambutan-content-text p {
+        text-align: left;
+    }
+}
