@@ -51,16 +51,21 @@
                     <li>
                         <a href="#"><i class="fas fa-school"></i> Kelola Jurusan</a>
                     </li>
-                   <li class="{{ request()->is('admin/ekstrakurikuler*') ? 'active' : '' }}">
+                    <li class="{{ request()->is('admin/ekstrakurikuler*') ? 'active' : '' }}">
                         <a href="{{ route('admin.ekstrakurikuler.index') }}"><i class="fas fa-chalkboard-teacher"></i> Kelola Ekstrakurikuler</a>
-                    </li>
+                    </li>
+                    <li class="{{ request()->is('admin/users*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.users.index') }}"><i class="fas fa-users-cog"></i> Kelola User</a>
+                    </li>
                 </ul>
             </nav>
             <div class="sidebar-footer">
-                <div class="user-info">
-                    <i class="fas fa-user-circle"></i>
-                    <span>{{ Auth::user()->name ?? 'Test User' }}</span>
-                </div>
+                <a href="{{ route('admin.profile.edit') }}" class="user-info-link">
+                    <div class="user-info">
+                        <i class="fas fa-user-circle"></i>
+                        <span>{{ Auth::user()->name ?? 'Test User' }}</span>
+                    </div>
+                </a>
                 <form method="POST" action="{{ route('admin.logout') }}">
                     @csrf
                     <button type="submit" class="logout-btn">
