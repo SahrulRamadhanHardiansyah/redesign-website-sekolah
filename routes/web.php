@@ -6,10 +6,12 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BeritaController;
 use App\Data\BeritaData;
+use App\Http\Controllers\Admin\EkstrakurikulerController;
 use App\Http\Controllers\Admin\GaleriController;
 use App\Http\Controllers\Admin\PrestasiController;
 use App\Http\Controllers\Admin\SpmbPageController;
 use App\Models\Berita;
+use App\Models\Ekstrakurikuler;
 use App\Models\Setting;
 
 /*
@@ -53,8 +55,6 @@ Route::get('/spmb', function () {
 
 Route::get('/jurusan', function () { return view('pages.jurusan'); })->name('jurusan');
 Route::get('/jurusan/detail', function () { return view('pages.detail-jurusan'); })->name('jurusan.detail');
-
-Route::get('/ekstrakurikuler', function () { return view('pages.ekstrakurikuler'); })->name('ekstrakurikuler');
 
 // Rute Prestasi Publik
 Route::get('/prestasi', function () {
@@ -103,20 +103,13 @@ Route::get('/berita', function () {
 
 // Route Ekstrakurikuler
 Route::get('/ekstrakurikuler', function () {
-    $ekskul = EkstrakurikulerData::getAll();
+    $ekskul = Ekstrakurikuler::orderBy('nama')->get();
     return view('pages.ekstrakurikuler', compact('ekskul'));
 })->name('ekstrakurikuler');
 
-Route::get('/ekstrakurikuler/{slug}', function ($slug) {
-    $ekskul = EkstrakurikulerData::getBySlug($slug);
-
-    if (!$ekskul) {
-        abort(404, 'Ekstrakurikuler tidak ditemukan');
-    }
-
-    return view('pages.detail-ekstrakurikuler', compact('ekskul'));
+Route::get('/ekstrakurikuler/{ekstrakurikuler:slug}', function (Ekstrakurikuler $ekstrakurikuler) {
+    return view('pages.detail-ekstrakurikuler', ['ekskul' => $ekstrakurikuler]);
 })->name('ekstrakurikuler.detail');
-
 
 Route::get('/berita/{id}', function ($id) {
     // Try database first, fallback to static data
@@ -203,6 +196,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     // Route Prestasi (CRUD)
     Route::resource('prestasi', PrestasiController::class)->parameters(['prestasi' => 'prestasi'])->except(['show']);
+
+    // Route Ekstrakurikuler (CRUD)
+    Route::resource('ekstrakurikuler', EkstrakurikulerController::class)->parameters(['ekstrakurikuler' => 'ekstrakurikuler'])->except(['show']);
 });
 Route::post('/admin/update-jumlah-siswa', [DashboardController::class, 'updateJumlahSiswa'])
     ->name('admin.updateJumlahSiswa');

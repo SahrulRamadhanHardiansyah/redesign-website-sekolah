@@ -34,5 +34,8 @@ class DatabaseSeeder extends Seeder
 
         // Seed prestasi data
         $this->call(PrestasiSeeder::class);
+
+        // Seed ekstrakurikuler data
+        $this->call(EkstrakurikulerSeeder::class);
     }
 }
