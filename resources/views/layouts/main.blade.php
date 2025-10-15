@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'SMKN 1 Bangil')</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,6 +109,28 @@
     <main>
         @yield('content')
     </main>
+
+
+    <!-- Floating Chatbot HTML -->
+    <div id="chatbot-button" class="chatbot-btn">
+        💬
+    </div>
+
+    <div id="chatbot-box" class="chatbot-box d-none">
+        <div class="chatbot-header">
+            <strong>Chatbot Sekolah</strong>
+            <button id="close-chat" class="close-btn">&times;</button>
+        </div>
+        <div id="chat-content" class="chat-content"></div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Ketik pesan...">
+            <button id="send-chat">Kirim</button>
+        </div>
+    </div>
+
+    <!-- Load CSS dan JS Chatbot -->
+    <link rel="stylesheet" href="{{ asset('css/chatbot.css') }}">
+    <script src="{{ asset('js/chatbot-floating.js') }}" defer></script>
 
     <footer class="footer">
         <div class="container">
