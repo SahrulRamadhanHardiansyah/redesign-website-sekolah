@@ -6,29 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('ekstrakurikulers', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('pembina');
-            $table->string('jadwal');
-            $table->string('tempat');
-            $table->text('deskripsi_singkat');
-            $table->longText('deskripsi_lengkap');
-            $table->string('gambar')->nullable();
-            $table->json('tujuan')->nullable();
-            $table->json('kegiatan')->nullable();
+            $table->string('slug')->unique(); // Untuk URL, contoh: /ekstrakurikuler/pmr
+            $table->string('gambar')->nullable(); // Untuk logo/gambar utama ekskul
+            $table->longText('deskripsi'); // Akan menyimpan semua detail dalam format Markdown
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('ekstrakurikulers');
