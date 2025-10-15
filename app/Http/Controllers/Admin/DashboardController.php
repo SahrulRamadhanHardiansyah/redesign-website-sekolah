@@ -13,21 +13,11 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $totalGuru = Guru::count();
-        $totalKelas = Kelas::count();
-        $totalJurusan = Jurusan::count();
+        $jumlahSiswa = (int) Setting::getValue('jumlah_siswa', 0);
 
-        // Ambil jumlah siswa dari tabel settings
-        $settingSiswa = Setting::where('key', 'jumlah_siswa')->first();
-        $totalSiswa = $settingSiswa ? $settingSiswa->value : 0;
-
-        return view('admin.dashboard', compact(
-            'totalSiswa',
-            'totalGuru',
-            'totalKelas',
-            'totalJurusan'
-        ));
+        return view('admin.dashboard', compact('jumlahSiswa'));
     }
+
 
     public function updateJumlahSiswa(Request $request)
     {
