@@ -30,7 +30,7 @@ Route::get('/', function () {
 })->name('beranda');
 
 Route::get('/Kontak', function () {return view('pages.kontak');})->name('kontak');
-
+Route::get('/SambutanKepsek', function() {return view('pages.sambutan-kepsek');})->name('SambutanKepsek');
 Route::get('/profil', function () { return view('pages.profil'); })->name('profil');
 
 // Rute untuk Halaman GTK & Siswa
