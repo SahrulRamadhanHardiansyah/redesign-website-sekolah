@@ -85,7 +85,7 @@
                 @endfor
             </div>
             <div class="section-cta">
-                <a href="#" class="btn btn-primary">Lihat Semua</a>
+                <a href="{{ route('berita') }}" class="btn btn-primary">Lihat Semua</a>
             </div>
         </div>
     </section>
@@ -116,7 +116,7 @@
                 </div>
             </div>
             <div class="section-cta">
-                <a href="#" class="btn btn-primary">Lihat Semua</a>
+                <a href="{{ route('galeri') }}" class="btn btn-primary">Lihat Semua</a>
             </div>
         </div>
     </section>

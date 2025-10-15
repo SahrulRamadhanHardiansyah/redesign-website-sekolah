@@ -51,9 +51,9 @@
                     <li>
                         <a href="#"><i class="fas fa-school"></i> Kelola Jurusan</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fas fa-chalkboard-teacher"></i> Kelola Guru</a>
-                    </li>
+                   <li class="{{ request()->is('admin/ekstrakurikuler*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.ekstrakurikuler.index') }}"><i class="fas fa-chalkboard-teacher"></i> Kelola Ekstrakurikuler</a>
+                    </li>
                 </ul>
             </nav>
             <div class="sidebar-footer">

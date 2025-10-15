@@ -26,6 +26,8 @@ Route::get('/', function () {
     return view('pages.beranda', compact('jumlahSiswa'));
 })->name('beranda');
 
+Route::get('/Kontak', function () {return view('pages.kontak');})->name('kontak');
+
 Route::get('/profil', function () { return view('pages.profil'); })->name('profil');
 
 // Rute SPMB Publik

@@ -75,7 +75,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Smart BKK</a></li>
-                            <li><a href="#">Sertifikat Profesi</a></li>
+                            <li><a href="https://lsp-smkn1bangil.net/">Sertifikat Profesi</a></li>
                             <li><a href="#">CBT Online</a></li>
                             <li><a href="#">Peta Situs</a></li>
                         </ul>
@@ -126,17 +126,15 @@
                 <div class="footer-links">
                     <h4>Tentang Sekolah</h4>
                     <ul>
-                        <li><a href="#">Profil</a></li>
-                        <li><a href="#">Prestasi</a></li>
-                        <li><a href="#">Berita</a></li>
+                        <li><a href="{{ route('profil') }}">Profil</a></li>
+                        <li><a href="{{ route('prestasi') }}">Prestasi</a></li>
+                        <li><a href="{{ route('berita') }}">Berita</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Hubungi kami</h4>
                     <ul>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="https://wa.me/+6287743274606"><i class="fab fa-whatsapp"></i>
-                                0343-744144</a></li>
                         <li><a href="mailto:smknesaba@yahoo.com"><i class="fas fa-envelope"></i>
                                 smknesaba@yahoo.com</a></li>
                     </ul>
@@ -144,8 +142,8 @@
                 <div class="footer-links">
                     <h4>GTK & Siswa</h4>
                     <ul>
-                        <li><a href="#">SPMB</a></li>
-                        <li><a href="#">Kontak</a></li>
+                        <li><a href="{{ route('spmb') }}">SPMB</a></li>
+                        <li><a href="{{ route('admin.dashboard') }}">Kontak</a></li>
                         <li><a href="#">Galeri</a></li>
                     </ul>
                 </div>
