@@ -1,21 +1,22 @@
 <?php
 
+use App\Models\Berita;
+use App\Models\Setting;
+use App\Data\BeritaData;
+use App\Data\JurusanData;
+use App\Models\Ekstrakurikuler;
 use App\Data\EkstrakurikulerData;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\BeritaController;
-use App\Data\BeritaData;
-use App\Http\Controllers\Admin\EkstrakurikulerController;
-use App\Http\Controllers\Admin\GaleriController;
-use App\Http\Controllers\Admin\PrestasiController;
-use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Admin\SpmbPageController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\GtkController;
-use App\Models\Berita;
-use App\Models\Ekstrakurikuler;
-use App\Models\Setting;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Admin\GaleriController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\PrestasiController;
+use App\Http\Controllers\Admin\SpmbPageController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EkstrakurikulerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,8 +64,22 @@ Route::get('/spmb', function () {
     return view('pages.spmb', compact('settings'));
 })->name('spmb');
 
-Route::get('/jurusan', function () { return view('pages.jurusan'); })->name('jurusan');
-Route::get('/jurusan/detail', function () { return view('pages.detail-jurusan'); })->name('jurusan.detail');
+Route::get('/jurusan', function () {
+    return view('pages.jurusan', [
+        'jurusans' => JurusanData::getAllForListing()
+    ]);
+})->name('jurusan');
+Route::get('/jurusan/{slug}', function ($slug) {
+    $jurusan = JurusanData::findBySlug($slug);
+    
+    if (!$jurusan) {
+        abort(404);
+    }
+    
+    return view('pages.detail-jurusan', [
+        'jurusan' => $jurusan
+    ]);
+})->name('jurusan.detail');
 
 // Rute Prestasi Publik
 Route::get('/prestasi', function () {
