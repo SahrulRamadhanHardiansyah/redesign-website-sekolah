@@ -2,7 +2,7 @@
 @section('title', 'Profil Sekolah')
 
 @section('style')
-    <link rel="stylesheet" href="{{ asset('css/profilJurusan.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/profilSekolah.css') }}">
 @endsection
 
 @section('content')
