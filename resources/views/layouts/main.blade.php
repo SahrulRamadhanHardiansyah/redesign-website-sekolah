@@ -118,7 +118,7 @@
 
     <div id="chatbot-box" class="chatbot-box d-none">
         <div class="chatbot-header">
-            <strong>Chatbot Sekolah</strong>
+            <strong>Nesaba.Ai</strong>
             <button id="close-chat" class="close-btn">&times;</button>
         </div>
         <div id="chat-content" class="chat-content"></div>
