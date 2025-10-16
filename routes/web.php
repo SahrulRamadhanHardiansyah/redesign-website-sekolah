@@ -48,8 +48,8 @@ Route::get('/', function () {
 
     // Kirim semua data ke view
     return view('pages.beranda', compact(
-        'jumlahSiswa', 
-        'jumlahJurusan', 
+        'jumlahSiswa',
+        'jumlahJurusan',
         'jumlahGuru',
         'beritaTerbaru',
         'galeriTerbaru'
@@ -115,7 +115,7 @@ Route::get('/prestasi', function () {
 
 // Rute Galeri Publik
 Route::get('/galeri', function () {
-    $galleryItems = \App\Models\Galeri::orderBy('created_at', 'desc')->get();
+    $galleryItems = Galeri::orderBy('created_at', 'desc')->get();
     return view('pages.galeri', compact('galleryItems'));
 })->name('galeri');
 
