@@ -1,122 +1,135 @@
-// Chatbot Floating Window
-document.addEventListener('DOMContentLoaded', function() {
-    const chatbotBtn = document.getElementById('chatbot-button');
-    const chatbotBox = document.getElementById('chatbot-box');
-    const closeChat = document.getElementById('close-chat');
-    const chatInput = document.getElementById('chat-input');
-    const sendChat = document.getElementById('send-chat');
-    const chatContent = document.getElementById('chat-content');
+const chatbotBtn = document.getElementById('chatbot-button');
+const chatbotBox = document.getElementById('chatbot-box');
+const closeChat = document.getElementById('close-chat');
+const sendChat = document.getElementById('send-chat');
+const chatInput = document.getElementById('chat-input');
+const chatContent = document.getElementById('chat-content');
 
-    // Toggle chatbot
-    chatbotBtn.addEventListener('click', () => {
-        chatbotBox.classList.remove('d-none');
-        chatbotBtn.style.display = 'none';
+let isProcessing = false; // Prevent multiple requests
+
+// Tampilkan atau sembunyikan chatbox
+chatbotBtn.addEventListener('click', () => {
+    chatbotBox.classList.toggle('d-none');
+    if (!chatbotBox.classList.contains('d-none')) {
         chatInput.focus();
+    }
+});
 
-        // Show welcome message if first time
-        if (chatContent.children.length === 0) {
-            addMessage('Halo! Saya asisten virtual SMKN 1 Bangil. Ada yang bisa saya bantu?', 'bot');
-        }
-    });
+closeChat.addEventListener('click', () => {
+    chatbotBox.classList.add('d-none');
+});
 
-    // Close chatbot
-    closeChat.addEventListener('click', () => {
-        chatbotBox.classList.add('d-none');
-        chatbotBtn.style.display = 'flex';
-    });
+// Fungsi untuk menampilkan pesan
+function addMessage(sender, message) {
+    const messageElement = document.createElement('div');
+    messageElement.className = `chat-message ${sender}`;
 
-    // Send message on button click
-    sendChat.addEventListener('click', sendMessage);
+    const label = document.createElement('strong');
+    label.textContent = sender === 'user' ? 'Anda: ' : 'Bot: ';
 
-    // Send message on Enter key
-    chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault();
-            sendMessage();
-        }
-    });
+    const text = document.createElement('span');
+    text.textContent = message;
 
-    function sendMessage() {
-        const message = chatInput.value.trim();
+    messageElement.appendChild(label);
+    messageElement.appendChild(text);
 
-        if (!message) {
-            return;
-        }
+    chatContent.appendChild(messageElement);
+    chatContent.scrollTop = chatContent.scrollHeight;
+}
 
-        // Add user message to chat
-        addMessage(`Anda: ${message}`, 'user');
+// Fungsi untuk menampilkan loading
+function showLoading() {
+    const loadingElement = document.createElement('div');
+    loadingElement.className = 'chat-message bot loading';
+    loadingElement.innerHTML = '<strong>Bot: </strong><span>Mengetik...</span>';
+    loadingElement.id = 'loading-indicator';
+    chatContent.appendChild(loadingElement);
+    chatContent.scrollTop = chatContent.scrollHeight;
+}
 
-        // Clear input
-        chatInput.value = '';
+// Fungsi untuk menghapus loading
+function removeLoading() {
+    const loadingElement = document.getElementById('loading-indicator');
+    if (loadingElement) {
+        loadingElement.remove();
+    }
+}
 
-        // Show typing indicator
-        const typingIndicator = addMessage('Bot sedang mengetik...', 'bot typing');
+// Kirim pesan ke server Laravel
+async function sendMessage() {
+    const message = chatInput.value.trim();
 
-        // Disable input while processing
-        chatInput.disabled = true;
-        sendChat.disabled = true;
+    if (!message || isProcessing) return;
 
-        // Get CSRF token
-        const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+    // Set processing flag
+    isProcessing = true;
+    sendChat.disabled = true;
+    chatInput.disabled = true;
 
-        // Send to server
-          fetch('/chatbot', {
+    // Tampilkan pesan user
+    addMessage('user', message);
+    chatInput.value = '';
+
+    // Tampilkan loading
+    showLoading();
+
+    try {
+        const response = await fetch('/chatbot', {
             method: 'POST',
-            credentials: 'same-origin', // <-- tambahkan ini
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': csrfToken,
-                'Accept': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                'Accept': 'application/json'
             },
-            body: JSON.stringify({ message: message }),
-        })
-        .then(async response => {
-            console.log('Response status:', response.status);
-            const contentType = response.headers.get('Content-Type') || '';
-            const text = await response.text();
-            let data;
-            try {
-                data = contentType.includes('application/json') ? JSON.parse(text) : { raw: text };
-            } catch (err) {
-                console.error('Failed to parse JSON:', err, 'raw:', text);
-                data = { raw: text };
-            }
-            if (!response.ok) {
-                console.error('Error response:', data);
-                throw new Error(data.message || data.error || data.raw || 'Network response was not ok');
-            }
-            return data;
-        })
-        .then(data => {
-            // Remove typing indicator
-            typingIndicator.remove();
-
-            // Add bot response
-            const reply = data.reply || data.choices?.[0]?.message?.content || data.raw || 'Maaf, saya tidak bisa memproses pesan Anda.';
-            addMessage(`Bot: ${reply}`, 'bot');
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            typingIndicator.remove();
-            addMessage('Maaf, terjadi kesalahan. Silakan coba lagi. (' + (error.message || '') + ')', 'bot error');
-        })
-        .finally(() => {
-            // Re-enable input
-            chatInput.disabled = false;
-            sendChat.disabled = false;
-            chatInput.focus();
+            body: JSON.stringify({ message })
         });
+
+        // Remove loading
+        removeLoading();
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // Ambil reply dari response - support berbagai format
+        let reply = data.reply ||
+                   data.response ||
+                   data.choices?.[0]?.message?.content ||
+                   data.message ||
+                   "Maaf, saya tidak bisa memproses pesan ini.";
+
+        // Tampilkan reply dari bot
+        addMessage('bot', reply);
+
+    } catch (error) {
+        console.error('Error:', error);
+        removeLoading();
+        addMessage('bot', 'Maaf, terjadi kesalahan koneksi. Silakan coba lagi atau hubungi kami di (0343) 741027.');
+    } finally {
+        // Reset processing flag
+        isProcessing = false;
+        sendChat.disabled = false;
+        chatInput.disabled = false;
+        chatInput.focus();
     }
+}
 
-    function addMessage(text, className) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `chat-message ${className}`;
-        messageDiv.textContent = text;
-        chatContent.appendChild(messageDiv);
+// Event listeners
+sendChat.addEventListener('click', sendMessage);
 
-        // Scroll to bottom
-        chatContent.scrollTop = chatContent.scrollHeight;
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+    }
+});
 
-        return messageDiv;
+// Pesan sambutan saat halaman dimuat
+document.addEventListener('DOMContentLoaded', () => {
+    // Cek apakah elemen sudah ada
+    if (chatContent && chatbotBtn && chatbotBox) {
+        addMessage('bot', 'Halo! Saya asisten virtual SMKN 1 Bangil. Ada yang bisa saya bantu?');
     }
 });
