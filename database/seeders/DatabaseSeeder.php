@@ -37,5 +37,8 @@ class DatabaseSeeder extends Seeder
 
         // Seed ekstrakurikuler data
         $this->call(EkstrakurikulerSeeder::class);
+
+        // Seed GTK settings
+        $this->call(GtkSettingSeeder::class);
     }
 }

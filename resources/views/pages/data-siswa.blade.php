@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="col-lg-6" style="margin-bottom: 2rem;">
-                <div class="chart-card chart-card-small">
+                <div class="chart-card">
                     <h5 class="chart-title">Gender Siswa</h5>
                     <div class="chart-container">
                         <canvas id="genderSiswaChart"></canvas>
@@ -76,9 +76,9 @@
             const tingkatData = @json($data['perTingkat']);
             const genderData = @json($data['gender']);
 
-            // 1. Chart Gender (Pie)
+            // 1. Chart Gender (doughnut)
             new Chart(document.getElementById('genderSiswaChart'), {
-                type: 'pie',
+                type: 'doughnut',
                 data: {
                     labels: genderData.labels,
                     datasets: [{
@@ -88,7 +88,7 @@
                         borderWidth: 2
                     }]
                 },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right' }}}
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top' }}}
             });
 
             // 2. Chart Jurusan (Bar)
