@@ -8,116 +8,85 @@ use Illuminate\Support\Facades\Log;
 
 class ChatbotController extends Controller
 {
-    public function handle(Request $request)
+    public function handleChat(Request $request)
     {
-        // Log incoming request
-        Log::info('Chatbot request received', ['message' => $request->input('message')]);
+        // Validasi input
+        $validated = $request->validate([
+            'message' => 'required|string|max:1000'
+        ]);
 
-        // Validate input
+        // Konfigurasi sistem
+        $systemMessage = [
+            'role' => 'system',
+            'content' => 'Anda adalah asisten virtual SMKN 1 Bangil. Berikan jawaban informatif tentang: '
+                . '- Jurusan sekolah '
+                . '- Pendaftaran siswa (SPMB) '
+                . '- Ekstrakurikuler '
+                . '- Informasi umum sekolah '
+                . '- Berita terbaru '
+                . 'Gunakan bahasa Indonesia yang sopan dan santun. '
+                . 'Jika pertanyaan di luar topik, jawab "Maaf, saya hanya bisa membantu informasi seputar SMKN 1 Bangil"'
+        ];
+
         try {
-            $request->validate([
-                'message' => 'required|string|max:1000',
+            // Ambil API key dari config
+            $apiKey = config('services.openai.api_key');
+
+            if (!$apiKey) {
+                throw new \Exception('API key tidak terkonfigurasi');
+            }
+
+            // Request ke OpenAI API
+            $response = Http::withHeaders([
+                'Authorization' => 'Bearer ' . $apiKey,
+                'Content-Type' => 'application/json',
+            ])->timeout(25)->post('https://api.openai.com/v1/chat/completions', [
+                'model' => 'gpt-3.5-turbo',
+                'messages' => [
+                    $systemMessage,
+                    ['role' => 'user', 'content' => $request->message]
+                ],
+                'temperature' => 0.7,
+                'max_tokens' => 600,
+                'top_p' => 1,
+                'frequency_penalty' => 0,
+                'presence_penalty' => 0,
             ]);
-        } catch (\Exception $e) {
-            Log::error('Validation error', ['error' => $e->getMessage()]);
-            return response()->json(['error' => 'Invalid input'], 400);
-        }
 
-        $message = $request->input('message');
-
-
-        // Check if API key exists
-        $apiKey = config('services.openai.api_key');
-        if (!$apiKey) {
-            Log::error('OpenAI API key not found');
-            return response()->json([
-                'error' => 'API key not configured',
-            ], 500);
-        }
-
-        Log::info('API key found', ['key_length' => strlen($apiKey)]);
-
-        try {
-            $response = Http::timeout(30)
-                ->withHeaders([
-                    'Authorization' => 'Bearer ' . $apiKey,
-                    'Content-Type' => 'application/json',
-                ])
-                ->post('https://api.openai.com/v1/chat/completions', [
-                    'model' => 'gpt-3.5-turbo',
-                    'messages' => [
-                        [
-                            'role' => 'system',
-                            'content' => 'Kamu adalah asisten virtual SMKN 1 Bangil yang ramah dan membantu. Kamu membantu menjawab pertanyaan tentang sekolah, jurusan, pendaftaran (SPMB), ekstrakurikuler, dan informasi umum sekolah. Jawab dengan bahasa Indonesia yang sopan dan informatif.'
-                        ],
-                        [
-                            'role' => 'user',
-                            'content' => $message
-                        ],
-                    ],
-                    'max_tokens' => 500,
-                    'temperature' => 0.7,
-                ]);
-
+            // Handle error response
             if ($response->failed()) {
                 Log::error('OpenAI API Error', [
                     'status' => $response->status(),
-                    'body' => $response->json(),
+                    'response' => $response->body()
                 ]);
 
                 return response()->json([
-                    'error' => 'Maaf, terjadi kesalahan. Silakan coba lagi.',
+                    'error' => 'Maaf, sedang ada gangguan. Silakan coba lagi nanti.'
                 ], 500);
             }
 
             $data = $response->json();
 
             return response()->json([
-                'reply' => $data['choices'][0]['message']['content'] ?? 'Maaf, saya tidak bisa memproses pesan Anda.',
+                'reply' => $data['choices'][0]['message']['content'] ?? 'Tidak dapat memproses permintaan Anda'
             ]);
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                'error' => 'Input tidak valid: ' . $e->getMessage()
+            ], 400);
 
         } catch (\Exception $e) {
-            Log::error('Chatbot Error', [
-                'message' => $e->getMessage(),
-                'trace' => $e->getTraceAsString(),
-            ]);
+            Log::error('Chatbot Error: ' . $e->getMessage());
 
             return response()->json([
-                'error' => 'Maaf, terjadi kesalahan sistem. Silakan coba lagi nanti.',
+                'error' => 'Terjadi kesalahan sistem: ' . ($this->isDebug() ? $e->getMessage() : 'Silakan coba lagi')
             ], 500);
         }
     }
-    public function chat(Request $request)
+
+    private function isDebug()
     {
-        $request->validate([
-            'message' => 'required|string',
-        ]);
-
-        try {
-            $userMessage = $request->input('message');
-
-            $resp = Http::withToken(env('OPENAI_API_KEY'))
-                ->post('https://api.openai.com/v1/chat/completions', [
-                    'model' => 'gpt-3.5-turbo',
-                    'messages' => [
-                        ['role' => 'system', 'content' => 'Anda adalah asisten virtual situs sekolah. Jawab singkat dan sopan.'],
-                        ['role' => 'user', 'content' => $userMessage],
-                    ],
-                    'max_tokens' => 500,
-                ]);
-
-            if (! $resp->successful()) {
-                Log::error('OpenAI request failed', ['status' => $resp->status(), 'body' => $resp->body()]);
-                return response()->json(['error' => 'AI provider error'], 500);
-            }
-
-            $data = $resp->json();
-            $reply = $data['choices'][0]['message']['content'] ?? ($data['error']['message'] ?? 'Tidak ada respons dari AI.');
-
-            return response()->json(['reply' => trim($reply)]);
-        } catch (\Throwable $e) {
-            Log::error('Chatbot exception: '.$e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Server error', 'detail' => $e->getMessage()], 500);
-        }
+        return config('app.debug');
     }
 }
