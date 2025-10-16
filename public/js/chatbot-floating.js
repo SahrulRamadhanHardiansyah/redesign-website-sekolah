@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Show welcome message if first time
         if (chatContent.children.length === 0) {
-            addMessage('Bot: Halo! Saya asisten virtual SMKN 1 Bangil. Ada yang bisa saya bantu?', 'bot');
+            addMessage('Halo! Saya asisten virtual SMKN 1 Bangil. Ada yang bisa saya bantu?', 'bot');
         }
     });
 
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error:', error);
             typingIndicator.remove();
-            addMessage('Bot: Maaf, terjadi kesalahan. Silakan coba lagi. (' + (error.message || '') + ')', 'bot error');
+            addMessage('Maaf, terjadi kesalahan. Silakan coba lagi. (' + (error.message || '') + ')', 'bot error');
         })
         .finally(() => {
             // Re-enable input
