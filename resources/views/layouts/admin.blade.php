@@ -27,8 +27,8 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <a href="{{ route('admin.dashboard') }}" class="sidebar-logo">
-                    <img src="{{ asset('img/logo-footer.png') }}" alt="Logo">
-                    <span>Admin Panel</span>
+                    <img class="me-2" src="{{ asset('img/footer/smk1bgl__1_-removebg-preview.png') }}" alt="Logo">
+                    <span >Admin Panel</span>
                 </a>
             </div>
             <nav class="sidebar-nav">
@@ -43,19 +43,22 @@
                         <a href="{{ route('admin.galeri.index') }}"><i class="fas fa-images"></i> Kelola Galeri</a>
                     </li>
                     <li class="{{ request()->is('admin/spmb*') ? 'active' : '' }}">
-                        <a href="{{ route('admin.spmb.edit') }}"><i class="fas fa-images"></i> Kelola SPMB</a>
+                        <a href="{{ route('admin.spmb.edit') }}"><i class="fas fa-graduation-cap"></i> Kelola SPMB</a>
                     </li>
                     <li class="{{ request()->is('admin/prestasi*') ? 'active' : '' }}">
                         <a href="{{ route('admin.prestasi.index') }}"><i class="fas fa-trophy"></i> Kelola Prestasi</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="#"><i class="fas fa-school"></i> Kelola Jurusan</a>
-                    </li>
+                    </li> --}}
                     <li class="{{ request()->is('admin/ekstrakurikuler*') ? 'active' : '' }}">
                         <a href="{{ route('admin.ekstrakurikuler.index') }}"><i class="fas fa-chalkboard-teacher"></i> Kelola Ekstrakurikuler</a>
                     </li>
                     <li class="{{ request()->is('admin/users*') ? 'active' : '' }}">
                         <a href="{{ route('admin.users.index') }}"><i class="fas fa-users-cog"></i> Kelola User</a>
+                    </li>
+                    <li class="{{ request()->is('admin/gtk-data*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.gtk.edit') }}"><i class="fas fa-chart-bar"></i> Kelola Data GTK</a>
                     </li>
                 </ul>
             </nav>

@@ -62,9 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {const chartColors = {p
 const genderData = @json($data['gender']);
 const pendidikanData = @json($data['pendidikan']);
 const sertifikasiData = @json($data['statusSertifikasi'])
-// 1. Chart Gender (Pie)
+// 1. Chart Gender (doughnut)
 new Chart(document.getElementById('genderChart'), {
-    type: 'pie',
+    type: 'doughnut',
     data: {
         labels: genderData.labels,
         datasets: [{

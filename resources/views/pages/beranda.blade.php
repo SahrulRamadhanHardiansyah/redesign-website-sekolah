@@ -30,7 +30,7 @@
                     <p>Total Siswa</p>
                 </div>
                 <div class="fakta-card">
-                    <h3>9</h3>
+                    <h3>{{ number_format((int) ($jumlahJurusan ?? 0)) }}</h3>
                     <p>Program Keahlian</p>
                 </div>
                 <div class="fakta-card">
@@ -74,49 +74,64 @@
         <div class="container">
             <h2 class="section-title">Berita & Kegiatan <span>Terbaru</span></h2>
             <div class="berita-grid">
-                @for ($i = 0; $i < 4; $i++)
-                    <div class="card">
-                        <img src="{{ asset('img/berita-sample.png') }}" alt="Judul Berita" class="card-img">
-                        <div class="card-body">
-                            <h3 class="card-title">Siswa SMKN 1 Bangil Juara Lomba Kompetensi Tingkat Nasional</h3>
-                            <p class="card-text"><small>18 Mei 2025 | Akademik</small></p>
+                @forelse ($beritaTerbaru as $berita)
+                    <a href="{{ route('berita.detail', $berita->id) }}" class="card-link">
+                        {{-- Class .card sekarang memiliki struktur flex yang diatur di CSS --}}
+                        <div class="card">
+                            <img src="{{ asset($berita->gambar ?? 'img/berita-sample.png') }}" alt="{{ $berita->judul }}" class="card-img">
+                            <div class="card-body">
+                                {{-- Judul dan tanggal sekarang dibungkus div terpisah --}}
+                                <div class="card-content">
+                                    <h3 class="card-title">{{ Str::limit($berita->judul, 60) }}</h3>
+                                </div>
+                                <div class="card-footer">
+                                    <p class="card-text"><small>{{ $berita->tanggal ? $berita->tanggal->translatedFormat('d F Y') : '' }}</small></p>
+                                </div>
+                            </div>
                         </div>
+                    </a>
+                @empty
+                    <div class="col-12">
+                        <p class="text-center">Belum ada berita untuk ditampilkan.</p>
                     </div>
-                @endfor
+                @endforelse
             </div>
             <div class="section-cta">
-                <a href="{{ route('berita') }}" class="btn btn-primary">Lihat Semua</a>
+                <a href="{{ route('berita') }}" class="btn btn-primary">Lihat Semua Berita</a>
             </div>
         </div>
     </section>
 
+    {{-- ========================================================== --}}
+    {{-- Galeri Section (Struktur Diperbarui) --}}
+    {{-- ========================================================== --}}
     <section class="galeri-section section-padding">
         <div class="container" style="margin-bottom: 5rem;">
-            <h2 class="section-title">Galeri</h2>
+            <h2 class="section-title">Galeri Terbaru</h2>
             <div class="galeri-grid">
-                <div class="galeri-item">
-                    <img src="{{ asset('img/galeri-1.png') }}" alt="Galeri 1">
-                    <span class="date-tag">5 September</span>
-                </div>
-                <div class="galeri-item">
-                    <img src="{{ asset('img/galeri-1.png') }}" alt="Galeri 2">
-                    <span class="date-tag">23 Juni</span>
-                </div>
-                <div class="galeri-item">
-                    <img src="{{ asset('img/galeri-1.png') }}" alt="Galeri 3">
-                    <span class="date-tag">23 Juni</span>
-                </div>
-                <div class="galeri-item">
-                    <img src="{{ asset('img/galeri-1.png') }}" alt="Galeri 4">
-                    <span class="date-tag">22 Mei</span>
-                </div>
-                <div class="galeri-item">
-                    <img src="{{ asset('img/galeri-1.png') }}" alt="Galeri 5">
-                    <span class="date-tag">21 April</span>
-                </div>
+                @forelse ($galeriTerbaru as $item)
+                    <div class="galeri-item">
+                        <a href="{{ asset($item->gambar) }}" data-lightbox="beranda-gallery" data-title="{{ $item->judul }}">
+                            <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}">
+                            
+                            {{-- Date Tag (TETAP ADA) --}}
+                            <span class="date-tag">{{ $item->created_at->translatedFormat('d M') }}</span>
+
+                            {{-- Overlay (SEKARANG DENGAN JUDUL) --}}
+                            <div class="galeri-overlay">
+                                <h4 class="overlay-title">{{ Str::limit($item->judul, 40) }}</h4>
+                                <span class="overlay-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                @empty
+                     <div class="col-12">
+                        <p class="text-center">Belum ada foto di galeri untuk ditampilkan.</p>
+                    </div>
+                @endforelse
             </div>
             <div class="section-cta">
-                <a href="{{ route('galeri') }}" class="btn btn-primary">Lihat Semua</a>
+                <a href="{{ route('galeri') }}" class="btn btn-primary">Lihat Semua Galeri</a>
             </div>
         </div>
     </section>

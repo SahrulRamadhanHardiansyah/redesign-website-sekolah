@@ -18,7 +18,7 @@
         </div>
     @endif
 
-    {{-- Baris Kartu Rangkuman --}}
+    {{-- Baris Kartu Rangkuman (Data Dinamis) --}}
     <div class="row">
         {{-- Total Siswa --}}
         <div class="col-xl-4 col-md-6 mb-4">
@@ -26,7 +26,7 @@
                 <div class="summary-card-body d-flex justify-content-between align-items-center">
                     <div>
                         <div class="summary-card-title">Total Siswa</div>
-                        <div class="summary-card-value">{{ number_format((int) ($jumlahSiswa ?? 0)) }}</div>
+                        <div class="summary-card-value">{{ number_format($jumlahSiswa) }}</div>
                     </div>
                     <i class="fas fa-user-graduate summary-card-icon"></i>
                 </div>
@@ -39,7 +39,7 @@
                 <div class="summary-card-body d-flex justify-content-between align-items-center">
                     <div>
                         <div class="summary-card-title">Total Guru</div>
-                        <div class="summary-card-value">115</div>
+                        <div class="summary-card-value">{{ number_format($jumlahGuru) }}</div>
                     </div>
                     <i class="fas fa-chalkboard-teacher summary-card-icon"></i>
                 </div>
@@ -52,7 +52,7 @@
                 <div class="summary-card-body d-flex justify-content-between align-items-center">
                     <div>
                         <div class="summary-card-title">Total Jurusan</div>
-                        <div class="summary-card-value">9</div>
+                        <div class="summary-card-value">{{ number_format($jumlahJurusan) }}</div>
                     </div>
                     <i class="fas fa-book-open summary-card-icon"></i>
                 </div>
@@ -60,39 +60,37 @@
         </div>
     </div>
 
-    {{-- Baris Update Jumlah Siswa & Statistik --}}
+    {{-- Baris Form Edit Data Rangkuman --}}
     <div class="row">
-        {{-- Form Update Jumlah Siswa --}}
-        <div class="col-lg-6 mb-4">
+        <div class="col-12 mb-4">
             <div class="card card-custom">
                 <div class="card-header">
-                    <i class="fas fa-edit me-2"></i>Update Jumlah Siswa
+                    <i class="fas fa-edit me-2"></i>Edit Data Rangkuman
                 </div>
                 <div class="card-body">
-                    <p class="text-muted small mb-3">
-                        <i class="fas fa-info-circle me-1"></i>
-                        Perbarui jumlah total siswa yang terdaftar di sekolah
-                    </p>
-
-                    <form action="{{ route('admin.siswa.update') }}" method="POST">
+                    <form action="{{ route('admin.dashboard.update') }}" method="POST">
                         @csrf
                         @method('PUT')
-                        <div class="row g-2">
-                            <div class="col-8">
-                                <input type="number"
-                                       name="jumlah_siswa"
-                                       value="{{ old('jumlah_siswa', $jumlahSiswa ?? '') }}"
-                                       class="form-control @error('jumlah_siswa') is-invalid @enderror"
-                                       min="0"
-                                       placeholder="Masukkan jumlah siswa"
-                                       required />
-                                @error('jumlah_siswa')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                        <div class="row g-3 align-items-end">
+                            {{-- Input Jumlah Siswa --}}
+                            <div class="col-md-3">
+                                <label for="jumlah_siswa" class="form-label">Total Siswa</label>
+                                <input type="number" name="jumlah_siswa" id="jumlah_siswa" value="{{ old('jumlah_siswa', $jumlahSiswa) }}" class="form-control" required>
                             </div>
-                            <div class="col-4">
+                            {{-- Input Jumlah Guru --}}
+                            <div class="col-md-3">
+                                <label for="jumlah_guru" class="form-label">Total Guru</label>
+                                <input type="number" name="jumlah_guru" id="jumlah_guru" value="{{ old('jumlah_guru', $jumlahGuru) }}" class="form-control" required>
+                            </div>
+                            {{-- Input Jumlah Jurusan --}}
+                            <div class="col-md-3">
+                                <label for="jumlah_jurusan" class="form-label">Total Jurusan</label>
+                                <input type="number" name="jumlah_jurusan" id="jumlah_jurusan" value="{{ old('jumlah_jurusan', $jumlahJurusan) }}" class="form-control" required>
+                            </div>
+                            {{-- Tombol Simpan --}}
+                            <div class="col-md-3">
                                 <button type="submit" class="btn btn-success w-100">
-                                    <i class="fas fa-save me-1"></i> Simpan
+                                    <i class="fas fa-save me-1"></i> Simpan Perubahan
                                 </button>
                             </div>
                         </div>

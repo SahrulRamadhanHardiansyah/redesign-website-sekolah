@@ -17,9 +17,11 @@ use App\Http\Controllers\Admin\PrestasiController;
 use App\Http\Controllers\Admin\SpmbPageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EkstrakurikulerController;
+use App\Http\Controllers\Admin\GtkPageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\ChatbotController;
+use App\Models\Galeri;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +30,30 @@ use App\Http\Controllers\ChatbotController;
 */
 
 Route::get('/', function () {
+    // Mengambil data rangkuman
     $jumlahSiswa = Setting::getValue('jumlah_siswa', '0');
-    return view('pages.beranda', compact('jumlahSiswa'));
+    $jumlahJurusan = Setting::getValue('jumlah_jurusan', '0');
+    $jumlahGuru = Setting::getValue('jumlah_guru', '0');
+
+    // Mengambil 4 berita terbaru yang statusnya 'publish'
+    $beritaTerbaru = Berita::where('status', 'publish')
+                            ->latest('tanggal') // Urutkan berdasarkan tanggal, terbaru dulu
+                            ->take(4)           // Ambil 4 data
+                            ->get();
+
+    // Mengambil 5 foto galeri terbaru
+    $galeriTerbaru = Galeri::latest() // Urutkan berdasarkan created_at, terbaru dulu
+                           ->take(5)    // Ambil 5 data
+                           ->get();
+
+    // Kirim semua data ke view
+    return view('pages.beranda', compact(
+        'jumlahSiswa', 
+        'jumlahJurusan', 
+        'jumlahGuru',
+        'beritaTerbaru',
+        'galeriTerbaru'
+    ));
 })->name('beranda');
 
 Route::get('/Kontak', function () {
@@ -190,6 +214,8 @@ Route::post('/admin/logout', [LoginController::class, 'logout'])->name('admin.lo
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::put('/dashboard', [DashboardController::class, 'update'])->name('dashboard.update');
+
     Route::put('/update-jumlah-siswa', [DashboardController::class, 'updateJumlahSiswa'])->name('siswa.update');
     Route::post('/update-jumlah-siswa', [DashboardController::class, 'updateJumlahSiswa'])->name('updateJumlahSiswa');
 
@@ -202,6 +228,10 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('users', UserController::class)->parameters(['users' => 'user']);
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+
+    // Route untuk Kelola Data GTK & Siswa
+    Route::get('gtk-data', [GtkPageController::class, 'edit'])->name('gtk.edit');
+    Route::put('gtk-data', [GtkPageController::class, 'update'])->name('gtk.update');
 });
 
 

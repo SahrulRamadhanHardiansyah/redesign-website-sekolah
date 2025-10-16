@@ -3,9 +3,12 @@
     min-height: 100vh;
     background-image: linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0.3) 0%, /* Changed from 0.5 to 0.3 for less intensity */
-            rgba(0, 0, 0, 0.3) 70%, /* Changed from 0.5 to 0.3 for less intensity */
-            rgba(241, 241, 241, 0.5) 100% /* Made the bottom color semi-transparent */
+            rgba(0, 0, 0, 0.3) 0%,
+            /* Changed from 0.5 to 0.3 for less intensity */ rgba(0, 0, 0, 0.3)
+                70%,
+            /* Changed from 0.5 to 0.3 for less intensity */
+                rgba(241, 241, 241, 0.5) 100%
+                /* Made the bottom color semi-transparent */
         ),
         url("../img/halaman.png");
     background-size: cover;
@@ -162,6 +165,74 @@
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 0.8rem;
+}
+
+.berita-grid .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Memaksa kartu untuk mengisi tinggi grid cell */
+}
+
+.berita-grid .card-body {
+    flex-grow: 1; /* Memaksa card-body untuk tumbuh mengisi sisa ruang */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Mendorong footer ke bawah */
+}
+
+.berita-grid .card-link {
+    text-decoration: none; /* Menghilangkan garis bawah dari link */
+}
+
+/* 2. & 3. PERBAIKAN: OVERLAY JUDUL & DATE TAG PADA GALERI */
+/* --------------------------------------------------------- */
+.galeri-item a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.galeri-item .galeri-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.5rem 1rem 1rem 1rem;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    color: white;
+
+    /* Sembunyikan secara default */
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Tampilkan overlay saat hover */
+.galeri-item:hover .galeri-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.galeri-overlay .overlay-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+}
+
+.galeri-overlay .overlay-icon {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Pastikan date-tag selalu di atas overlay */
+.galeri-item .date-tag {
+    z-index: 5;
 }
 
 /* Tablet (lebar < 992px) */
