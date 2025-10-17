@@ -73,6 +73,11 @@ Route::get('/data-pendidik', [GtkController::class, 'pendidik'])->name('data.pen
 Route::get('/data-tenaga-kependidikan', [GtkController::class, 'tenagaKependidikan'])->name('data.tenaga_kependidikan');
 Route::get('/data-siswa', [GtkController::class, 'siswa'])->name('data.siswa');
 
+// Rute Sitemap
+Route::get('/sitemap', function () {
+    return view('pages.sitemap');
+})->name('sitemap');
+
 // Rute SPMB Publik
 Route::get('/spmb', function () {
     $settings = \App\Models\SpmbSetting::pluck('value', 'key')->all();
