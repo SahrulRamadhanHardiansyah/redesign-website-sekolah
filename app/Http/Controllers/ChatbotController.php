@@ -66,7 +66,7 @@ class ChatbotController extends Controller
 
     private function buildWebsiteContext(): string
     {
-        $jumlahSiswa = Setting::getValue('siswa_total', 1560);
+        $jumlahSiswa = Setting::getValue('jumlah_siswa', 1054);
 
         $infoDasar = "Informasi dasar sekolah: Total siswa saat ini adalah {$jumlahSiswa} orang.";
 

@@ -7,7 +7,7 @@
             /* Changed from 0.5 to 0.3 for less intensity */ rgba(0, 0, 0, 0.3)
                 70%,
             /* Changed from 0.5 to 0.3 for less intensity */
-                rgba(241, 241, 241, 0.5) 100%
+                rgba(247, 243, 243, 0.5) 100%
                 /* Made the bottom color semi-transparent */
         ),
         url("../img/halaman.png");
