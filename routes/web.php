@@ -245,3 +245,25 @@ Route::get('/chatbot', function () {
 });
 
 Route::post('/chatbot', [ChatbotController::class, 'handle']);
+
+
+// Route untuk debug config
+Route::get('/debug-config-check', function () {
+    echo '<b>Environment Variables (via env()):</b><br>';
+    echo 'APP_URL: ' . env('APP_URL') . '<br>';
+    echo 'ASSET_URL: ' . env('ASSET_URL', 'ASSET_URL tidak di-set') . '<br>';
+    echo '<hr>';
+
+    echo '<b>Configuration (via config()):</b><br>';
+    echo 'config(app.url): ' . config('app.url') . '<br>';
+    echo 'config(app.asset_url): ' . config('app.asset_url', 'config asset_url tidak di-set') . '<br>';
+    echo '<hr>';
+
+    echo '<b>Request Info:</b><br>';
+    echo 'Request Scheme: ' . request()->getScheme() . '<br>';
+    echo 'Request isSecure(): ' . (request()->isSecure() ? 'true' : 'false') . '<br>';
+    echo '<hr>';
+
+    echo '<b>FINAL ASSET URL:</b><br>';
+    echo asset('css/test.css');
+});
