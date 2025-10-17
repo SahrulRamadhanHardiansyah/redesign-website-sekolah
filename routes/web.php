@@ -239,5 +239,4 @@ Route::get('/chatbot', function () {
     return response()->json(['message' => 'Endpoint ini hanya menerima POST. Gunakan UI atau kirim POST ke /chatbot.'], 200);
 });
 
-// Tambahkan route POST untuk menerima request dari JS
-Route::post('/chatbot', [ChatbotController::class, 'chat']);
+Route::post('/chatbot', [ChatbotController::class, 'handle']);
