@@ -86,6 +86,9 @@
                 <div class="current-date">
                     {{ \Carbon\Carbon::now()->translatedFormat('l, d F Y') }}
                 </div>
+                <div class="partner-logos">
+                    <img src="{{ asset('img/footer/LogoPartner.png') }}" alt="Partner 1">
+                </div>
             </header>
 
             <main class="content-inner">
