@@ -78,7 +78,6 @@
                         <ul class="dropdown-menu">
                             <li><a href="https://bkk.smartqu.cloud/">Smart BKK</a></li>
                             <li><a href="https://lsp-smkn1bangil.net/">Sertifikat Profesi</a></li>
-                            <li><a href="#">CBT Online</a></li>
                             <li><a href="{{ route('sitemap') }}">Peta Situs</a></li>
                         </ul>
                     </li>

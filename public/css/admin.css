@@ -10,7 +10,7 @@
 
 body {
     background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
 }
 
 html,
@@ -45,7 +45,11 @@ body {
 .sidebar-header {
     padding: 25px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    background: linear-gradient(135deg, rgba(2, 205, 171, 0.1) 0%, rgba(1, 165, 137, 0.05) 100%);
+    background: linear-gradient(
+        135deg,
+        rgba(2, 205, 171, 0.1) 0%,
+        rgba(1, 165, 137, 0.05) 100%
+    );
 }
 
 .sidebar-logo {
@@ -110,7 +114,7 @@ body {
 }
 
 .sidebar-nav a::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 0;
@@ -251,15 +255,30 @@ body {
     align-items: center;
     gap: 10px;
     padding: 10px 20px;
-    background: linear-gradient(135deg, rgba(2, 205, 171, 0.1) 0%, rgba(1, 165, 137, 0.05) 100%);
+    background: linear-gradient(
+        135deg,
+        rgba(2, 205, 171, 0.1) 0%,
+        rgba(1, 165, 137, 0.05) 100%
+    );
     border-radius: 10px;
 }
 
 .current-date::before {
-    content: '\f073';
-    font-family: 'Font Awesome 6 Free';
+    content: "\f073";
+    font-family: "Font Awesome 6 Free";
     font-weight: 900;
     color: #02cdab;
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.partner-logos img {
+    height: 40px;
 }
 
 .content-inner {
@@ -282,13 +301,17 @@ body {
 }
 
 .summary-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
     width: 150px;
     height: 150px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 70%
+    );
     border-radius: 50%;
     transform: translate(30%, -30%);
 }
@@ -389,7 +412,11 @@ body {
 }
 
 .card-custom .card-header {
-    background: linear-gradient(135deg, rgba(2, 205, 171, 0.1) 0%, rgba(1, 165, 137, 0.05) 100%);
+    background: linear-gradient(
+        135deg,
+        rgba(2, 205, 171, 0.1) 0%,
+        rgba(1, 165, 137, 0.05) 100%
+    );
     border-bottom: 2px solid #02cdab;
     font-weight: 700;
     color: #02cdab;
@@ -502,6 +529,10 @@ body {
     .topbar {
         padding: 0 20px;
     }
+
+    .partner-logos img {
+        height: 30px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -514,5 +545,9 @@ body {
     .current-date {
         font-size: 0.85rem;
         padding: 8px 12px;
+    }
+
+    .partner-logos img {
+        height: 20px;
     }
 }
