@@ -112,13 +112,22 @@
 
 
     <!-- Floating Chatbot HTML -->
-    <div id="chatbot-button" class="chatbot-btn">
-        💬
+    <div class="fab-container">
+        <a href="https://wa.me/6281234567890" target="_blank" class="fab-item fab-whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <div id="chatbot-button" class="fab-item fab-chatbot">
+            <div class="fab-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            <span class="fab-text">Ask With <span class="fab-brand">NESABA.AI</span></span>
+        </div>
     </div>
 
     <div id="chatbot-box" class="chatbot-box d-none">
         <div class="chatbot-header">
-            <strong>Nesaba.Ai</strong>
+            <strong>Chatbot Nesaba</strong>
             <button id="close-chat" class="close-btn">&times;</button>
         </div>
         <div id="chat-content" class="chat-content"></div>
@@ -130,13 +139,14 @@
 
     <!-- Load CSS dan JS Chatbot -->
     <link rel="stylesheet" href="{{ asset('css/chatbot.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="{{ asset('js/chatbot-floating.js') }}" defer></script>
 
     <footer class="footer">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-about">
-                    <img src="{{ asset('img/footer/smk1bgl__1_-removebg-preview.png') }}"
+                    <img src="{{ asset('img/footer/smk1bgl_1-removebg-preview.png') }}"
                         alt="Logo Footer SMKN 1 Bangil" class="footer-logo">
                     <div class="social-links">
                         <a
