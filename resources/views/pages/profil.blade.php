@@ -9,7 +9,7 @@
     <div class="profil-container">
         <div class="container">
             <h1 class="page-title">Profil Sekolah</h1>
-            
+
             <!-- Hero Section -->
             <div class="profil-hero">
                 <div class="hero-image">
@@ -77,7 +77,7 @@
             <!-- Struktur Organisasi -->
             <div class="struktur-section">
                 <h3 class="section-subtitle">Struktur Organisasi</h3>
-                
+
                 <!-- Kepala Sekolah -->
                 <div class="kepala-sekolah-card">
                     <img src="{{ asset('img/profil/Kepsek.png') }}" alt="Kepala Sekolah">
@@ -117,7 +117,7 @@
                 <h3 class="section-subtitle">Lokasi</h3>
                 <div class="map-container">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4073.2020970487715!2d112.78934677500305!3d-7.600521292414385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7db438ee02df7%3A0x3446ff648b366c48!2sSMK%20Negeri%201%20Bangil!5e1!3m2!1sid!2sid!4v1759812072663!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    
+
                 </div>
             </div>
         </div>

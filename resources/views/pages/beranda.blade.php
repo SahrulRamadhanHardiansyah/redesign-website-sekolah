@@ -113,7 +113,7 @@
                     <div class="galeri-item">
                         <a href="{{ asset($item->gambar) }}" data-lightbox="beranda-gallery" data-title="{{ $item->judul }}">
                             <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}">
-                            
+
                             {{-- Date Tag (TETAP ADA) --}}
                             <span class="date-tag">{{ $item->created_at->translatedFormat('d M') }}</span>
 
