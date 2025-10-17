@@ -79,7 +79,7 @@
                             <li><a href="https://bkk.smartqu.cloud/">Smart BKK</a></li>
                             <li><a href="https://lsp-smkn1bangil.net/">Sertifikat Profesi</a></li>
                             <li><a href="#">CBT Online</a></li>
-                            <li><a href="#">Peta Situs</a></li>
+                            <li><a href="{{ route('sitemap') }}">Peta Situs</a></li>
                         </ul>
                     </li>
 
@@ -184,7 +184,7 @@
             </div>
             <div class="footer-bottom">
                 <div class="partner-logos">
-                    <img src="{{ asset('img/logo-partner.png') }}" alt="Partner 1">
+                    <img src="{{ asset('img/footer/LogoPartner.png') }}" alt="Partner 1">
                 </div>
                 <p>&copy; 2025 SMK Negeri 1 Bangil. All rights reserved.</p>
             </div>
