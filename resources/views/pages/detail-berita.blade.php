@@ -33,7 +33,7 @@
             <!-- Bagikan Berita -->
             <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid #e5e7eb;">
                 <p style="font-weight: 600; margin-bottom: 15px; color: var(--dark-color);">
-                    <i class="bi bi-share"></i> Bagikan Berita:
+                    <i class="bi bi-share" style="margin-right: 7px;"></i> Bagikan Berita:
                 </p>
                 <div style="display: flex; gap: 15px;">
                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}" target="_blank" style="color: #1877f2; font-size: 1.5rem;"><i class="bi bi-facebook"></i></a>
@@ -45,7 +45,9 @@
         </div>
 
         <div class="berita-lainnya" style="margin-top: 80px;">
-            <h2 class="section-title">Berita <span class="highlight">Lainnya</span></h2>
+            <div class="section-header"> 
+                <h2 class="section-title">Berita <span class="highlight">Lainnya</span></h2>
+            </div>
             <div class="berita-grid-3">
                 @foreach($beritaLainnya as $item)
                     @if($item->id != $berita->id)

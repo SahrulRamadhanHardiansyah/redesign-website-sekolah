@@ -17,7 +17,7 @@ class PrestasiSeeder extends Seeder
             'deskripsi' => 'SMK Negeri 1 Bangil terus mencetak prestasi gemilang di berbagai bidang, baik akademik maupun non-akademik, membuktikan kualitasnya sebagai sekolah unggul.',
             'tahun' => '2025',
             'tanggal' => '2025-09-05',
-            'gambar' => 'img/prestasi-hero.png',
+            'gambar' => 'img/prestasi/prestasi-hero.png',
             'is_unggulan' => true,
         ]);
         Prestasi::create([
@@ -25,7 +25,7 @@ class PrestasiSeeder extends Seeder
             'deskripsi' => 'Tim debat SMKN 1 Bangil meraih juara 2 dalam lomba debat bahasa Inggris tingkat kabupaten.',
             'tahun' => '2025',
             'tanggal' => '2025-08-15',
-            'gambar' => 'img/prestasi-hero.png',
+            'gambar' => 'img/prestasi/prestasi-hero.png',
             'is_unggulan' => true,
         ]);
         Prestasi::create([
@@ -33,7 +33,7 @@ class PrestasiSeeder extends Seeder
             'deskripsi' => 'Siswa berhasil meraih medali perunggu dalam olimpiade matematika tingkat nasional.',
             'tahun' => '2025',
             'tanggal' => '2025-07-20',
-            'gambar' => 'img/prestasi-hero.png',
+            'gambar' => 'img/prestasi/prestasi-hero.png',
             'is_unggulan' => true,
         ]);
         Prestasi::create([
@@ -41,7 +41,7 @@ class PrestasiSeeder extends Seeder
             'deskripsi' => 'Siswa jurusan RPL berhasil menjadi finalis LKS tingkat Nasional di bidang Web Technologies.',
             'tahun' => '2025',
             'tanggal' => '2025-06-10',
-            'gambar' => 'img/prestasi-hero.png',
+            'gambar' => 'img/prestasi/prestasi-hero.png',
             'is_unggulan' => true,
         ]);
 

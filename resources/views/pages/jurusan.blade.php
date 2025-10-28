@@ -19,7 +19,7 @@
             <div class="jurusan-grid">
                 @foreach ($jurusans as $jurusan)
                 <div class="jurusan-card-full">
-                    <img src="{{ asset('img/' . $jurusan['logo']) }}" alt="{{ $jurusan['nama'] }}">
+                    <img src="{{ asset('img/jurusan/' . $jurusan['logo']) }}" alt="{{ $jurusan['nama'] }}">
                     <h3>{{ $jurusan['nama'] }}</h3>
                     <p>{{ $jurusan['deskripsi'] }}</p>                                                                           
                     <a href="{{ route('jurusan.detail', $jurusan['slug']) }}" class="btn btn-primary">Pelajari Lebih Lanjut</a>

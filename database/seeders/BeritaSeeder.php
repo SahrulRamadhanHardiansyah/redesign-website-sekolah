@@ -29,7 +29,6 @@ class BeritaSeeder extends Seeder
             'Desember' => '12',
         ];
 
-        // Example: "8 Oktober 2025" -> "2025-10-08"
         $parts = explode(' ', $dateString);
         if (count($parts) >= 3) {
             $day = str_pad($parts[0], 2, '0', STR_PAD_LEFT);

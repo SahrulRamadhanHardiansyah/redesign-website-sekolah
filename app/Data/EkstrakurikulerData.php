@@ -13,7 +13,6 @@ class EkstrakurikulerData
                 'slug' => 'palang-merah-remaja-pmr',
                 'kategori' => 'Kesehatan',
                 'gambar' => 'img/ekstrakurikuler/PMR.jpg',
-                'logo' => 'img/ekstrakurikuler/logo-pmr.png',
                 'deskripsi_singkat' => 'PMR adalah wadah pembinaan dan pengembangan anggota remaja yang dilaksanakan oleh Palang Merah Indonesia.',
                 'deskripsi_lengkap' => 'Palang Merah Remaja (PMR) adalah wadah pembinaan dan pengembangan anggota remaja yang dilaksanakan oleh Palang Merah Indonesia. Terdapat di tiap tingkatan PMI di seluruh Indonesia dengan anggota lebih dari 5 juta orang. Anggota PMR melaksanakan salah satu kekuatan PMI dalam melaksanakan kegiatan-kegiatan kemanusiaan di bidang kesehatan dan siaga bencana, mempromosikan Prinsip-Prinsip Dasar Gerakan Palang Merah dan Bulan Sabit Merah Internasional, serta mengembangkan kapasitas organisasi PMI di wilayah yang bersangkutan.',
                 'tujuan' => [
@@ -43,7 +42,6 @@ class EkstrakurikulerData
                 'slug' => 'pecinta-alam',
                 'kategori' => 'Alam',
                 'gambar' => 'img/ekstrakurikuler/Pecinta-alam.jpg',
-                'logo' => 'img/ekstrakurikuler/logo-pecinta-alam.png',
                 'deskripsi_singkat' => 'Organisasi yang bergerak dalam kegiatan alam terbuka, pendakian gunung, dan pelestarian lingkungan.',
                 'deskripsi_lengkap' => 'Pecinta Alam SMKN 1 Bangil adalah organisasi siswa yang fokus pada kegiatan kepecintaalaman, pendakian gunung, penelusuran gua, susur sungai, dan berbagai aktivitas alam terbuka lainnya. Ekstrakurikuler ini tidak hanya mengajarkan teknik survival dan petualangan, tetapi juga menanamkan nilai-nilai kepedulian terhadap kelestarian lingkungan, kerjasama tim, kemandirian, dan tanggung jawab.',
                 'tujuan' => [
@@ -77,7 +75,6 @@ class EkstrakurikulerData
                 'slug' => 'pramuka',
                 'kategori' => 'Kepanduan',
                 'gambar' => 'img/ekstrakurikuler/Pramuka.jpg',
-                'logo' => 'img/ekstrakurikuler/logo-pramuka.png',
                 'deskripsi_singkat' => 'Gerakan Pramuka adalah organisasi pendidikan kepanduan yang membentuk karakter dan keterampilan generasi muda.',
                 'deskripsi_lengkap' => 'Pramuka SMKN 1 Bangil adalah wadah pembinaan dan pengembangan generasi muda melalui kegiatan kepramukaan. Anggota pramuka dilatih untuk memiliki karakter yang kuat, keterampilan hidup, jiwa kepemimpinan, dan semangat kebangsaan. Kegiatan pramuka mencakup pembelajaran outdoor, keterampilan survival, pertolongan pertama, pioneering, dan berbagai kegiatan yang mengembangkan fisik, mental, dan spiritual.',
                 'tujuan' => [
@@ -111,7 +108,6 @@ class EkstrakurikulerData
                 'slug' => 'paskibra',
                 'kategori' => 'Baris-Berbaris',
                 'gambar' => 'img/ekstrakurikuler/Paskibraka.webp',
-                'logo' => 'img/ekstrakurikuler/logo-paskibra.png',
                 'deskripsi_singkat' => 'Pasukan Pengibar Bendera Pusaka adalah wadah pembinaan siswa dalam baris-berbaris dan kedisiplinan.',
                 'deskripsi_lengkap' => 'Paskibra SMKN 1 Bangil adalah ekstrakurikuler yang melatih siswa dalam kemampuan baris-berbaris, kedisiplinan tinggi, dan jiwa nasionalisme. Anggota Paskibra adalah perwakilan sekolah dalam upacara-upacara resmi dan kompetisi LBB (Lomba Baris-Berbaris). Kegiatan ini membentuk karakter siswa yang disiplin, tegas, tanggung jawab, dan memiliki jiwa kepemimpinan.',
                 'tujuan' => [
@@ -145,7 +141,6 @@ class EkstrakurikulerData
                 'slug' => 'futsal',
                 'kategori' => 'Olahraga',
                 'gambar' => 'img/ekstrakurikuler/Futsal.jpg',
-                'logo' => 'img/ekstrakurikuler/logo-futsal.png',
                 'deskripsi_singkat' => 'Ekstrakurikuler futsal melatih keterampilan bermain sepak bola dalam ruangan dan membentuk sportivitas.',
                 'deskripsi_lengkap' => 'Ekstrakurikuler Futsal SMKN 1 Bangil adalah wadah bagi siswa yang memiliki passion dalam olahraga futsal. Kegiatan ini tidak hanya melatih teknik dan strategi bermain futsal, tetapi juga membentuk karakter sportif, kerjasama tim, dan jiwa kompetitif yang sehat. Tim futsal sekolah rutin mengikuti berbagai kompetisi dan turnamen antar sekolah.',
                 'tujuan' => [
@@ -179,7 +174,6 @@ class EkstrakurikulerData
                 'slug' => 'musik',
                 'kategori' => 'Seni',
                 'gambar' => 'img/ekstrakurikuler/Musik.jpg',
-                'logo' => 'img/ekstrakurikuler/logo-musik.png',
                 'deskripsi_singkat' => 'Ekstrakurikuler musik mengembangkan bakat seni musik siswa dalam berbagai alat musik dan vokal.',
                 'deskripsi_lengkap' => 'Ekstrakurikuler Musik SMKN 1 Bangil adalah wadah bagi siswa yang memiliki minat dan bakat dalam bidang musik. Siswa dilatih bermain berbagai alat musik seperti gitar, bass, drum, keyboard, dan vokal. Band sekolah sering tampil dalam berbagai acara sekolah dan kompetisi band antar pelajar.',
                 'tujuan' => [
@@ -213,7 +207,6 @@ class EkstrakurikulerData
                 'slug' => 'bola-voli',
                 'kategori' => 'Olahraga',
                 'gambar' => 'img/ekstrakurikuler/Voli.jpg',
-                'logo' => 'img/ekstrakurikuler/logo-voli.png',
                 'deskripsi_singkat' => 'Ekstrakurikuler bola voli melatih teknik permainan voli dan membangun kerjasama tim yang solid.',
                 'deskripsi_lengkap' => 'Ekstrakurikuler Bola Voli SMKN 1 Bangil membina siswa yang memiliki minat dalam olahraga voli. Kegiatan ini melatih teknik dasar seperti passing, servis, smash, dan blocking, serta strategi permainan tim. Tim voli sekolah aktif mengikuti kompetisi dan menjadi kebanggaan sekolah dengan berbagai prestasi yang diraih.',
                 'tujuan' => [
@@ -247,7 +240,6 @@ class EkstrakurikulerData
                 'slug' => 'basket',
                 'kategori' => 'Olahraga',
                 'gambar' => 'img/ekstrakurikuler/Basket.jpg',
-                'logo' => 'img/ekstrakurikuler/logo-basket.png',
                 'deskripsi_singkat' => 'Ekstrakurikuler basket mengembangkan kemampuan bermain bola basket dengan teknik dan strategi yang baik.',
                 'deskripsi_lengkap' => 'Ekstrakurikuler Basket SMKN 1 Bangil adalah wadah bagi siswa pecinta olahraga basket. Siswa dilatih teknik dasar seperti dribbling, shooting, passing, dan defense, serta strategi permainan tim. Tim basket sekolah memiliki prestasi yang membanggakan di berbagai kompetisi basket antar pelajar.',
                 'tujuan' => [
@@ -281,7 +273,6 @@ class EkstrakurikulerData
                 'slug' => 'pickleball',
                 'kategori' => 'Olahraga',
                 'gambar' => 'img/ekstrakurikuler/ekskul-pickleball.png',
-                'logo' => 'img/ekstrakurikuler/logo-pickleball.png',
                 'deskripsi_singkat' => 'Pickleball adalah olahraga raket modern yang menggabungkan elemen tenis, badminton, dan tenis meja.',
                 'deskripsi_lengkap' => 'Ekstrakurikuler Pickleball SMKN 1 Bangil adalah salah satu ekstrakurikuler olahraga terbaru yang berkembang pesat. Pickleball menggabungkan elemen dari tenis, badminton, dan tenis meja. Olahraga ini mudah dipelajari, menyenangkan, dan cocok untuk semua tingkat kemampuan. Siswa dilatih teknik dasar, strategi permainan, dan nilai-nilai sportivitas.',
                 'tujuan' => [
@@ -315,7 +306,6 @@ class EkstrakurikulerData
                 'slug' => 'banjari',
                 'kategori' => 'Seni & Religius',
                 'gambar' => 'img/ekstrakurikuler/Albanjari.jpeg',
-                'logo' => 'img/ekstrakurikuler/logo-banjari.png',
                 'deskripsi_singkat' => 'Seni musik tradisional Islam yang memadukan sholawat dengan iringan alat musik rebana.',
                 'deskripsi_lengkap' => 'Ekstrakurikuler Banjari atau Al-Banjari SMKN 1 Bangil adalah wadah untuk mengembangkan seni musik Islam yang memadukan sholawat dan dzikir dengan iringan alat musik rebana dan marawis. Kegiatan ini tidak hanya melatih keterampilan seni musik, tetapi juga memperdalam nilai-nilai religius dan keislaman siswa. Grup Banjari sekolah sering tampil dalam acara-acara keagamaan di sekolah maupun masyarakat.',
                 'tujuan' => [
@@ -349,7 +339,6 @@ class EkstrakurikulerData
                 'slug' => 'gateball',
                 'kategori' => 'Olahraga',
                 'gambar' => 'img/ekstrakurikuler/Gateball.jpeg',
-                'logo' => 'img/ekstrakurikuler/logo-gateball.png',
                 'deskripsi_singkat' => 'Olahraga beregu yang dimainkan menggunakan stick dan bola, melatih strategi dan kerjasama tim.',
                 'deskripsi_lengkap' => 'Ekstrakurikuler Gateball SMKN 1 Bangil adalah salah satu ekstrakurikuler olahraga unik yang berasal dari Jepang. Gateball adalah permainan tim yang dimainkan di lapangan dengan menggunakan stick untuk memukul bola melewati gawang-gawang kecil. Olahraga ini melatih strategi, ketepatan, kerjasama tim, dan konsentrasi tinggi. Mudah dipelajari namun menantang untuk dikuasai.',
                 'tujuan' => [

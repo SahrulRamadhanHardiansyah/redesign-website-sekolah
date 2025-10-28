@@ -18,7 +18,7 @@
         <div class="prestasi-highlight-grid">
             @forelse ($highlights as $item)
             <div class="highlight-item {{ $loop->first ? 'main-highlight' : 'side-highlight' }}">
-                <img src="{{ asset($item->gambar ?? 'img/prestasi-hero.png') }}" alt="{{ $item->judul }}">
+                <img src="{{ asset($item->gambar ?? 'img/prestasi/prestasi-hero.png') }}" alt="{{ $item->judul }}">
                 <div class="date-tag">{{ $item->tanggal ? $item->tanggal->format('d F') : '' }}</div>
                 <div class="highlight-overlay">
                     @if ($loop->first)

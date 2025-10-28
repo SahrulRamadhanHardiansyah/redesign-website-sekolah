@@ -14,7 +14,7 @@
             rgba(241, 241, 241, 0.5) 92%,
             #fbfbfb 100%
         ),
-        url("../img/Ekstrakurikuler/Gambar.png");
+        url("../img/Ekstrakurikuler/ekstra-hero.png");
     display: flex;
     align-items: center;
     justify-content: center;
@@ -152,14 +152,21 @@
     .hero-overlay h1 {
         font-size: 2.5rem;
     }
+
+    .ekskul-title h3 {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 768px) {
     .ekskul-hero {
-        /* PERBAIKAN UNTUK HERO IMAGE */
-        height: 60vh; /* Sedikit lebih pendek agar konten terlihat */
-        background-size: cover; /* Gunakan 'cover' untuk mobile */
-        background-position: center center; /* Pastikan selalu di tengah */
+        height: 60vh;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .ekskul-title h3 {
+        font-size: 0.9rem;
     }
 
     .hero-overlay h1 {
@@ -185,6 +192,11 @@
     .ekskul-grid {
         gap: 1rem;
     }
+
+    .ekskul-title h3 {
+        font-size: 0.8rem;
+    }
+
     .section-padding {
         padding: 2rem 0;
     }

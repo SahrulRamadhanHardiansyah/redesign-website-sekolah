@@ -10,7 +10,7 @@
                 rgba(247, 243, 243, 0.5) 100%
                 /* Made the bottom color semi-transparent */
         ),
-        url("../img/halaman.png");
+        url("../img/Hero.png");
     background-size: cover;
     background-position: center;
     display: flex;

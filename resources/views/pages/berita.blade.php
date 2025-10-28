@@ -17,31 +17,34 @@
                     <a href="{{ route('berita') }}" class="btn-see-all">Lihat semua <i
                             class="bi bi-arrow-right-short"></i></a>
                 </div>
-                <div class="berita-grid-2">
+                <div class="berita-grid-3"> 
                     @php
-                        $beritaUtama = array_slice($beritaList, 0, 2, true);
+                        $beritaUtama = array_slice($beritaList, 0, 3, true);
                     @endphp
 
                     @foreach ($beritaUtama as $berita)
-                        <div class="berita-card">
-                            <div class="card-image">
-                                <img src="{{ asset($berita->gambar) }}" alt="{{ $berita->judul }}">
-                                <span class="card-badge">{{ $berita->kategori }}</span>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">{{ $berita->judul }}</h3>
-                                <div class="card-meta">
-                                    <i class="bi bi-calendar"></i>{{ $berita->tanggal }}
+                        <a href="{{ route('berita.detail', $berita->id) }}" class="berita-card-link">
+                            <div class="berita-card">
+                                <div class="card-image">
+                                    <img src="{{ asset($berita->gambar) }}" alt="{{ $berita->judul }}">
+                                    <span class="card-badge">{{ $berita->kategori }}</span>
                                 </div>
-                                <p class="card-excerpt">{{ $berita->excerpt }}</p>
-                                <a href="{{ route('berita.detail', $berita->id) }}" class="btn-read-more">Baca
-                                    Selengkapnya</a>
+                                <div class="card-content">
+                                    <h3 class="card-title">{{ $berita->judul }}</h3>
+                                    <div class="card-meta">
+                                        <i class="bi bi-calendar"></i>{{ $berita->tanggal }}
+                                    </div>
+                                    <p class="card-excerpt">{{ $berita->excerpt }}</p>
+
+                                    <span class="btn-read-more">
+                                        Baca Selengkapnya
+                                    </span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 </div>
             </div>
-
         </div>
     </div>
 @endsection
