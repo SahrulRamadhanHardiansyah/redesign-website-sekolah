@@ -94,49 +94,18 @@
             </div>
 
             <!-- Kritik & Saran Form -->
+           {{-- ... kode Anda yang lain ... --}}
+
             <div class="form-section">
-                <div class="form-header">
-                    <h2>Kritik & <span class="highlight">Saran</span></h2>
-                    <p>Masukan Anda sangat berarti bagi kami untuk terus berkembang dan memberikan pelayanan terbaik</p>
-                </div>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdoVqjKJrrVTPcw4d4YLxPgmrPWuuZVPpR3v2sxsyCYKArPkQ/viewform?usp=dialog" 
+                    width="100%" 
+                    height="800" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">
+                    Memuat…
+                </iframe>
 
-                <!-- Success Alert (hidden by default, show with PHP/JavaScript) -->
-                <!-- <div class="alert-success">
-                    <p><strong>Terima kasih!</strong> Pesan Anda telah kami terima.</p>
-                </div> -->
-
-                <form action="" method="POST" class="contact-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="nama">Nama Lengkap <span class="required">*</span></label>
-                            <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="nama@example.com" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="subjek">Subjek <span class="required">*</span></label>
-                        <input type="text" id="subjek" name="subjek" placeholder="Subjek pesan Anda" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="pesan">Pesan <span class="required">*</span></label>
-                        <textarea id="pesan" name="pesan" placeholder="Tuliskan kritik dan saran Anda..." required></textarea>
-                    </div>
-
-                    <div class="submit-container">
-                        <button type="submit" class="submit-btn">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                            </svg>
-                            <span>Kirim Pesan</span>
-                        </button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
