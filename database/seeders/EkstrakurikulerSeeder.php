@@ -13,7 +13,6 @@ class EkstrakurikulerSeeder extends Seeder
      */
     public function run(): void
     {
-        // Kosongkan tabel sebelum mengisi data baru
         Ekstrakurikuler::truncate();
 
         // 1. MikroTik Akademi
@@ -145,7 +144,6 @@ Untuk mengembangkan minat dan bakat olahraga supaya berprestasi, sekolah memberi
 SMK Negeri 1 Bangil mewadahi bakat-bakat muda yang dimiliki siswa dalam bermain olahraga Basket, dengan memiliki dua tim yaitu Tim Basket Putra dan Tim Basket Putri.
 MARKDOWN;
 
-        // Kumpulan semua data untuk dibuat
         $ekskulData = [
             ['nama' => 'MikroTik Akademi', 'deskripsi' => $mikrotik_description, 'gambar' => 'img/ekstrakurikuler/mikrotik.png'],
             ['nama' => 'Pecinta Alam', 'deskripsi' => $pecinta_alam_description, 'gambar' => 'img/ekstrakurikuler/Pecinta-Alam.jpg'],

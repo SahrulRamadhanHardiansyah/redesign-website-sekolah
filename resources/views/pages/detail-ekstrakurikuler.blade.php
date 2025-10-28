@@ -23,7 +23,6 @@
                 <img src="{{ asset($ekskul->gambar) }}" alt="Logo {{ $ekskul->nama }}">
             </div>
 
-            {{-- Render konten Markdown di sini --}}
             <div class="markdown-content">
                 {!! \Parsedown::instance()->text($ekskul->deskripsi) !!}
             </div>

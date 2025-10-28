@@ -30,23 +30,19 @@ use App\Models\Galeri;
 */
 
 Route::get('/', function () {
-    // Mengambil data rangkuman
     $jumlahSiswa = Setting::getValue('jumlah_siswa', '0');
     $jumlahJurusan = Setting::getValue('jumlah_jurusan', '0');
     $jumlahGuru = Setting::getValue('jumlah_guru', '0');
 
-    // Mengambil 4 berita terbaru yang statusnya 'publish'
     $beritaTerbaru = Berita::where('status', 'publish')
-                            ->latest('tanggal') // Urutkan berdasarkan tanggal, terbaru dulu
-                            ->take(4)           // Ambil 4 data
+                            ->latest('tanggal') 
+                            ->take(4)           
                             ->get();
 
-    // Mengambil 5 foto galeri terbaru
-    $galeriTerbaru = Galeri::latest() // Urutkan berdasarkan created_at, terbaru dulu
-                           ->take(5)    // Ambil 5 data
+    $galeriTerbaru = Galeri::latest() 
+                           ->take(5)    
                            ->get();
 
-    // Kirim semua data ke view
     return view('pages.beranda', compact(
         'jumlahSiswa',
         'jumlahJurusan',

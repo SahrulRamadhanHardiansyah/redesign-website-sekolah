@@ -147,7 +147,7 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-about">
-                    <img src="{{ asset('img/footer/smk1bgl__1_-removebg-preview.png') }}"
+                    <img src="{{ asset('img/footer/logo-smk-putih-rbg.png') }}"
                         alt="Logo Footer SMKN 1 Bangil" class="footer-logo">
                     <div class="social-links">
                         <a

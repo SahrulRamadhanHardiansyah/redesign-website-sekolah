@@ -59,7 +59,7 @@
                 @endphp
                 @foreach ($jurusans as $jurusan)
                     <div class="jurusan-card card">
-                        <img src="{{ asset('img/' . $jurusan['img']) }}" alt="{{ $jurusan['name'] }}">
+                        <img src="{{ asset('img/jurusan/' . $jurusan['img']) }}" alt="{{ $jurusan['name'] }}">
                         <h4>{{ $jurusan['name'] }}</h4>
                     </div>
                 @endforeach
@@ -76,11 +76,9 @@
             <div class="berita-grid">
                 @forelse ($beritaTerbaru as $berita)
                     <a href="{{ route('berita.detail', $berita->id) }}" class="card-link">
-                        {{-- Class .card sekarang memiliki struktur flex yang diatur di CSS --}}
                         <div class="card">
                             <img src="{{ asset($berita->gambar ?? 'img/berita-sample.png') }}" alt="{{ $berita->judul }}" class="card-img">
                             <div class="card-body">
-                                {{-- Judul dan tanggal sekarang dibungkus div terpisah --}}
                                 <div class="card-content">
                                     <h3 class="card-title">{{ Str::limit($berita->judul, 60) }}</h3>
                                 </div>
@@ -102,9 +100,6 @@
         </div>
     </section>
 
-    {{-- ========================================================== --}}
-    {{-- Galeri Section (Struktur Diperbarui) --}}
-    {{-- ========================================================== --}}
     <section class="galeri-section section-padding">
         <div class="container" style="margin-bottom: 5rem;">
             <h2 class="section-title">Galeri Terbaru</h2>
@@ -114,10 +109,8 @@
                         <a href="{{ asset($item->gambar) }}" data-lightbox="beranda-gallery" data-title="{{ $item->judul }}">
                             <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}">
 
-                            {{-- Date Tag (TETAP ADA) --}}
                             <span class="date-tag">{{ $item->created_at->translatedFormat('d M') }}</span>
 
-                            {{-- Overlay (SEKARANG DENGAN JUDUL) --}}
                             <div class="galeri-overlay">
                                 <h4 class="overlay-title">{{ Str::limit($item->judul, 40) }}</h4>
                                 <span class="overlay-icon"><i class="fas fa-search-plus"></i></span>

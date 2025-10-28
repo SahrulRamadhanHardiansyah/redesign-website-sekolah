@@ -29,7 +29,7 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <a href="{{ route('admin.dashboard') }}" class="sidebar-logo">
-                    <img class="me-2" src="{{ asset('img/footer/smk1bgl__1_-removebg-preview.png') }}" alt="Logo">
+                    <img class="me-2" src="{{ asset('img/footer/logo-smk-putih-rbg.png') }}" alt="Logo">
                     <span >Admin Panel</span>
                 </a>
             </div>

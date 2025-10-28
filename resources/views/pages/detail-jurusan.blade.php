@@ -9,7 +9,6 @@
 @section('content')
     <div class="profil-container">
         <div class="container">
-            <!-- Breadcrumb -->
             <div class="breadcrumb-nav">
                 <a href="/">Beranda</a>
                 <span class="separator">/</span>
@@ -18,10 +17,9 @@
                 <span class="current">{{ $jurusan['nama'] }}</span>
             </div>
 
-            <!-- Hero Section -->
             <div class="profil-hero">
                 <div class="hero-image">
-                    <img src="{{ asset('img/' . $jurusan['logo']) }}" alt="{{ $jurusan['nama'] }}">
+                    <img src="{{ asset('img/jurusan/' . $jurusan['logo']) }}" alt="{{ $jurusan['nama'] }}">
                 </div>
                 <div class="hero-content">
                     <h1 class="school-name">{{ $jurusan['nama'] }}</h1>
@@ -30,7 +28,6 @@
                 </div>
             </div>
 
-            <!-- Kompetensi Section -->
             <div class="identitas-section">
                 <h2 class="section-subtitle">Kompetensi yang Dipelajari</h2>
                 <div class="kompetensi-grid">
@@ -43,7 +40,6 @@
                 </div>
             </div>
 
-            <!-- Peluang Kerja Section -->
             <div class="prestasi-section">
                 <h2 class="section-subtitle">Peluang Kerja & Jabatan</h2>
                 <div class="peluang-grid">
@@ -63,7 +59,6 @@
                 </div>
             </div>
 
-            <!-- CTA Section -->
             <div class="cta-section">
                 <div class="cta-card">
                     <div class="cta-buttons">
