@@ -59,6 +59,9 @@
                     <li class="{{ request()->is('admin/faq*') ? 'active' : '' }}">
                         <a href="{{ route('admin.faq.index') }}"><i class="fas fa-question-circle"></i> Kelola FAQ</a>
                     </li>
+                    <li class="{{ request()->is('admin/guestbook*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.guestbook.index') }}"><i class="fas fa-book-open"></i> Kelola Buku Tamu</a>
+                    </li>
                     <li class="{{ request()->is('admin/users*') ? 'active' : '' }}">
                         <a href="{{ route('admin.users.index') }}"><i class="fas fa-users-cog"></i> Kelola User</a>
                     </li>

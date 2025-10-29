@@ -22,6 +22,8 @@ use App\Http\Controllers\Admin\GtkPageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\ChatbotController;
+use App\Http\Controllers\GuestBookController;
+use App\Http\Controllers\Admin\GuestBookController as AdminGuestBookController;
 use App\Models\Galeri;
 use App\Models\Faq;
 
@@ -206,6 +208,10 @@ Route::get('/faq', function () {
     return view('pages.faq', compact('faqs', 'categories'));
 })->name('faq');
 
+// Route Guestbook
+Route::get('/guestbook', [GuestBookController::class, 'index'])->name('guestbook.index');
+Route::post('/guestbook', [GuestBookController::class, 'store'])->name('guestbook.store');
+
 /*
 |--------------------------------------------------------------------------
 | RUTE AUTENTIKASI ADMIN
@@ -245,8 +251,18 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     // Route untuk Kelola FAQ
     Route::resource('faq', FaqController::class)->parameters(['faq' => 'faq'])->except(['show']);
+
+    // Route untuk Kelola Buku Tamu
+    Route::get('guestbook', [AdminGuestBookController::class, 'index'])->name('guestbook.index');
+    Route::delete('guestbook/{entry}', [AdminGuestBookController::class, 'destroy'])->name('guestbook.destroy');
 });
 
+
+/*
+|--------------------------------------------------------------------------
+| RUTE AREA CHATBOT
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/chatbot', function () {
     return response()->json(['message' => 'Endpoint ini hanya menerima POST. Gunakan UI atau kirim POST ke /chatbot.'], 200);

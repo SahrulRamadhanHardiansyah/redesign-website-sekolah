@@ -154,9 +154,10 @@
         </li>
     </ul>
     
-    <h2>Penerimaan Siswa & Kontak</h2>
+    <h2>Penerimaan Siswa, FAQ & Kontak</h2>
     <ul class="main-list">
         <li><a href="{{ route('spmb') }}">SPMB (Seleksi Penerimaan Murid Baru)</a></li>
+        <li><a href="{{ route('faq') }}">FAQ</a></li>
         <li><a href="{{ route('kontak') }}">Kontak</a></li>
     </ul>
 
