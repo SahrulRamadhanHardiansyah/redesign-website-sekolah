@@ -1,13 +1,14 @@
 /* ===== DETAIL JURUSAN ===== */
 .profil-container {
-    padding: 40px 0 80px 0;
+    padding: 20px 0 60px 0;
 }
 
 /* Breadcrumb */
 .breadcrumb-nav {
-    margin-bottom: 30px;
-    font-size: 0.9rem;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
     color: #6b7280;
+    padding: 0 15px;
 }
 
 .breadcrumb-nav a {
@@ -21,7 +22,7 @@
 }
 
 .breadcrumb-nav .separator {
-    margin: 0 10px;
+    margin: 0 8px;
     color: #d1d5db;
 }
 
@@ -32,14 +33,15 @@
 
 /* Hero Section */
 .profil-hero {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 50px;
-    align-items: start;
-    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 40px;
     background: linear-gradient(135deg, #f0fdfa 0%, #fff 100%);
-    padding: 40px;
-    border-radius: 16px;
+    padding: 30px 20px;
+    border-radius: 12px;
+    margin: 0 15px 40px 15px;
 }
 
 .hero-image {
@@ -50,7 +52,7 @@
 
 .hero-image img {
     width: 100%;
-    max-width: 300px;
+    max-width: 200px;
     height: auto;
     filter: drop-shadow(0 10px 25px rgba(45, 212, 191, 0.2));
     transition: transform 0.3s ease;
@@ -61,11 +63,12 @@
 }
 
 .hero-content {
-    padding-top: 20px;
+    padding-top: 0;
+    text-align: center;
 }
 
 .school-name {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: #2dd4bf;
     margin-bottom: 15px;
@@ -76,62 +79,64 @@
     display: inline-block;
     background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
     color: white;
-    padding: 8px 20px;
+    padding: 6px 16px;
     border-radius: 50px;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     margin-bottom: 20px;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     box-shadow: 0 4px 12px rgba(45, 212, 191, 0.3);
 }
 
 .school-description {
-    font-size: 1.05rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.6;
     color: #4b5563;
     text-align: justify;
 }
 
 /* Section Subtitle */
 .section-subtitle {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #1f2937;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     position: relative;
-    padding-bottom: 15px;
+    padding-bottom: 12px;
+    padding: 0 15px;
 }
 
 .section-subtitle::after {
     content: '';
     position: absolute;
-    left: 0;
+    left: 15px;
     bottom: 0;
-    width: 80px;
-    height: 4px;
+    width: 60px;
+    height: 3px;
     background: linear-gradient(90deg, #2dd4bf 0%, #14b8a6 100%);
     border-radius: 2px;
 }
 
 /* Kompetensi Section */
 .identitas-section {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
+    padding: 0 15px;
 }
 
 .kompetensi-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 15px;
 }
 
 .kompetensi-card {
     background: #fff;
     border: 2px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 20px 25px;
+    border-radius: 10px;
+    padding: 15px 20px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     transition: all 0.3s ease;
 }
 
@@ -142,13 +147,13 @@
 }
 
 .kompetensi-number {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: #2dd4bf;
     background: #f0fdfa;
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -156,7 +161,7 @@
 }
 
 .kompetensi-text {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: #374151;
     line-height: 1.5;
     margin: 0;
@@ -164,19 +169,20 @@
 
 /* Peluang Kerja Section */
 .prestasi-section {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
+    padding: 0 15px;
 }
 
 .peluang-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
 
 .peluang-card {
     background: #fff;
-    border-radius: 12px;
-    padding: 25px;
+    border-radius: 10px;
+    padding: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     display: flex;
@@ -191,24 +197,24 @@
 }
 
 .peluang-icon {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
-    border-radius: 12px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .peluang-icon svg {
     color: white;
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
 }
 
 .peluang-card h4 {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: #1f2937;
     line-height: 1.4;
@@ -217,10 +223,249 @@
 
 /* CTA Section */
 .cta-section {
-    margin-top: 60px;
+    margin-top: 50px;
+    padding: 0 15px;
 }
 
 .cta-card {
-    background: linear;
     text-align: center;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 200px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 212, 191, 0.3);
+}
+
+.btn-secondary {
+    background: #fff;
+    color: #2dd4bf;
+    border: 2px solid #2dd4bf;
+}
+
+.btn-secondary:hover {
+    background: #f0fdfa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 212, 191, 0.2);
+}
+
+/* ===== TABLET STYLES ===== */
+@media (min-width: 768px) {
+    .profil-container {
+        padding: 30px 0 70px 0;
+    }
+
+    .breadcrumb-nav {
+        margin-bottom: 25px;
+        font-size: 0.9rem;
+        padding: 0 20px;
+    }
+
+    .profil-hero {
+        flex-direction: row;
+        gap: 40px;
+        padding: 40px 30px;
+        margin: 0 20px 50px 20px;
+    }
+
+    .hero-content {
+        text-align: left;
+        padding-top: 20px;
+    }
+
+    .school-name {
+        font-size: 2.2rem;
+    }
+
+    .school-description {
+        text-align: left;
+    }
+
+    .section-subtitle {
+        font-size: 1.7rem;
+        padding: 0 20px;
+    }
+
+    .section-subtitle::after {
+        left: 20px;
+    }
+
+    .identitas-section,
+    .prestasi-section,
+    .cta-section {
+        padding: 0 20px;
+    }
+
+    .kompetensi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .peluang-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .cta-buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .btn {
+        min-width: 180px;
+    }
+}
+
+/* ===== DESKTOP STYLES ===== */
+@media (min-width: 1024px) {
+    .profil-container {
+        padding: 40px 0 80px 0;
+    }
+
+    .breadcrumb-nav {
+        padding: 0;
+        max-width: 1200px;
+        margin: 0 auto 30px auto;
+    }
+
+    .profil-hero {
+        max-width: 1200px;
+        margin: 0 auto 60px auto;
+        grid-template-columns: 1fr 1.5fr;
+        display: grid;
+        gap: 50px;
+        padding: 40px;
+    }
+
+    .hero-image img {
+        max-width: 300px;
+    }
+
+    .school-name {
+        font-size: 2.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.8rem;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+    }
+
+    .section-subtitle::after {
+        left: 0;
+    }
+
+    .identitas-section,
+    .prestasi-section,
+    .cta-section {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+    }
+
+    .kompetensi-grid {
+        gap: 25px;
+    }
+
+    .kompetensi-card {
+        padding: 20px 25px;
+    }
+
+    .peluang-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .peluang-card {
+        padding: 25px;
+    }
+
+    .cta-buttons {
+        gap: 25px;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 14px 28px;
+        min-width: 200px;
+    }
+}
+
+/* ===== LARGE DESKTOP STYLES ===== */
+@media (min-width: 1280px) {
+    .profil-hero {
+        gap: 60px;
+    }
+
+    .hero-image img {
+        max-width: 350px;
+    }
+
+    .school-name {
+        font-size: 2.8rem;
+    }
+
+    .school-description {
+        font-size: 1.05rem;
+        line-height: 1.8;
+    }
+}
+
+/* Container utility */
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Mobile First Container */
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
 }

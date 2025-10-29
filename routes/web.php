@@ -22,6 +22,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\ChatbotController;
 use App\Models\Galeri;
+use App\Http\Controllers\FaqController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,12 +37,12 @@ Route::get('/', function () {
     $jumlahGuru = Setting::getValue('jumlah_guru', '0');
 
     $beritaTerbaru = Berita::where('status', 'publish')
-                            ->latest('tanggal') 
-                            ->take(4)           
+                            ->latest('tanggal')
+                            ->take(4)
                             ->get();
 
-    $galeriTerbaru = Galeri::latest() 
-                           ->take(5)    
+    $galeriTerbaru = Galeri::latest()
+                           ->take(5)
                            ->get();
 
     return view('pages.beranda', compact(
@@ -196,6 +198,9 @@ Route::get('/berita/{id}', function ($id) {
 
     return view('pages.detail-berita', compact('berita', 'beritaLainnya'));
 })->name('berita.detail');
+
+// Route FAQ
+Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 
 /*
 |--------------------------------------------------------------------------
