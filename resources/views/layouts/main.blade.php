@@ -48,6 +48,8 @@
                             <li><a href="{{ route('SambutanKepsek') }}">Sambutan Kepala Sekolah</a></li>
                             <li><a href="{{ route('jurusan') }}">Jurusan</a></li>
                             <li><a href="{{ route('ekstrakurikuler') }}">Ekstrakurikuler</a></li>
+                            <li><a href="{{ route('faq') }}">FAQ</a></li>
+                            <li><a href="{{ route('kontak') }}">Kontak</a></li>
                         </ul>
                     </li>
 
@@ -170,8 +172,8 @@
                     <h4>Hubungi kami</h4>
                     <ul>
                         <li><a href="{{ route('faq') }}">FAQ</a></li>
-                        <li><a href="mailto:smknesaba@yahoo.com"><i class="fas fa-envelope"></i>
-                                smknesaba@yahoo.com</a></li>
+                        {{-- <li><a href="mailto:smknesaba@yahoo.com"><i class="fas fa-envelope"></i>
+                                smknesaba@yahoo.com</a></li> --}}
                          <li><a href="{{ route('kontak') }}">Kontak</a></li>
                     </ul>
                 </div>
