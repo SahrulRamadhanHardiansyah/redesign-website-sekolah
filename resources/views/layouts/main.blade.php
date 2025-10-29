@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
+    
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
@@ -83,6 +84,7 @@
                             <li><a href="https://bkk.smartqu.cloud/">Smart BKK</a></li>
                             <li><a href="https://lsp-smkn1bangil.net/">Sertifikat Profesi</a></li>
                             <li><a href="{{ route('sitemap') }}">Peta Situs</a></li>
+                            <li><a href="{{ route('guestbook.index') }}">Buku Tamu</a></li>
                         </ul>
                     </li>
 
