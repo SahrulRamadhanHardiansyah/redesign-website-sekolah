@@ -169,17 +169,17 @@
                 <div class="footer-links">
                     <h4>Hubungi kami</h4>
                     <ul>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="{{ route('faq') }}">FAQ</a></li>
                         <li><a href="mailto:smknesaba@yahoo.com"><i class="fas fa-envelope"></i>
                                 smknesaba@yahoo.com</a></li>
+                         <li><a href="{{ route('kontak') }}">Kontak</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>GTK & Siswa</h4>
+                    <h4>Informasi</h4>
                     <ul>
                         <li><a href="{{ route('spmb') }}">SPMB</a></li>
-                        <li><a href="{{ route('kontak') }}">Kontak</a></li>
-                        <li><a href="#">Galeri</a></li>
+                        <li><a href="{{ route('berita') }}">Berita</a></li>
                     </ul>
                 </div>
             </div>
