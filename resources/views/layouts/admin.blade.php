@@ -50,17 +50,17 @@
                     <li class="{{ request()->is('admin/prestasi*') ? 'active' : '' }}">
                         <a href="{{ route('admin.prestasi.index') }}"><i class="fas fa-trophy"></i> Kelola Prestasi</a>
                     </li>
-                    {{-- <li>
-                        <a href="#"><i class="fas fa-school"></i> Kelola Jurusan</a>
-                    </li> --}}
                     <li class="{{ request()->is('admin/ekstrakurikuler*') ? 'active' : '' }}">
                         <a href="{{ route('admin.ekstrakurikuler.index') }}"><i class="fas fa-chalkboard-teacher"></i> Kelola Ekstrakurikuler</a>
                     </li>
-                    <li class="{{ request()->is('admin/users*') ? 'active' : '' }}">
-                        <a href="{{ route('admin.users.index') }}"><i class="fas fa-users-cog"></i> Kelola User</a>
-                    </li>
                     <li class="{{ request()->is('admin/gtk-data*') ? 'active' : '' }}">
                         <a href="{{ route('admin.gtk.edit') }}"><i class="fas fa-chart-bar"></i> Kelola Data GTK</a>
+                    </li>
+                    <li class="{{ request()->is('admin/faq*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.faq.index') }}"><i class="fas fa-question-circle"></i> Kelola FAQ</a>
+                    </li>
+                    <li class="{{ request()->is('admin/users*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.users.index') }}"><i class="fas fa-users-cog"></i> Kelola User</a>
                     </li>
                 </ul>
             </nav>

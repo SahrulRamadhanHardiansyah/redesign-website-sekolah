@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::firstOrCreate(
-            ['email' => 'test@example.com'],
+            ['email' => 'admin@example.com'],
             [
-                'name' => 'Test User',
-                'password' => bcrypt('password'), // tambahkan password
+                'name' => 'Administrator',
+                'password' => bcrypt('EceIIJsZJrb5QpH'), 
                 'email_verified_at' => now(),
             ]
         );
@@ -45,5 +45,8 @@ class DatabaseSeeder extends Seeder
 
         // Seed GTK settings
         $this->call(GtkSettingSeeder::class);
+
+        // Seed FAQ data
+        $this->call(FaqSeeder::class);
     }
 }

@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="{{ asset('css/kontak.css') }}">
 @endsection
 @section('content')
-<!-- Header Section -->
     <div class="header-section">
         <div class="container">
             <h1>Hubungi <span class="highlight">Kami</span></h1>
@@ -13,13 +12,10 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <div class="main-content">
         <div class="container">
             <div class="content-grid">
-                <!-- Contact Information Cards -->
                 <div class="contact-cards">
-                    <!-- Lokasi -->
                     <div class="contact-card">
                         <div class="card-content">
                             <div class="card-icon">
@@ -38,7 +34,6 @@
                         </div>
                     </div>
 
-                    <!-- Email -->
                     <div class="contact-card">
                         <div class="card-content">
                             <div class="card-icon">
@@ -53,7 +48,6 @@
                         </div>
                     </div>
 
-                    <!-- Social Media -->
                     <div class="contact-card">
                         <div class="card-content">
                             <div class="card-icon">
@@ -82,7 +76,6 @@
                     </div>
                 </div>
 
-                <!-- Google Maps -->
                 <div class="map-container">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4073.2020970487715!2d112.78934677500305!3d-7.600521292414385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7db438ee02df7%3A0x3446ff648b366c48!2sSMK%20Negeri%201%20Bangil!5e1!3m2!1sid!2sid!4v1759812072663!5m2!1sid!2sid"
@@ -93,9 +86,6 @@
                 </div>
             </div>
 
-            <!-- Kritik & Saran Form -->
-           {{-- ... kode Anda yang lain ... --}}
-
             <div class="form-section">
                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdoVqjKJrrVTPcw4d4YLxPgmrPWuuZVPpR3v2sxsyCYKArPkQ/viewform?usp=dialog" 
                     width="100%" 
@@ -105,7 +95,6 @@
                     marginwidth="0">
                     Memuat…
                 </iframe>
-
             </div>
         </div>
     </div>

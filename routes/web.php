@@ -17,13 +17,13 @@ use App\Http\Controllers\Admin\PrestasiController;
 use App\Http\Controllers\Admin\SpmbPageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EkstrakurikulerController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\GtkPageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\ChatbotController;
 use App\Models\Galeri;
-use App\Http\Controllers\FaqController;
-
+use App\Models\Faq;
 
 /*
 |--------------------------------------------------------------------------
@@ -200,7 +200,11 @@ Route::get('/berita/{id}', function ($id) {
 })->name('berita.detail');
 
 // Route FAQ
-Route::get('/faq', [FaqController::class, 'index'])->name('faq');
+Route::get('/faq', function () {
+    $faqs = Faq::orderBy('category')->orderBy('created_at')->get();
+    $categories = $faqs->pluck('category')->unique()->sortDesc();
+    return view('pages.faq', compact('faqs', 'categories'));
+})->name('faq');
 
 /*
 |--------------------------------------------------------------------------
@@ -214,7 +218,7 @@ Route::post('/admin/logout', [LoginController::class, 'logout'])->name('admin.lo
 
 /*
 |--------------------------------------------------------------------------
-| RUTE AREA ADMIN (WAJIB LOGIN)
+| RUTE AREA ADMIN
 |--------------------------------------------------------------------------
 */
 
@@ -238,6 +242,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // Route untuk Kelola Data GTK & Siswa
     Route::get('gtk-data', [GtkPageController::class, 'edit'])->name('gtk.edit');
     Route::put('gtk-data', [GtkPageController::class, 'update'])->name('gtk.update');
+
+    // Route untuk Kelola FAQ
+    Route::resource('faq', FaqController::class)->parameters(['faq' => 'faq'])->except(['show']);
 });
 
 
